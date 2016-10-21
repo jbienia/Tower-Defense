@@ -30,7 +30,7 @@ public class EnemyManager : MonoBehaviour {
     public List<GameObject> thirdFastWaveToSpawn = new List<GameObject>();
     public List<GameObject> fourthBasicWaveToSpawn = new List<GameObject>();
     public List<GameObject> fifthFastWaveToSpawn = new List<GameObject>();
-
+    public List<GameObject> flyingWaveToSpawn = new List<GameObject>();
 
     private int level = 1;
 
@@ -88,6 +88,7 @@ public class EnemyManager : MonoBehaviour {
             int basic = (int)LevelOne.Basic;
             int tank = (int)LevelOne.Tank;
             int fast = (int)LevelOne.Fast;
+            int flying = (int)LevelOne.Flying;
             int secondBasicWave = (int)LevelOne.secondBasicWave;
             int secondFastWave = (int)LevelOne.secondFlyingWave;
 
@@ -104,6 +105,14 @@ public class EnemyManager : MonoBehaviour {
             {
                 secondTankWaveToSpawn.Add((GameObject)Instantiate(CreateTank().enemy, spawnPoint.position, spawnPoint.rotation));
                 j++;
+            }
+
+            int l = 0;
+
+            while(l < flying)
+            {
+                flyingWaveToSpawn.Add((GameObject)Instantiate(CreateFlyingEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                l++;
             }
 
             int z = 0;

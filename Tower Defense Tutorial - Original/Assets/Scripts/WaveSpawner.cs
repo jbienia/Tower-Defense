@@ -134,10 +134,10 @@ public class WaveSpawner : MonoBehaviour {
             if(waveCounter == 4)
             {
                 startCountdown = false;
-                for (int i = 0; i <= enemyManager.fourthBasicWaveToSpawn.Count-1; i++)
+                for (int i = 0; i <= enemyManager.flyingWaveToSpawn.Count-1; i++)
                 {
 
-                    SpawnEnemy(enemyManager.fourthBasicWaveToSpawn, i);
+                    SpawnEnemy(enemyManager.flyingWaveToSpawn, i);
 
                     yield return new WaitForSeconds(0.5f);
                     
