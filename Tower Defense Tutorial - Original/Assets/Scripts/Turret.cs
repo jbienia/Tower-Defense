@@ -106,10 +106,11 @@ public class Turret : MonoBehaviour {
         Debug.Log("SHOT");
        // Creates the Bullet game object in the scene
       GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
+       // bulletGO.transform.rotation = Quaternion.Euler(90,0,0);
+        
         // A reference to the Bullet script/Component
-        // Bullet bullet = bulletGO.GetComponent<Bullet>();
-        CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
+         Bullet bullet = bulletGO.GetComponent<Bullet>();
+       // CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
 
 
         // passes the target/enemt to the bullet class

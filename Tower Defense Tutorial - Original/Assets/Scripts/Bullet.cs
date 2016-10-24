@@ -13,8 +13,8 @@ public class Bullet : MonoBehaviour {
     public Slider healthBar;
     private int startingHealth = 100;
     private int currentHealth;
-    
-
+    private Quaternion lookRotation;
+    private Vector3 adjust;
     
     
     
@@ -37,12 +37,12 @@ public class Bullet : MonoBehaviour {
 
         if(target == null)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
 
         // direction to move the bullet from itself to the enemy
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.position + Vector3.up * 2 - transform.position;
 
         // The speed of the bullet relative to time
         float distanceThisFrame = speed * Time.deltaTime;
@@ -55,9 +55,10 @@ public class Bullet : MonoBehaviour {
         }
 
         transform.Translate(dir.normalized * distanceThisFrame,Space.World);
+        lookRotation = Quaternion.LookRotation(dir);
+        //lookRotation.x = 1f;
+        transform.rotation = Quaternion.Lerp(target.rotation,lookRotation,Time.deltaTime * 100);
         
-        // Causes the missile to point towards its target 
-        transform.LookAt(target);
 	}
 
     /// <summary>

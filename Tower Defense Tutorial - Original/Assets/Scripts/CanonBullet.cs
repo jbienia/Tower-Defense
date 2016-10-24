@@ -147,15 +147,10 @@ public class CanonBullet : MonoBehaviour
 
     void Damage(Transform enemy,string tag)
     {
-        // Write logic to test the tag for the type of enemy. Use the specific type to instantiate the correct enemy script
-        // Reference to the enemy script
+        
 
         GetCorrectScript(enemy,tag);
-      //  TankEnemy enemyScript = enemy.gameObject.GetComponent<TankEnemy>();
-
-       // enemyScript.HealthMeter();
-
-        //Debug.Log(healthBar.value);
+    
 
     }
 
