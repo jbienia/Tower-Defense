@@ -98,7 +98,7 @@ public class CanonBullet : MonoBehaviour
         dir.y = 0;  // retain only the horizontal direction
         var dist = dir.magnitude;  // get horizontal distance
         
-        dir.y = dist * .5f;  // set elevation to 45 degrees
+        dir.y = dist * 1f;  // set elevation to 45 degrees
         dist += h;  // correct for different heights
         
         float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude);
@@ -174,17 +174,17 @@ public class CanonBullet : MonoBehaviour
         {
             case "Enemy":
                 Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
-                enemyScript.HealthMeter(enemyTag,canon);
+                enemyScript.HealthMeter(canon);
                 break;
 
             case "FlyingEnemy":
                 enemyScript = enemy.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.HealthMeter(enemyTag,canon);
+                enemyScript.HealthMeter(canon);
                 break;
 
             case "Tank":
                 enemyScript = enemy.gameObject.GetComponent<TankEnemy>();
-                enemyScript.HealthMeter(enemyTag,canon);
+                enemyScript.HealthMeter(canon);
                 break;
         }
 

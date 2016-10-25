@@ -143,17 +143,17 @@ public class HorseRedTurret : MonoBehaviour {
         {
             case "Enemy":
                 Enemy enemyScript = target.gameObject.GetComponent<Enemy>();
-                enemyScript.HealthMeter(enemyTag,melee);
+                enemyScript.HealthMeter(melee);
                 break;
 
             case "FlyingEnemy":
                  enemyScript = target.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.HealthMeter(enemyTag, melee);
+                enemyScript.HealthMeter(melee);
                 break;
 
             case "Tank":
                  enemyScript = target.gameObject.GetComponent<TankEnemy>();
-                enemyScript.HealthMeter(enemyTag, melee);
+                enemyScript.HealthMeter(melee);
                 break;
         }
 

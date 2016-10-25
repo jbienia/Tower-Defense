@@ -282,6 +282,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 114: {fileID: 114000012417518462}
   - 114: {fileID: 114000010778005276}
+  - 136: {fileID: 136000010571018404}
   m_Layer: 0
   m_Name: Flying_Golem
   m_TagString: FlyingEnemy
@@ -545,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0.5018127, z: 0, w: 0.86497635}
-  m_LocalPosition: {x: 75.01, y: 22.71, z: 311.31}
+  m_LocalPosition: {x: 79.42, y: 22.36, z: 307.3}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_LocalEulerAnglesHint: {x: 0, y: 60.24, z: 0}
   m_Children:
@@ -963,6 +964,19 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!136 &136000010571018404
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 15.1
+  m_Height: 60.08
+  m_Direction: 1
+  m_Center: {x: 0.3, y: 51.13, z: 0}
 --- !u!222 &222000011612516236
 CanvasRenderer:
   m_ObjectHideFlags: 1

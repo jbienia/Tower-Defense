@@ -114,9 +114,28 @@ public class Bullet : MonoBehaviour {
       // Reference to the enemy script
       Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
 
+        switch (enemy.tag)
+        {
+            case "Enemy":
+               
+                enemyScript.HealthMeter("arrow");
+                break;
+
+            case "FlyingEnemy":
+                enemyScript = target.gameObject.GetComponent<FlyingEnemy>();
+                enemyScript.HealthMeter("arrow");
+                break;
+
+            case "Tank":
+                enemyScript = target.gameObject.GetComponent<TankEnemy>();
+                enemyScript.HealthMeter("arrow");
+                break;
+        }
+
+
         //enemyScript.HealthMeter();
 
-        Debug.Log(healthBar.value);
+        Debug.Log("Jason");
         
     }
 

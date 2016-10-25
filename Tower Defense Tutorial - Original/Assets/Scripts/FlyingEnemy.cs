@@ -27,7 +27,7 @@ public class FlyingEnemy : Enemy {
 
         }
 
-        healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy();
+        //healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy();
 
 
     }

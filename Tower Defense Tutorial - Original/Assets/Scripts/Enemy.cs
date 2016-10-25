@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour {
         // Sets a variable to the value desired as a starter health.
         currentHealth = starterHealth;
 
-        healthSliderCanvas.transform.parent = null;
+       // healthSliderCanvas.transform.parent.SetParent(null, false);
         //healthSliderCanvas.transform.SetParent();
     }
 
@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour {
         }
         
 
-        healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy();
+        //healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy();
 
     }
 
@@ -90,8 +90,8 @@ public class Enemy : MonoBehaviour {
                   
     }
 
-    // turrets can be "Canon","melee","Regular"
-    public void HealthMeter (string enemyTag,string turret)
+    // turrets can be "canon","melee","Regular"
+    public void HealthMeter (string turret)
     {
         if(turret == "melee")
         {
@@ -102,6 +102,12 @@ public class Enemy : MonoBehaviour {
         if(turret == "canon")
         {
             currentHealth -= 20;
+            healthSlider.value = currentHealth;
+        }
+
+        if(turret == "arrow")
+        {
+            currentHealth -= 10;
             healthSlider.value = currentHealth;
         }
      }
