@@ -48,6 +48,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1000011050715508
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013529432598}
+  m_Layer: 0
+  m_Name: HammerPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1000011277030784
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,8 @@ GameObject:
   - 23: {fileID: 23000011946292890}
   - 65: {fileID: 65000013142251166}
   - 65: {fileID: 65000011340856648}
+  - 114: {fileID: 114000010962281450}
+  - 54: {fileID: 54000012372105276}
   m_Layer: 0
   m_Name: Hammer_Hammer_L1
   m_TagString: Untagged
@@ -122,7 +139,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010458034822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -137,7 +154,7 @@ Transform:
   m_GameObject: {fileID: 1000010224268414}
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.2919464, y: -5.4573193, z: -2.8688354}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.79, y: 0.76, z: 0.9}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 4000012144917612}
@@ -149,13 +166,26 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013013065500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 72.34, y: 26.45732, z: 297.24}
+  m_LocalPosition: {x: 74.517494, y: 26.5, z: 300.20956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010529319394}
   - {fileID: 4000010226150506}
   m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000013529432598
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011050715508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.002, y: 5.887, z: 4.346}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 4000013862730666}
   m_RootOrder: 0
 --- !u!4 &4000013862730666
 Transform:
@@ -167,7 +197,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 1.3589993, z: 0.0000009536743}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4000013529432598}
   m_Father: {fileID: 4000010439078078}
   m_RootOrder: 0
 --- !u!23 &23000011946292890
@@ -314,6 +345,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011277030784}
   m_Mesh: {fileID: 4300000, guid: 5eba7bf2fa27b1e468cc12de9606db8c, type: 3}
+--- !u!54 &54000012372105276
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013718875790}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &64000013106622034
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -345,7 +391,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013718875790}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.1687832, y: 2.19516, z: 5.5422716}
@@ -417,15 +463,65 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  dust: {fileID: 0}
   partToRotate: {fileID: 4000010226150506}
   turnSpeed: 10
   enemyList: []
+  hammerPoint: {fileID: 0}
 --- !u!114 &114000010454146228
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010458034822}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b42a3f3dd80054891a8c1d41031df7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireRate: 1
+  range: 15
+  enemyTag: Enemy
+  tankEnemyTag: Tank
+  flyingEnemyTag: FlyingEnemy
+  attackValue: 0
+  attackCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2.0466104
+      outSlope: 0.045454543
+      tangentMode: 1
+    - time: 0.31753188
+      value: 1.0119504
+      inSlope: 3.6668777
+      outSlope: -0.035267588
+      tangentMode: 1
+    - time: 0.4916666
+      value: 1.0124999
+      inSlope: 0.38372123
+      outSlope: -4.7999926
+      tangentMode: 1
+    - time: 1
+      value: -0.0062499046
+      inSlope: -0.02026996
+      outSlope: -1.9918025
+      tangentMode: 1
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  dust: {fileID: 0}
+  partToRotate: {fileID: 4000010226150506}
+  turnSpeed: 10
+  enemyList: []
+  hammerPoint: {fileID: 0}
+--- !u!114 &114000010962281450
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013718875790}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00b42a3f3dd80054891a8c1d41031df7, type: 3}
@@ -463,6 +559,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  partToRotate: {fileID: 4000010226150506}
+  dust: {fileID: 19838820, guid: 7d5e7b6137a800c49a071d11b7fb4487, type: 2}
+  partToRotate: {fileID: 4000013862730666}
   turnSpeed: 10
   enemyList: []
+  hammerPoint: {fileID: 1000011050715508}

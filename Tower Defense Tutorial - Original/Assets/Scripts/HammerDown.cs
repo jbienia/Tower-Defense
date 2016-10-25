@@ -17,6 +17,7 @@ public class HammerDown : MonoBehaviour
 
     public float attackValue = 0f;
     public AnimationCurve attackCurve;
+    public ParticleSystem dust;
 
     [Header("Unity Setup Fields")]
 
@@ -27,6 +28,7 @@ public class HammerDown : MonoBehaviour
     //public Transform firePoint;
     public List<GameObject> enemyList = new List<GameObject>();
     EnemyManager instance;
+    public GameObject hammerPoint;
 
 
 
@@ -110,6 +112,21 @@ public class HammerDown : MonoBehaviour
         fireCountdown -= Time.deltaTime;
         
 
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+       
+        StartCoroutine(Dust(collider));
+    }
+
+    IEnumerator Dust(Collider collider)
+    {
+        
+      ParticleSystem dustparticle = (ParticleSystem)Instantiate(dust, hammerPoint.transform.position, hammerPoint.transform.rotation);
+       yield return new WaitForSeconds(2);
+        Debug.Log("Give me dust!");
+        Destroy(dustparticle);
     }
 
     void Shoot()
