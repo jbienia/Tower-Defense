@@ -60,10 +60,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187600}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 131.07828, y: 0.00000047683716, z: 61.13009}
+  m_LocalRotation: {x: 0, y: 0.99578094, z: 0, w: 0.0917624}
+  m_LocalPosition: {x: 0, y: 3.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 169.47, z: 0}
   m_Children:
   - {fileID: 465966}
   m_Father: {fileID: 0}
@@ -79,6 +79,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 4000013213057028}
   - {fileID: 495610}
   m_Father: {fileID: 440042}
   m_RootOrder: 0
@@ -88,13 +89,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129708}
-  m_LocalRotation: {x: -0.38268352, y: 0, z: -0, w: 0.9238795}
+  m_LocalRotation: {x: -0.22075403, y: 0.041350894, z: 0.009368131, w: 0.9744075}
   m_LocalPosition: {x: 0.005411148, y: 1.3184692, z: -0.4360094}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25.53, y: 4.86, z: 0}
   m_Children: []
   m_Father: {fileID: 465966}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!23 &2321180
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -251,3 +252,31 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 187600}
   m_IsPrefabParent: 1
+--- !u!1 &1000011021806288
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013213057028}
+  m_Layer: 0
+  m_Name: CanonFirepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000013213057028
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011021806288}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.214, y: 1.781, z: 1.101}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 465966}
+  m_RootOrder: 0

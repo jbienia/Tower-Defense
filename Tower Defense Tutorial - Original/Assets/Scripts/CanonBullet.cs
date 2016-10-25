@@ -61,17 +61,30 @@ public class CanonBullet : MonoBehaviour
         // The speed of the bullet relative to time
         float distanceThisFrame = speed * Time.deltaTime;
 
-        for(int i = 0; i < Ground.ground.Length; i++)
-        {
+      //  for(int i = 0; i < Ground.ground.Length; i++)
+       // {
             
-            Vector3 dir = Ground.ground[i].position - transform.position;
-            if (transform.position.y < 2)
-            {
+        //    Vector3 dir = Ground.ground[i].position - transform.position;
+          //  if (transform.position.y < 2)
+           // {
                 //Debug.Log("HIT TARGET!");
-                HitTarget();
-                return;
-            }
+             //   HitTarget();
+               // return;
+           // }
 
+        //}
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+       
+        if (collision.gameObject.tag == "Terrain")
+        {
+           
+                Debug.Log("DEStroy myBOMB!!");
+                Destroy(gameObject);
+
+            
         }
     }
 

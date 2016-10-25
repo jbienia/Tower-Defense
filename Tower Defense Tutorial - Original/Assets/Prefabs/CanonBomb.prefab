@@ -24,9 +24,10 @@ GameObject:
   - 114: {fileID: 114000011743599634}
   - 114: {fileID: 114000013481131238}
   - 54: {fileID: 54000013855060704}
+  - 136: {fileID: 136000012360019526}
   m_Layer: 0
   m_Name: CanonBomb
-  m_TagString: Untagged
+  m_TagString: CanonBomb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,8 +39,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011741313630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.458129, y: 0.3477401, z: 47.693638}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: 78.78499, y: 27, z: 318.09686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -129,3 +130,16 @@ MonoBehaviour:
   explosionRadius: 2
   healthBar: {fileID: 0}
   canonBall: {fileID: 1000011741313630}
+--- !u!136 &136000012360019526
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011741313630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

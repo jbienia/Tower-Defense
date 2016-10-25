@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Turret : MonoBehaviour {
 
-    private Transform target;
+    public Transform target;
 
     [Header("Attributes")]
     public float fireRate = 1f;
@@ -101,7 +101,7 @@ public class Turret : MonoBehaviour {
 
 	}
 
-    void Shoot()
+    public virtual void  Shoot()
     {
         Debug.Log("SHOT");
        // Creates the Bullet game object in the scene
@@ -110,7 +110,7 @@ public class Turret : MonoBehaviour {
         
         // A reference to the Bullet script/Component
          Bullet bullet = bulletGO.GetComponent<Bullet>();
-       // CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
+        //CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
 
 
         // passes the target/enemt to the bullet class
