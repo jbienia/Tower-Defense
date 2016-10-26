@@ -31,8 +31,9 @@ public class Enemy : MonoBehaviour {
         // Sets a variable to the value desired as a starter health.
         currentHealth = starterHealth;
 
-       // healthSliderCanvas.transform.parent.SetParent(null, false);
+        // healthSliderCanvas.transform.parent.SetParent(null, false);
         //healthSliderCanvas.transform.SetParent();
+        healthSliderCanvas.transform.parent = null;
     }
 
    public virtual void Update()
@@ -54,8 +55,8 @@ public class Enemy : MonoBehaviour {
         }
         
 
-        //healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy();
-
+        healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
+        RotateHealthBar();
     }
 
     // Advances the to the next way point
@@ -117,15 +118,29 @@ public class Enemy : MonoBehaviour {
     /// Is used to place the health bar the with the same transform as the enemy but with a higher Y axis
     /// </summary>
     /// <returns></returns>
-    public Vector3 DisplayHealthBarAboveEnemy()
+    public Vector3 DisplayHealthBarAboveEnemy(float enemyHeight)
     {
         Vector3 healthBarTransform;
         healthBarTransform.x = enemy.transform.position.x;
-        healthBarTransform.y = 4.88f;
+        healthBarTransform.y =enemy.transform.position.y + enemyHeight;
         healthBarTransform.z = enemy.transform.position.z;
 
         return healthBarTransform;
 
+
+    }
+
+    public void RotateHealthBar()
+    {
+        Camera camera = Camera.main;
+
+        Vector3 dir = camera.transform.position - healthSliderCanvas.transform.position;
+
+        Quaternion lookRotation = Quaternion.LookRotation(dir);
+
+        Vector3 rotation = Quaternion.Lerp(healthSliderCanvas.transform.rotation,lookRotation,Time.deltaTime).eulerAngles;
+
+        healthSliderCanvas.transform.rotation = Quaternion.Euler(rotation);
 
     }
 
