@@ -738,7 +738,7 @@ GameObject:
   - 136: {fileID: 136000010699973812}
   m_Layer: 0
   m_Name: Characte Beast
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1355,7 +1355,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &400088
 Transform:
   m_ObjectHideFlags: 1
@@ -1368,7 +1368,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &400090
 Transform:
   m_ObjectHideFlags: 1
@@ -1381,7 +1381,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &400092
 Transform:
   m_ObjectHideFlags: 1
@@ -1394,7 +1394,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 400096}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!4 &400094
 Transform:
   m_ObjectHideFlags: 1
@@ -1410,7 +1410,7 @@ Transform:
   - {fileID: 400082}
   - {fileID: 400080}
   m_Father: {fileID: 400096}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &400096
 Transform:
   m_ObjectHideFlags: 1
@@ -1418,16 +1418,16 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100096}
   m_LocalRotation: {x: 0, y: 0.5710718, z: 0, w: 0.82090014}
-  m_LocalPosition: {x: 74.94, y: 21.09, z: 312.42}
+  m_LocalPosition: {x: 82.3847, y: 21.003479, z: 314.1531}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_LocalEulerAnglesHint: {x: 0, y: 69.65, z: 0}
   m_Children:
+  - {fileID: 224000011027011342}
   - {fileID: 400094}
   - {fileID: 400092}
   - {fileID: 400090}
   - {fileID: 400088}
   - {fileID: 400086}
-  - {fileID: 224000011027011342}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!23 &2300000
@@ -1879,7 +1879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1102941, g: 0.099751286, b: 0.099751286, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1909,13 +1909,11 @@ MonoBehaviour:
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}
-  healthSlider: {fileID: 114000011292130118, guid: e2173b4fa76743e41a56d04b6f888d45,
-    type: 2}
-  healthSliderCanvas: {fileID: 223000011574183588, guid: e2173b4fa76743e41a56d04b6f888d45,
-    type: 2}
+  healthSlider: {fileID: 114000011245093358}
+  healthSliderCanvas: {fileID: 223000014250293506}
   currentHealth: 0
   starterHealth: 70
-  enemy: {fileID: 4000010519458772, guid: 283f997cdadbad34492f887ba537c3b1, type: 2}
+  enemy: {fileID: 400096}
 --- !u!136 &136000010699973812
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1923,7 +1921,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100096}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 23.9
   m_Height: 119.4
@@ -2047,18 +2045,18 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012160735630}
-  m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 0, y: 0, z: -1.2}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 5.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 224000010926790834}
   m_Father: {fileID: 400096}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.4, y: 117.5}
-  m_SizeDelta: {x: 23, y: 3}
+  m_AnchoredPosition: {x: -3.9, y: 119.4}
+  m_SizeDelta: {x: 59.6, y: 6.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000011228237570
 RectTransform:

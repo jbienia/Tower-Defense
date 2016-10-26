@@ -82,6 +82,7 @@ public class CanonBullet : MonoBehaviour
         {
            
                 Debug.Log("DEStroy myBOMB!!");
+            HitTarget();
                 Destroy(gameObject);
 
             

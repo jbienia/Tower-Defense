@@ -1166,7 +1166,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012383197528}
   m_LocalRotation: {x: 0, y: 0.6613773, z: 0, w: 0.7500534}
-  m_LocalPosition: {x: 74.65445, y: 21.003479, z: 307.89172}
+  m_LocalPosition: {x: 92.40729, y: 21.003479, z: 324.99954}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_LocalEulerAnglesHint: {x: 0, y: 82.81, z: 0}
   m_Children:
@@ -2134,8 +2134,7 @@ MonoBehaviour:
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}
-  healthSlider: {fileID: 114000010548158284, guid: 40e3d2996bf733a47a7475a581ec22c9,
-    type: 2}
+  healthSlider: {fileID: 114000013722551434}
   healthSliderCanvas: {fileID: 223000013775541886}
   currentHealth: 15
   starterHealth: 50

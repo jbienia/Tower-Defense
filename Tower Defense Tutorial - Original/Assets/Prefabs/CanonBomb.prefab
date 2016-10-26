@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011741313630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.78499, y: 27, z: 318.09686}
+  m_LocalPosition: {x: 69.27483, y: 21.503479, z: 311.8417}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -127,7 +127,7 @@ MonoBehaviour:
   speed: 30
   impactEffect: {fileID: 1000012900672122, guid: a536819eabc74314a9488dac6c723c8b,
     type: 2}
-  explosionRadius: 2
+  explosionRadius: 6.84
   healthBar: {fileID: 0}
   canonBall: {fileID: 1000011741313630}
 --- !u!136 &136000012360019526
