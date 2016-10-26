@@ -30,6 +30,9 @@ public class HammerDown : MonoBehaviour
     EnemyManager instance;
     public GameObject hammerPoint;
 
+    // Used in the update so that the large collider on the hammer doesn't collide too many times. The collider can only hit the enemy
+    // once it has returned to it's 0 x rotation
+    private bool preventMultipleCollisions = false;
 
 
 
@@ -82,6 +85,8 @@ public class HammerDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (target == null)
         {
             return;
@@ -110,6 +115,11 @@ public class HammerDown : MonoBehaviour
         }
 
         fireCountdown -= Time.deltaTime;
+
+        if(transform.rotation.eulerAngles.x == 0)
+        {
+            preventMultipleCollisions = true;
+        }
         
 
     }
@@ -118,6 +128,45 @@ public class HammerDown : MonoBehaviour
     {
        
         StartCoroutine(Dust(collider));
+        // preventMultipleCollisions = true;
+         if(preventMultipleCollisions == true)
+        {
+        // collider.enabled = false;
+        Debug.Log(transform.rotation.x);
+        
+                Debug.Log("Smash dem!!!");
+            preventMultipleCollisions = false;
+                DamageEnemy(collider);
+            
+          
+        }
+        
+    }
+
+    void DamageEnemy(Collider collider)
+    {
+        string enemyTag = collider.tag;
+        Enemy enemyScript;
+
+        switch (enemyTag)
+        {
+            case "Enemy":
+                enemyScript = collider.GetComponent < Enemy>();
+                enemyScript.HealthMeter("melee");
+                break;
+
+            case "FlyingEnemy":
+                 enemyScript = collider.GetComponent<FlyingEnemy>();
+                enemyScript.HealthMeter("melee");
+                break;
+
+            case "Tank":
+                 enemyScript = collider.GetComponent<TankEnemy>();
+                enemyScript.HealthMeter("melee");
+                break;
+
+
+        }
     }
 
     IEnumerator Dust(Collider collider)

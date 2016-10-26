@@ -546,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0.5018127, z: 0, w: 0.86497635}
-  m_LocalPosition: {x: 79.42, y: 22.36, z: 307.3}
+  m_LocalPosition: {x: 87.801735, y: 21.003479, z: 314.48575}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_LocalEulerAnglesHint: {x: 0, y: 60.24, z: 0}
   m_Children:
@@ -842,7 +842,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.07352942, g: 0.06920416, b: 0.06920416, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -920,10 +920,8 @@ MonoBehaviour:
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}
-  healthSlider: {fileID: 114000011292130118, guid: e2173b4fa76743e41a56d04b6f888d45,
-    type: 2}
-  healthSliderCanvas: {fileID: 223000011574183588, guid: e2173b4fa76743e41a56d04b6f888d45,
-    type: 2}
+  healthSlider: {fileID: 114000011253794856}
+  healthSliderCanvas: {fileID: 223000012456212010}
   currentHealth: 0
   starterHealth: 45
   enemy: {fileID: 400036}

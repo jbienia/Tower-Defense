@@ -171,10 +171,12 @@ public class CanonBullet : MonoBehaviour
     void GetCorrectScript(Transform enemy,string enemyTag)
     {
         string canon = "canon";
+        Enemy enemyScript;
+
         switch (enemyTag)
         {
             case "Enemy":
-                Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
+                 enemyScript = enemy.gameObject.GetComponent<Enemy>();
                 enemyScript.HealthMeter(canon);
                 break;
 
