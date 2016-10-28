@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour {
 
-    private Transform target;
+    public Transform target;
 
     public float speed = 70f;
     public GameObject impactEffect;
@@ -15,6 +15,7 @@ public class Bullet : MonoBehaviour {
     private int currentHealth;
     private Quaternion lookRotation;
     private Vector3 adjust;
+    bool isFirstShot = true;
     
     
     
@@ -48,16 +49,20 @@ public class Bullet : MonoBehaviour {
         float distanceThisFrame = speed * Time.deltaTime;
 
         // Checks if the bullet has hit the enemy
-        if(dir.magnitude <= distanceThisFrame)
+        if(isFirstShot)
         {
-            HitTarget();
-            return;
+            if (dir.magnitude <= distanceThisFrame)
+            {
+                HitTarget();
+                return;
+            }
         }
+        
 
         transform.Translate(dir.normalized * distanceThisFrame,Space.World);
         lookRotation = Quaternion.LookRotation(dir);
         //lookRotation.x = 1f;
-        transform.rotation = Quaternion.Lerp(target.rotation,lookRotation,Time.deltaTime * 100);
+        transform.rotation = Quaternion.Lerp(target.rotation,lookRotation,Time.deltaTime * 50);
         
 	}
 
@@ -82,9 +87,9 @@ public class Bullet : MonoBehaviour {
         //Destroy(effectIns,2f);
         // Destroy(target.gameObject);
 
-        
-
-        Destroy(gameObject);
+        // Used to make sure that the enemy only gets hit once with one bullet
+        isFirstShot = false;
+        Destroy(gameObject,1f);
     }
 
 
@@ -109,7 +114,7 @@ public class Bullet : MonoBehaviour {
         }
     }
 
-    void Damage(Transform enemy)
+    public virtual void Damage(Transform enemy)
     {
       // Reference to the enemy script
       Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
