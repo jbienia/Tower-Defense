@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour {
     void Awake()
     {
         currentHealth = startingHealth;
-        healthBar.value = currentHealth;
+        //healthBar.value = currentHealth;
 
         //Debug.Log("It works!");
         
@@ -66,8 +66,8 @@ public class Bullet : MonoBehaviour {
     /// </summary>
     void HitTarget()
     {
-       GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 5f);
+       //GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        //Destroy(effectIns, 5f);
 
         if(explosionRadius > 0f)
         {
