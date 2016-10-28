@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
     private Quaternion lookRotation;
     private Vector3 adjust;
     bool isFirstShot = true;
-    
+    private bool stopFollowingEnemy = true;
     
     
     void Awake()
@@ -53,13 +53,19 @@ public class Bullet : MonoBehaviour {
         {
             if (dir.magnitude <= distanceThisFrame)
             {
+                
                 HitTarget();
+                stopFollowingEnemy = false;
                 return;
             }
         }
-        
 
-        transform.Translate(dir.normalized * distanceThisFrame,Space.World);
+        // stopFollowingEnemy will be false if the bullet has reached the object
+        if(stopFollowingEnemy)
+        {
+            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        }
+        
         lookRotation = Quaternion.LookRotation(dir);
         //lookRotation.x = 1f;
         transform.rotation = Quaternion.Lerp(target.rotation,lookRotation,Time.deltaTime * 50);
