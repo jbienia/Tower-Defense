@@ -7,8 +7,8 @@ public class Turret : MonoBehaviour {
     public Transform target;
 
     [Header("Attributes")]
-    public float fireRate = 1f;
-    private float fireCountdown = 0f;
+    //public float secondsBetweenFiring = 1f;
+    public float fireCountdown = 5f;
     public float range = 15f;
     public string enemyTag = "Enemy";
     public string tankEnemyTag = "Tank";
@@ -65,6 +65,17 @@ public class Turret : MonoBehaviour {
         if(nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+
+
+            Vector3 dir = target.position - transform.position;
+
+            // Sets the rotation with the specified dir
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+
+            // Sets the rotation to a Vector 3 user the eulerAngles method.
+            Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+
+            partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
         else
         {
@@ -80,20 +91,13 @@ public class Turret : MonoBehaviour {
         }
 
         // The direction from the turret to the enemy
-        Vector3 dir = target.position - transform.position;
-
-        // Sets the rotation with the specified dir
-        Quaternion lookRotation = Quaternion.LookRotation(dir);
-
-        // Sets the rotation to a Vector 3 user the eulerAngles method.
-        Vector3 rotation = Quaternion.Lerp(partToRotate.rotation,lookRotation,Time.deltaTime * turnSpeed).eulerAngles;
-
-        partToRotate.rotation = Quaternion.Euler(0f,rotation.y,0f);
+        
 
         if(fireCountdown <= 0)
         {
             Shoot();
-            fireCountdown = 1f / fireRate;
+            fireCountdown = 5f;
+            //fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;

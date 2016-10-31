@@ -1418,7 +1418,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100096}
   m_LocalRotation: {x: 0, y: 0.5710718, z: 0, w: 0.82090014}
-  m_LocalPosition: {x: 97.24672, y: 21.003479, z: 312.97238}
+  m_LocalPosition: {x: 81.65676, y: 21.003479, z: 313.15744}
   m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_LocalEulerAnglesHint: {x: 0, y: 69.65, z: 0}
   m_Children:
@@ -1912,7 +1912,7 @@ MonoBehaviour:
   healthSlider: {fileID: 114000011245093358}
   healthSliderCanvas: {fileID: 223000014250293506}
   currentHealth: 0
-  starterHealth: 70
+  starterHealth: 60
   enemy: {fileID: 400096}
 --- !u!136 &136000010699973812
 CapsuleCollider:

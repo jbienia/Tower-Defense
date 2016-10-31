@@ -5,6 +5,26 @@ public class MagicBullet : Bullet {
 
     private bool isFirstShot = true;
     private bool stopFollowingEnemy = true;
+    private Transform[] magicBulletChildren;
+    public GameObject fireObject;
+
+    /*
+    public override void Awake()
+    {
+        magicBulletChildren = new Transform[gameObject.transform.childCount];
+
+        for(int i = 0; i < magicBulletChildren.Length;i++)
+        {
+            if (magicBulletChildren[i].name == "fire")
+            {
+                fireObject = magicBulletChildren[i].gameObject;
+            }
+            magicBulletChildren[i] = gameObject.transform.GetChild(i);
+            magicBulletChildren[i].name = "fire";
+        }
+        base.Awake();
+    }
+    */
 
     public override void Update()
     {
@@ -22,9 +42,12 @@ public class MagicBullet : Bullet {
         // Checks if the bullet has hit the enemy
          if (isFirstShot)
         {
-            if (dir.magnitude <= distanceThisFrame)
+            if (dir.magnitude < 1f)
             {
+                Debug.Log(distanceThisFrame);
 
+                //Destroy(fireObject);
+                Destroy(gameObject, 1f);
                 HitTarget();
                 stopFollowingEnemy = false;
                 return;
@@ -57,7 +80,7 @@ public class MagicBullet : Bullet {
 
         // Used to make sure that the enemy only gets hit once with one bullet
         isFirstShot = false;
-        Destroy(gameObject, 1f);
+        //Destroy(gameObject, 1f);
         
     }
 

@@ -50,10 +50,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010683741052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 77.22, y: 17.44, z: 304.55}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.016572276, y: 0.030098213, z: 0.0004990906, w: 0.9994095}
+  m_LocalPosition: {x: 80.82696, y: 21.233551, z: 292.33655}
+  m_LocalScale: {x: 0.59, y: 0.47, z: 0.59}
+  m_LocalEulerAnglesHint: {x: -1.9, y: 3.45, z: 0}
   m_Children:
   - {fileID: 4000012546842066}
   m_Father: {fileID: 0}
@@ -118,9 +118,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffb2c9f5413b20438532b7df8a4b5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speed: 70
   impactEffect: {fileID: 1000012900672122, guid: a536819eabc74314a9488dac6c723c8b,
     type: 2}
   explosionRadius: 0
   healthBar: {fileID: 114000011292130118, guid: e2173b4fa76743e41a56d04b6f888d45,
     type: 2}
+  startingHealth: 100
+  currentHealth: 0
+  lookRotation: {x: 0, y: 0, z: 0, w: 0}
+  adjust: {x: 0, y: 0, z: 0}

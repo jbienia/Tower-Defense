@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
    
 
 
-    public void Awake()
+    public virtual void Awake()
     {
         currentHealth = startingHealth;
 
@@ -47,30 +47,24 @@ public class Bullet : MonoBehaviour
         // The speed of the bullet relative to time
         float distanceThisFrame = speed * Time.deltaTime;
        
-        // Checks if the bullet has hit the enemy
-       // if (isFirstShot)
-        //{
+       
             if (dir.magnitude <= distanceThisFrame)
             {
-
+            
                 HitTarget();
            GameObject bulletImpact =  (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+
             Destroy(bulletImpact, 2f);
                 //stopFollowingEnemy = false;
                 return;
             }
-        //}
-
-        // stopFollowingEnemy will be false if the bullet has reached the object
-        //if (stopFollowingEnemy)
-        //{
+       
             
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        //}
+        
+        //lookRotation = Quaternion.LookRotation(dir);
 
-        lookRotation = Quaternion.LookRotation(dir);
-
-        transform.rotation = Quaternion.Lerp(target.rotation, lookRotation, Time.deltaTime * 50);
+        //transform.rotation = Quaternion.Lerp(target.rotation, lookRotation, Time.deltaTime * 50);
 
     }
 
@@ -81,7 +75,7 @@ public class Bullet : MonoBehaviour
     {
         if (explosionRadius > 0f)
         {
-            //Debug.Log("Dead");
+            Debug.Log("Dead");
             Explode();
         }
         else
@@ -119,11 +113,11 @@ public class Bullet : MonoBehaviour
 
     public virtual void Damage(Transform enemy)
     {
-     
+        Enemy enemyScript;
         switch (enemy.tag)
         {
             case "Enemy":
-                Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
+                 enemyScript = enemy.gameObject.GetComponent<Enemy>();
                 enemyScript.HealthMeter("arrow");
                 break;
 
@@ -134,6 +128,7 @@ public class Bullet : MonoBehaviour
 
             case "Tank":
                 enemyScript = target.gameObject.GetComponent<TankEnemy>();
+                Debug.Log("HIT THE BIG GUY!");
                 enemyScript.HealthMeter("arrow");
                 break;
         }
