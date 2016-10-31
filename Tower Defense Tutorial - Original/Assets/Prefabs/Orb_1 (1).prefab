@@ -37,6 +37,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012069273388}
   - 114: {fileID: 114000011949679848}
+  - 114: {fileID: 114000010983337720}
   m_Layer: 0
   m_Name: Orb_1 (1)
   m_TagString: Untagged
@@ -273,13 +274,35 @@ TrailRenderer:
       rgba: 16777215
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
---- !u!114 &114000011949679848
+--- !u!114 &114000010983337720
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011736711326}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454235d1a53147c46ad550811c34d194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 70
+  impactEffect: {fileID: 0}
+  explosionRadius: 0
+  healthBar: {fileID: 0}
+  startingHealth: 100
+  currentHealth: 0
+  lookRotation: {x: 0, y: 0, z: 0, w: 0}
+  adjust: {x: 0, y: 0, z: 0}
+  isFirstShot: 1
+  stopFollowingEnemy: 1
+--- !u!114 &114000011949679848
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011736711326}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ffb2c9f5413b20438532b7df8a4b5ea, type: 3}
   m_Name: 
@@ -289,6 +312,12 @@ MonoBehaviour:
   impactEffect: {fileID: 0}
   explosionRadius: 0
   healthBar: {fileID: 0}
+  startingHealth: 100
+  currentHealth: 0
+  lookRotation: {x: 0, y: 0, z: 0, w: 0}
+  adjust: {x: 0, y: 0, z: 0}
+  isFirstShot: 1
+  stopFollowingEnemy: 1
 --- !u!198 &198000010276326890
 ParticleSystem:
   m_ObjectHideFlags: 1

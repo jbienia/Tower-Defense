@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour
+{
 
     public Transform target;
 
@@ -11,34 +12,32 @@ public class Bullet : MonoBehaviour {
     public float explosionRadius = 0f;
 
     public Slider healthBar;
-    private int startingHealth = 100;
-    private int currentHealth;
-    private Quaternion lookRotation;
-    private Vector3 adjust;
-    bool isFirstShot = true;
-    private bool stopFollowingEnemy = true;
-    
-    
-    void Awake()
+    public int startingHealth = 100;
+    public int currentHealth;
+    public Quaternion lookRotation;
+    public Vector3 adjust;
+   
+
+
+    public void Awake()
     {
         currentHealth = startingHealth;
-        //healthBar.value = currentHealth;
 
-        //Debug.Log("It works!");
-        
+
     }
 
     public void Seek(Transform _target)
     {
         target = _target;
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-        if(target == null)
+    // Update is called once per frame
+    public virtual void  Update()
+    {
+
+        if (target == null)
         {
-            //Destroy(gameObject);
+
             return;
         }
 
@@ -47,40 +46,40 @@ public class Bullet : MonoBehaviour {
 
         // The speed of the bullet relative to time
         float distanceThisFrame = speed * Time.deltaTime;
-
+       
         // Checks if the bullet has hit the enemy
-        if(isFirstShot)
-        {
+       // if (isFirstShot)
+        //{
             if (dir.magnitude <= distanceThisFrame)
             {
-                
+
                 HitTarget();
-                stopFollowingEnemy = false;
+           GameObject bulletImpact =  (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+            Destroy(bulletImpact, 2f);
+                //stopFollowingEnemy = false;
                 return;
             }
-        }
+        //}
 
         // stopFollowingEnemy will be false if the bullet has reached the object
-        if(stopFollowingEnemy)
-        {
+        //if (stopFollowingEnemy)
+        //{
+            
             transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        }
-        
+        //}
+
         lookRotation = Quaternion.LookRotation(dir);
-        //lookRotation.x = 1f;
-        transform.rotation = Quaternion.Lerp(target.rotation,lookRotation,Time.deltaTime * 50);
-        
-	}
+
+        transform.rotation = Quaternion.Lerp(target.rotation, lookRotation, Time.deltaTime * 50);
+
+    }
 
     /// <summary>
-    /// 
+    /// Used to cause damage to an enemy when hit
     /// </summary>
-    void HitTarget()
+   public virtual void HitTarget()
     {
-       //GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-        //Destroy(effectIns, 5f);
-
-        if(explosionRadius > 0f)
+        if (explosionRadius > 0f)
         {
             //Debug.Log("Dead");
             Explode();
@@ -90,12 +89,10 @@ public class Bullet : MonoBehaviour {
             Damage(target);
         }
 
-        //Destroy(effectIns,2f);
-        // Destroy(target.gameObject);
-
         // Used to make sure that the enemy only gets hit once with one bullet
-        isFirstShot = false;
-        Destroy(gameObject,1f);
+        //isFirstShot = false;
+        
+        Destroy(gameObject);
     }
 
 
@@ -104,13 +101,13 @@ public class Bullet : MonoBehaviour {
     /// Checks colliders for the enemy tag
     /// Runs the Damage method and passes the transform of the damaged object
     /// </summary>
-    void Explode()
+   public void Explode()
     {
         // Gets an array of colliders in a certain radius around the transform
-       Collider[] colliders = Physics.OverlapSphere(transform.position,explosionRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
 
         // Loops through the colliders and checks the tags
-        foreach(Collider collider in colliders)
+        foreach (Collider collider in colliders)
         {
             if (collider.tag == "Enemy")
             {
@@ -122,13 +119,11 @@ public class Bullet : MonoBehaviour {
 
     public virtual void Damage(Transform enemy)
     {
-      // Reference to the enemy script
-      Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
-
+     
         switch (enemy.tag)
         {
             case "Enemy":
-               
+                Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
                 enemyScript.HealthMeter("arrow");
                 break;
 
@@ -142,19 +137,11 @@ public class Bullet : MonoBehaviour {
                 enemyScript.HealthMeter("arrow");
                 break;
         }
-
-
-        //enemyScript.HealthMeter();
-
-        Debug.Log("Jason");
-        
     }
 
-    void OnDrawGizmosSelected ()
+   public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
-
-    
 }

@@ -111,6 +111,12 @@ public class Enemy : MonoBehaviour {
             currentHealth -= 10;
             healthSlider.value = currentHealth;
         }
+
+        if(turret == "magic")
+        {
+            currentHealth -= 12;
+            healthSlider.value = currentHealth;
+        }
      }
 
     /// <summary>
