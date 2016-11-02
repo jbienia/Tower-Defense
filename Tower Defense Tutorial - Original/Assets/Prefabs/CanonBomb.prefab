@@ -107,12 +107,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ffb2c9f5413b20438532b7df8a4b5ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speed: 30
   impactEffect: {fileID: 1000012900672122, guid: a536819eabc74314a9488dac6c723c8b,
     type: 2}
   explosionRadius: 0
   healthBar: {fileID: 114000011292130118, guid: e2173b4fa76743e41a56d04b6f888d45,
     type: 2}
+  startingHealth: 100
+  currentHealth: 0
+  lookRotation: {x: 0, y: 0, z: 0, w: 0}
+  adjust: {x: 0, y: 0, z: 0}
 --- !u!114 &114000013481131238
 MonoBehaviour:
   m_ObjectHideFlags: 1

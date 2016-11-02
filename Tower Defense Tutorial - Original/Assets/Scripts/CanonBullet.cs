@@ -36,8 +36,13 @@ public class CanonBullet : MonoBehaviour
 
     void Start()
     {
+        canonballRigid = GetComponent<Rigidbody>();
         stableTarget = target.transform.position;
-        canonballRigid.AddForce(BallisticVel(stableTarget), ForceMode.VelocityChange);
+        if(stableTarget != null)
+        {
+            canonballRigid.AddForce(BallisticVel(stableTarget), ForceMode.VelocityChange);
+        }
+       
     }
 
     public void Seek(Transform _target)
