@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour {
     public int starterHealth;
     public Transform enemy;
     private Quaternion lookDirection;
-    
+    private GameObject sliderCanvas;
 
     public void Start()
     {
@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour {
         // healthSliderCanvas.transform.parent.SetParent(null, false);
         //healthSliderCanvas.transform.SetParent();
         healthSliderCanvas.transform.parent = null;
+         sliderCanvas = healthSliderCanvas.gameObject;
     }
 
    public virtual void Update()
@@ -55,7 +56,7 @@ public class Enemy : MonoBehaviour {
         }
         
 
-        healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
+        sliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
         RotateHealthBar();
     }
 
@@ -66,7 +67,7 @@ public class Enemy : MonoBehaviour {
         if(wavepointIndex >= Waypoints.points.Length -1)
         {
             DestroyObject(gameObject);
-            Destroy(healthSliderCanvas.gameObject);
+            Destroy(sliderCanvas.gameObject);
             Destroy(healthSlider.gameObject);
             EnemiesInGame.allEnemiesInGame.Remove(gameObject);
             return;

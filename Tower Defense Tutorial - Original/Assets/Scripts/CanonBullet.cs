@@ -107,7 +107,7 @@ public class CanonBullet : MonoBehaviour
         dir.y = dist * 1f;  // set elevation to 45 degrees
         dist += h;  // correct for different heights
         
-        float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude);
+        float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude * 1.5f);
         //vel -= 2f;
         return vel * dir.normalized;  // returns Vector3 velocity
 
