@@ -41,12 +41,24 @@ public class CanonBullet : MonoBehaviour
         stableTarget = target.transform.position;
         Debug.Log(stableTarget);
         Debug.Log(stableTarget);
+        
         if (stableTarget != null)
         {
             canonballRigid.AddForce(BallisticVel(stableTarget), ForceMode.VelocityChange);
         }
+        
        
     }
+
+    /*
+    void FixedUpdate()
+    {
+        if (stableTarget != null)
+        {
+            canonballRigid.AddForce(BallisticVel(stableTarget), ForceMode.VelocityChange);
+        }
+    }
+    */
 
     public void Seek(Transform _target)
     {
@@ -63,24 +75,12 @@ public class CanonBullet : MonoBehaviour
             return;
         }
 
-        // direction to move the bullet from itself to the enemy
-        //Vector3 dir = target.position - transform.position;
+        
 
         // The speed of the bullet relative to time
         float distanceThisFrame = speed * Time.deltaTime;
 
-      //  for(int i = 0; i < Ground.ground.Length; i++)
-       // {
-            
-        //    Vector3 dir = Ground.ground[i].position - transform.position;
-          //  if (transform.position.y < 2)
-           // {
-                //Debug.Log("HIT TARGET!");
-             //   HitTarget();
-               // return;
-           // }
-
-        //}
+     
     }
 
     void OnTriggerEnter(Collider collision)
@@ -105,10 +105,10 @@ public class CanonBullet : MonoBehaviour
         Debug.Log("Dir = " + dir);
         var h = dir.y;  // get height difference
         Debug.Log("h = " + h);
-        dir.y = 0;  // retain only the horizontal direction
+       // dir.y = 0;  // retain only the horizontal direction
         var dist = dir.magnitude;  // get horizontal distance
         Debug.Log("Dist = " + dist);
-        dir.y = dist * 1f;  // set elevation to 45 degrees
+        dir.y = dist * 1.5f;  // set elevation to 45 degrees
         dist += h;  // correct for different heights
         
         float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude * 1.5f);
