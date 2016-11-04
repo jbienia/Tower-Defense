@@ -25,12 +25,13 @@ public class CanonBullet : MonoBehaviour
     void Awake()
     {
        // currentHealth = startingHealth;
-         canonballRigid = GetComponent<Rigidbody>();
+         //canonballRigid = GetComponent<Rigidbody>();
+        //stableTarget = target.transform.position;
         // healthBar.value = currentHealth;
         //Debug.Log(healthBar.value);
         //Debug.Log("It works!");
-       // stableTarget = target.transform;
-        
+        // stableTarget = target.transform;
+
 
     }
 
@@ -38,7 +39,9 @@ public class CanonBullet : MonoBehaviour
     {
         canonballRigid = GetComponent<Rigidbody>();
         stableTarget = target.transform.position;
-        if(stableTarget != null)
+        Debug.Log(stableTarget);
+        Debug.Log(stableTarget);
+        if (stableTarget != null)
         {
             canonballRigid.AddForce(BallisticVel(stableTarget), ForceMode.VelocityChange);
         }
@@ -99,17 +102,20 @@ public class CanonBullet : MonoBehaviour
     {
         //Debug.Log("Velocity!");
         var dir = target - transform.position; // get target direction
-        
+        Debug.Log("Dir = " + dir);
         var h = dir.y;  // get height difference
+        Debug.Log("h = " + h);
         dir.y = 0;  // retain only the horizontal direction
         var dist = dir.magnitude;  // get horizontal distance
-        
+        Debug.Log("Dist = " + dist);
         dir.y = dist * 1f;  // set elevation to 45 degrees
         dist += h;  // correct for different heights
         
         float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude * 1.5f);
         //vel -= 2f;
+        Debug.Log("Final Vector 3 = " + vel * dir.normalized);
         return vel * dir.normalized;  // returns Vector3 velocity
+       
 
     }
 
