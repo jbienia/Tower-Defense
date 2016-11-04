@@ -89,7 +89,7 @@ public class CanonBullet : MonoBehaviour
         if (collision.gameObject.tag == "Terrain")
         {
            
-                Debug.Log("DEStroy myBOMB!!");
+              Debug.Log("DEStroy myBOMB!!");
             HitTarget();
                 Destroy(gameObject);
 

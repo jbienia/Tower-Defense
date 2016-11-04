@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TurretChooser : MonoBehaviour {
 
@@ -9,31 +10,32 @@ public class TurretChooser : MonoBehaviour {
     public GameObject magicTurret;
     public Transform buildHere;
     public GameObject turretMenu;
-
+    
 	
 
    public void CreateArrowTurret()
     {
-        Debug.Log(buildHere);
+       
         Instantiate(arrowTurret, buildHere.position,buildHere.rotation);
-        Destroy(turretMenu);
+        
+        Destroy(turretMenu,3f);
     }
 
     public void CreateCanonTurret()
     {
         Instantiate(canonTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu);
+        Destroy(turretMenu,3f);
     }
 
     public void CreateMagicTurret()
     {
         Instantiate(magicTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu);
+        Destroy(turretMenu, 3f);
     }
 
     public void CreateArtilleryTurret()
     {
         Instantiate(artilleryTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu);
+        Destroy(turretMenu, 3f);
     }
 }
