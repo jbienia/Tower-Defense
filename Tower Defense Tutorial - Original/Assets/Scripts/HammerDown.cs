@@ -152,17 +152,17 @@ public class HammerDown : MonoBehaviour
         {
             case "Enemy":
                 enemyScript = collider.GetComponent < Enemy>();
-                enemyScript.HealthMeter("melee");
+                enemyScript.DecreaseHealthMeter("melee");
                 break;
 
             case "FlyingEnemy":
                  enemyScript = collider.GetComponent<FlyingEnemy>();
-                enemyScript.HealthMeter("melee");
+                enemyScript.DecreaseHealthMeter("melee");
                 break;
 
             case "Tank":
                  enemyScript = collider.GetComponent<TankEnemy>();
-                enemyScript.HealthMeter("melee");
+                enemyScript.DecreaseHealthMeter("melee");
                 break;
 
 

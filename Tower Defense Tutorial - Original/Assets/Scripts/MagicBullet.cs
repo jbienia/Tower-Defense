@@ -93,17 +93,17 @@ public class MagicBullet : Bullet {
         switch (enemy.tag)
         {
             case "Enemy":
-                enemyScript.HealthMeter("magic");
+                enemyScript.DecreaseHealthMeter("magic");
                 break;
 
             case "FlyingEnemy":
                 enemyScript = target.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.HealthMeter("magic");
+                enemyScript.DecreaseHealthMeter("magic");
                 break;
 
             case "Tank":
                 enemyScript = target.gameObject.GetComponent<TankEnemy>();
-                enemyScript.HealthMeter("magic");
+                enemyScript.DecreaseHealthMeter("magic");
                 break;
         }
     }

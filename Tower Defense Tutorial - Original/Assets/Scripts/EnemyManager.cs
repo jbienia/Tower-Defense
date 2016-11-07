@@ -7,31 +7,32 @@ using System.Collections.Generic;
 /// It is a static singleton class
 /// It collects an array of all the game objects and provides them to the turrets
 /// </summary>
-public class EnemyManager : MonoBehaviour {
+public class EnemyManager : MonoBehaviour
+{
 
-    //private float fireCountdown = 0f;
-    //public float range = 15f;
-    //public float hp = 35f;
+    // Strings that represent the different enemies in the game. The 'Enemy' string is used for the regular and fast enemies
     public string enemyTag = "Enemy";
     public string tankEnemyTag = "Tank";
     public string flyingEnemyTag = "FlyingEnemy";
 
+    //Game Objects that represent all the different enemies in the game
     public GameObject enemy;
     public GameObject flyingEnemy;
     public GameObject tank;
     public GameObject fastEnemy;
+
+    // The Starting spawn point for the enemies
     public Transform spawnPoint;
 
-    public GameObject[] enemies;
-
     //Level one Lists of Waves
-    public  List<GameObject> firstBasicWaveToSpawn = new List<GameObject>();
+    public List<GameObject> firstBasicWaveToSpawn = new List<GameObject>();
     public List<GameObject> secondTankWaveToSpawn = new List<GameObject>();
     public List<GameObject> thirdFastWaveToSpawn = new List<GameObject>();
     public List<GameObject> fourthBasicWaveToSpawn = new List<GameObject>();
     public List<GameObject> fifthFastWaveToSpawn = new List<GameObject>();
     public List<GameObject> flyingWaveToSpawn = new List<GameObject>();
 
+    // Value that represents the level
     private int level = 1;
 
     // Waiting to see if I can adjust the enemy volume in the inspector
@@ -40,14 +41,16 @@ public class EnemyManager : MonoBehaviour {
     public int fast;
     public int tanks;
     public int flying;
+
     /// <summary>
     /// A static singleton object
     /// Only one object of this class can exist in the game
     /// </summary>
     public static EnemyManager enemyManagerInstance;
-    //Dictionary<float,>
-    
 
+    /// <summary>
+    /// An enum that contains the amount of enemies and their type
+    /// </summary>
     public enum LevelOne
     {
         Basic = 15,
@@ -66,25 +69,22 @@ public class EnemyManager : MonoBehaviour {
         // Prevents me from building two turrets on the same spot
         if (enemyManagerInstance != null)
         {
-            Debug.LogError("Too many instances");
             return;
         }
+
+        // the singleton reference
         enemyManagerInstance = this;
     }
 
 
-    // Use this for initialization
-    IEnumerator Start() {
-        // Invokes a method name every couple seconds
-        // InvokeRepeating("UpdateTarget", 0f, 0.5f);
-
-
-        //CreateEnemy();
+    // Fills the Lists of Game Objects with enemies for the specified level
+    IEnumerator Start()
+    {
 
         // Level one lists of the enemy waves
-        if(level == 1 )
+        if (level == 1)
         {
-            int i = 0;
+            // Gets the numerical value for the specified enum
             int basic = (int)LevelOne.Basic;
             int tank = (int)LevelOne.Tank;
             int fast = (int)LevelOne.Fast;
@@ -92,36 +92,39 @@ public class EnemyManager : MonoBehaviour {
             int secondBasicWave = (int)LevelOne.secondBasicWave;
             int secondFastWave = (int)LevelOne.secondFlyingWave;
 
-
-            while (i< basic)
+            // Creates and stores the basic enemy waves in a List. 
+            int i = 0;
+            while (i < basic)
             {
                 firstBasicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
-                //Debug.Log(enemyToSpawn[i]);
                 i++;
             }
 
+            // Creates and stores the Tank enemy waves in a List. 
             int j = 0;
-            while(j < tank)
+            while (j < tank)
             {
                 secondTankWaveToSpawn.Add((GameObject)Instantiate(CreateTank().enemy, spawnPoint.position, spawnPoint.rotation));
                 j++;
             }
 
+            // Creates and stores the flying enemy waves in a List. 
             int l = 0;
-
-            while(l < flying)
+            while (l < flying)
             {
                 flyingWaveToSpawn.Add((GameObject)Instantiate(CreateFlyingEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 l++;
             }
 
+            // Creates and stores the fast enemy waves in a List. 
             int z = 0;
-            while(z < fast)
+            while (z < fast)
             {
                 thirdFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 z++;
             }
 
+            // Creates and stores the basic enemy waves in a List. 
             int b = 0;
             while (b < secondBasicWave)
             {
@@ -129,20 +132,29 @@ public class EnemyManager : MonoBehaviour {
                 b++;
             }
 
+            // Creates and stores the fast enemy waves in a List. 
             int c = 0;
             while (c < secondFastWave)
             {
                 fifthFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 c++;
             }
-
         }
-         
 
         yield return null;
     }
 
-   public EnemyWrapper CreateEnemy()
+    /*
+     * All of the objects below are created with SetActive set to false
+     * This enables the objects to all be created at the start of the game, but not displayed to the user.
+     */
+
+    /// <summary>
+    /// Method used to return an object of EnemyWrapper type
+    /// The enemy wrapper is an object that lets us set the type, gameobject, and whether it is active or not
+    /// </summary>
+    /// <returns>An object which gives us access to the specified enemy</returns>
+    public EnemyWrapper CreateEnemy()
     {
         EnemyWrapper wrapper = new EnemyWrapper();
         wrapper.type = EnemyWrapper.EnemyType.Basic;
@@ -150,10 +162,13 @@ public class EnemyManager : MonoBehaviour {
         wrapper.SetActive(false);
         return wrapper;
     }
-       
-    
-    
-   public EnemyWrapper  CreateFlyingEnemy()
+
+    /// <summary>
+    /// Method used to return an object of EnemyWrapper type
+    /// The enemy wrapper is an object that lets us set the type, gameobject, and whether it is active or not
+    /// </summary>
+    /// <returns>An object which gives us access to the specified enemy</returns>
+    public EnemyWrapper CreateFlyingEnemy()
     {
         EnemyWrapper wrapper = new EnemyWrapper();
         wrapper.type = EnemyWrapper.EnemyType.Flying;
@@ -161,7 +176,12 @@ public class EnemyManager : MonoBehaviour {
         wrapper.SetActive(false);
         return wrapper;
     }
-      
+
+    /// <summary>
+    /// Method used to return an object of EnemyWrapper type
+    /// The enemy wrapper is an object that lets us set the type, gameobject, and whether it is active or not
+    /// </summary>
+    /// <returns>An object which gives us access to the specified enemy</returns>
     public EnemyWrapper CreateTank()
     {
         EnemyWrapper wrapper = new EnemyWrapper();
@@ -170,7 +190,12 @@ public class EnemyManager : MonoBehaviour {
         wrapper.SetActive(false);
         return wrapper;
     }
-       
+
+    /// <summary>
+    /// Method used to return an object of EnemyWrapper type
+    /// The enemy wrapper is an object that lets us set the type, gameobject, and whether it is active or not
+    /// </summary>
+    /// <returns>An object which gives us access to the specified enemy</returns> 
     public EnemyWrapper CreateFastEnemy()
     {
         EnemyWrapper wrapper = new EnemyWrapper();
@@ -179,23 +204,4 @@ public class EnemyManager : MonoBehaviour {
         wrapper.SetActive(false);
         return wrapper;
     }
-
-
-
-    public void UpdateTarget()
-    {
-        // An array of all the enemies
-        // enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-
-    }
-
-   
-    // This will be a list of EnemyWrapper type. These will be the objects to display in the scene
-    //public EnemyWrapper[] enemyList;
-
-    // Update is called once per frame
-    void Update () {
-	
-	}
-      
 }

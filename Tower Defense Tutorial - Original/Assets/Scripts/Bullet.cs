@@ -1,31 +1,47 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// Class represents a Bullet
+/// </summary>
 public class Bullet : MonoBehaviour
 {
-
+    // A reference to the target that the bullet will hit
     public Transform target;
 
+    // Variable used control the speed along with Time.DeltaTime
     public float speed = 70f;
+
+    // Effect used to once the bullet has hit
     public GameObject impactEffect;
+
+    // Explosion radius set in the inspector
     public float explosionRadius = 0f;
 
+    // Slider used to set the Health bar. Set in the inspector
     public Slider healthBar;
+
+    // Used to set the inital health value
     public int startingHealth = 100;
+
+    // Holds the current value of health. i.e. after it decreases
     public int currentHealth;
+
+    // Quaternion used to tell a transform where to rotate to
     public Quaternion lookRotation;
-    public Vector3 adjust;
-   
 
-
+    /// <summary>
+    /// Sets the starting health
+    /// </summary>
     public virtual void Awake()
     {
         currentHealth = startingHealth;
-
-
     }
 
+    /// <summary>
+    /// Holds a reference to the target the bullet will hit
+    /// </summary>
+    /// <param name="_target"></param>
     public void Seek(Transform _target)
     {
         target = _target;
@@ -34,10 +50,8 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     public virtual void  Update()
     {
-
         if (target == null)
         {
-
             return;
         }
 
@@ -47,25 +61,17 @@ public class Bullet : MonoBehaviour
         // The speed of the bullet relative to time
         float distanceThisFrame = speed * Time.deltaTime;
        
-       
-            if (dir.magnitude <= distanceThisFrame)
-            {
-            
-                HitTarget();
-           GameObject bulletImpact =  (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
-
+        // Checks if the bullet is close enough to cause a hit    
+        if (dir.magnitude <= distanceThisFrame)
+        {
+            HitTarget();
+            GameObject bulletImpact =  (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(bulletImpact, 2f);
-                //stopFollowingEnemy = false;
-                return;
-            }
-       
-            
-            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        
-        //lookRotation = Quaternion.LookRotation(dir);
+            return;
+        }
 
-        //transform.rotation = Quaternion.Lerp(target.rotation, lookRotation, Time.deltaTime * 50);
-
+        // Moves the bullet in the correct direction
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 
     /// <summary>
@@ -73,19 +79,17 @@ public class Bullet : MonoBehaviour
     /// </summary>
    public virtual void HitTarget()
     {
+        // I'm not sure if this code does anything ???????????
         if (explosionRadius > 0f)
         {
-            Debug.Log("Dead");
             Explode();
         }
         else
         {
             Damage(target);
         }
-
-        // Used to make sure that the enemy only gets hit once with one bullet
-        //isFirstShot = false;
-        
+         
+        // Destroys the Bullet Object      
         Destroy(gameObject);
     }
 
@@ -107,10 +111,13 @@ public class Bullet : MonoBehaviour
             {
                 Damage(collider.transform);
             }
-
-        }
+         }
     }
 
+    /// <summary>
+    /// Method used to Damage an enemy. Uses the tag from the enemy to tell which enemy type was hit
+    /// </summary>
+    /// <param name="enemy"></param>
     public virtual void Damage(Transform enemy)
     {
         Enemy enemyScript;
@@ -118,22 +125,25 @@ public class Bullet : MonoBehaviour
         {
             case "Enemy":
                  enemyScript = enemy.gameObject.GetComponent<Enemy>();
-                enemyScript.HealthMeter("arrow");
+                enemyScript.DecreaseHealthMeter("arrow");
                 break;
 
             case "FlyingEnemy":
                 enemyScript = target.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.HealthMeter("arrow");
+                enemyScript.DecreaseHealthMeter("arrow");
                 break;
 
             case "Tank":
                 enemyScript = target.gameObject.GetComponent<TankEnemy>();
                 Debug.Log("HIT THE BIG GUY!");
-                enemyScript.HealthMeter("arrow");
+                enemyScript.DecreaseHealthMeter("arrow");
                 break;
         }
     }
 
+    /// <summary>
+    /// Draws a circle around the Game object. This lets us visualize the explosionRadius.
+    /// </summary>
    public void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

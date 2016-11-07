@@ -18,24 +18,24 @@ public class TurretChooser : MonoBehaviour {
        
         Instantiate(arrowTurret, buildHere.position,buildHere.rotation);
         
-        Destroy(turretMenu,3f);
+        Destroy(turretMenu,4f);
     }
 
     public void CreateCanonTurret()
     {
         Instantiate(canonTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu,3f);
+        Destroy(turretMenu,4f);
     }
 
     public void CreateMagicTurret()
     {
         Instantiate(magicTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu, 3f);
+        Destroy(turretMenu, 4f);
     }
 
     public void CreateArtilleryTurret()
     {
         Instantiate(artilleryTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu, 3f);
+        Destroy(turretMenu, 4f);
     }
 }

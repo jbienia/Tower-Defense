@@ -11,24 +11,7 @@ public class TurretButtonFader : MonoBehaviour {
     private bool towerChosen = false;
     Button[] towerButtons;
 
-    /*
-    public void Update()
-        
-    {
-        
-        if(towerChosen)
-        {
-           towerButtons = gameObject.GetComponentsInChildren<Button>();
-           
-            foreach (Button button in towerButtons)
-            {
-                button.interactable = false;
-            }
-            towerChosen = false;
-        }
-    }
     
-    */
     public void FadeCanonIcon()
     {
         canonButton.interactable = false;

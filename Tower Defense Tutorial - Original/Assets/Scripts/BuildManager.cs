@@ -64,14 +64,13 @@ public class BuildManager : MonoBehaviour {
         // Instantiates a game object with the rotation set to 0,0,0(Quaternion.identity)
       GameObject turret = (GameObject)Instantiate(turretToBuild.prefab, node.GetBuildPosition(),Quaternion.identity);
         
+        // Instanciate the build effect
       GameObject effect = (GameObject)Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
         Destroy(effect, 5f);
 
         // Sets the referecne to the node turret for each node that is build on
         node.turret = turret;
-
-        Debug.Log("Turret Built! Money left: " + PlayerStats.Money);
-    }
+     }
     
     /// <summary>
     /// Selects a specifc turret to build

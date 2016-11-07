@@ -1,27 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// CanonTurret overrides the Shoot method from its base class
+/// </summary>
 public class CanonTurret : Turret {
-
-    public GameObject groundTerrain;
 
     public override void Shoot()
     {
         // Creates the Bullet game object in the scene
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        // bulletGO.transform.rotation = Quaternion.Euler(90,0,0);
-
-        // A reference to the Bullet script/Component
-        // Bullet bullet = bulletGO.GetComponent<Bullet>();
+        
+        // A reference to the CanonBullet script/Component
         CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
-
-
-        // passes the target/enemt to the bullet class
+        
+        // passes a reference to the target/enemy game obect to the bullet class
         if (bullet != null)
         {
             bullet.Seek(target);
         }
-
     }
 }
 
