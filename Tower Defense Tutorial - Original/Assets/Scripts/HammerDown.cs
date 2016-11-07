@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Class used for the Hammer Turret
+/// </summary>
 public class HammerDown : MonoBehaviour
 {
     
@@ -24,8 +27,7 @@ public class HammerDown : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
-    //public GameObject bulletPrefab;
-    //public Transform firePoint;
+    
     public List<GameObject> enemyList = new List<GameObject>();
     EnemyManager instance;
     public GameObject hammerPoint;
@@ -85,8 +87,6 @@ public class HammerDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
         if (target == null)
         {
             return;
@@ -106,8 +106,6 @@ public class HammerDown : MonoBehaviour
         // Rotates our x value. Swings the hammer down
         partToRotate.rotation = Quaternion.Euler(attackCurve.Evaluate(attackValue) * 90f, rotation.y, 0f);
 
-        
-
         if (fireCountdown <= 0)
         {
             Shoot();
@@ -120,29 +118,29 @@ public class HammerDown : MonoBehaviour
         {
             preventMultipleCollisions = true;
         }
-        
+   }
 
-    }
-
+    /// <summary>
+    /// Trigger used to damage the enemy
+    /// </summary>
+    /// <param name="collider"></param>
     void OnTriggerEnter(Collider collider)
     {
-       
+       // Co routine creates some dust particles from the hammer hitting the ground
         StartCoroutine(Dust(collider));
-        // preventMultipleCollisions = true;
-         if(preventMultipleCollisions == true)
+        
+        // Makes sure that the hammer only hits an enemy once once the way down
+        if(preventMultipleCollisions == true)
         {
-        // collider.enabled = false;
-        Debug.Log(transform.rotation.x);
-        
-                Debug.Log("Smash dem!!!");
             preventMultipleCollisions = false;
-                DamageEnemy(collider);
-            
-          
+            DamageEnemy(collider);
         }
-        
-    }
+     }
 
+    /// <summary>
+    /// Removes damage from the enemy health
+    /// </summary>
+    /// <param name="collider"></param>
     void DamageEnemy(Collider collider)
     {
         string enemyTag = collider.tag;
@@ -164,24 +162,26 @@ public class HammerDown : MonoBehaviour
                  enemyScript = collider.GetComponent<TankEnemy>();
                 enemyScript.DecreaseHealthMeter("melee");
                 break;
-
-
         }
     }
 
+    /// <summary>
+    /// Creates a dust particle effect and destroys itself after two seconds
+    /// </summary>
+    /// <param name="collider"></param>
+    /// <returns></returns>
     IEnumerator Dust(Collider collider)
     {
-        
-      ParticleSystem dustparticle = (ParticleSystem)Instantiate(dust, hammerPoint.transform.position, hammerPoint.transform.rotation);
-       yield return new WaitForSeconds(2);
-        Debug.Log("Give me dust!");
+        ParticleSystem dustparticle = (ParticleSystem)Instantiate(dust, hammerPoint.transform.position, hammerPoint.transform.rotation);
+        yield return new WaitForSeconds(2);
         Destroy(dustparticle);
     }
 
+    /// <summary>
+    /// Not sure how this is being used or if it is.....Hammer Down turret is on hold for now
+    /// </summary>
     void Shoot()
     {
-        Debug.Log("SHOT");
-        // transform.lo
         attackValue = 1f;
        // partToRotate.rotation = Quaternion.Lerp(transform.rotation,transform.rotation +Quaternion.x *3,Time.deltaTime);
 
@@ -193,6 +193,9 @@ public class HammerDown : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Draws the range of the turret to the screen so that we can see it in the scene view
+    /// </summary>
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
-
+/// <summary>
+/// Class used in the prototype to select a turret from the shop. This class is currently not in use
+/// </summary>
 public class Shop : MonoBehaviour {
 
     // References to the TurretBlueprint class has a Game Object and Cost 
@@ -17,21 +19,17 @@ public class Shop : MonoBehaviour {
 
     public void SelectStandardTurret()
     {
-        Debug.Log("Standard Turret Selected");
-        buildManager.SelectTurretToBuild(standardTurret);
+       buildManager.SelectTurretToBuild(standardTurret);
         
     }
 
     public void SelectMissileLauncher()
     {
-        Debug.Log("Missile Launcher Selected");
         buildManager.SelectTurretToBuild(missleLauncher);
     }
 
     public void SelectHorseTurret()
     {
         buildManager.SelectTurretToBuild(horseTurret);
-        
     }
-        
 }

@@ -8,18 +8,6 @@ using System.Collections.Generic;
 /// </summary>
 public class WaveSpawner : MonoBehaviour {
 
-    public Transform enemyGreenPrefab;
-
-    public Transform enemyRedPrefab;
-
-    public Transform spawnPoint;
-
-    public Transform flyingEnemy;
-
-    public Transform fastEnemy;
-
-    public Transform tankEnemy;
-
     // the time between waves
     public float timeBetweenWaves = 5.5f;
 
@@ -34,16 +22,16 @@ public class WaveSpawner : MonoBehaviour {
     private EnemyManager enemyManager;
     private int level = 1;
     private int waveCounter = 1;
-    private int helperVariable = 0;
-
+   
+    // A list of GameObject type
     public List<GameObject> basicSpawnEnemies = new List<GameObject>();
 
-    
-      
+    /// <summary>
+    /// Gets a referenece to the singleton enemy manager
+    /// </summary>
     void Start()
     {
         enemyManager = EnemyManager.enemyManagerInstance;
-        //basicSpawnEnemies = enemyManager.enemyToSpawn;
     }
 
     /// <etactiveummary>
@@ -51,24 +39,22 @@ public class WaveSpawner : MonoBehaviour {
     /// </summary>
     void Update()
     {
-        
+        // Checks the countDown timer
         if ( countDown <= 0)
         {
+            // Resets the Countdown Timer
             countDown = timeBetweenWaves;
-            StartCoroutine (SpawnWave () );
 
-                     
+            // Co Routine that spawns the enemies
+            StartCoroutine (SpawnWave () );
         }
 
+        // Countdown starts once a wave of enemies has finished spawning
         if(startCountdown)
         {
             countDown -= Time.deltaTime;
-
             countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
-           
-           // waveCountdownText.text = string.Format("{0:00}", countDown);
         }
-        
     }
 
     /// <summary>
@@ -76,118 +62,125 @@ public class WaveSpawner : MonoBehaviour {
     /// </summary>
     IEnumerator SpawnWave()
     {
-        
+        // Sets the a bool to false to stop the countdown timer
         startCountdown = false;
 
+        // Checks the level
         if(level == 1)
         {
-            
+            // Checks which wave should spawn
             if (waveCounter == 1)
             {
-                
+                // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.firstBasicWaveToSpawn.Count-1; i++)
                 {
-                    
+                    // Sets the already instanciated game object SetActive property to True 
                     SpawnEnemy(enemyManager.firstBasicWaveToSpawn,i);
-                    
+
+                    // Waits a few seconds before the next one
                     yield return new WaitForSeconds(0.5f);
-                   
-                }
+                 }
                 
-                
+                // Set the boolean to start the countdown
                 startCountdown = true;
             }
 
-            if(waveCounter == 2)
+            // Checks which wave should spawn
+            if (waveCounter == 2)
             {
+                // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
-                
+
+                // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.secondTankWaveToSpawn.Count-1; i++)
                 {
-
+                    // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.secondTankWaveToSpawn, i);
 
+                    // Waits a few seconds before the next one
                     yield return new WaitForSeconds(2.0f);
-                    
-                }
-                
+                 }
 
+                // Set the boolean to start the countdown
                 startCountdown = true;
             }
 
-            if(waveCounter == 3)
+            // Checks which wave should spawn
+            if (waveCounter == 3)
             {
+                // Sets a value to stop the countdown timer
                 startCountdown = false;
+
+                // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.thirdFastWaveToSpawn.Count-1; i++)
                 {
-
+                    // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.thirdFastWaveToSpawn, i);
 
+                    // Waits a few seconds before the next one
                     yield return new WaitForSeconds(0.5f);
-                    
-                }
-                
+                 }
 
+                // Set the boolean to start the countdown
                 startCountdown = true;
             }
 
-            if(waveCounter == 4)
+            // Checks which wave should spawn
+            if (waveCounter == 4)
             {
+                // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
+
+                // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.flyingWaveToSpawn.Count-1; i++)
                 {
-
+                    // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.flyingWaveToSpawn, i);
 
+                    // Waits a few seconds before the next one
                     yield return new WaitForSeconds(0.5f);
-                    
-                }
-                
+                 }
 
+                // Set the boolean to start the countdown
                 startCountdown = true;
             }
 
-            if(waveCounter == 5)
+            // Checks which wave should spawn
+            if (waveCounter == 5)
             {
+                // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
+
+                // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.fifthFastWaveToSpawn.Count-1; i++)
                 {
-
+                    // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.fifthFastWaveToSpawn, i);
 
+                    // Waits a few seconds before the next one
                     yield return new WaitForSeconds(0.5f);
-                   
-                }
-               
-
+                 }
+                // Set the boolean to start the countdown
                 startCountdown = true;
             }
 
+            // Increments the the value that represents which wave we are on
             waveCounter++;
         }
     }
-       
        
     /// <summary>
     /// Sets an enemy Game Object SetActive property to true. 
     /// Adds the Enemy Game Object to a list of all the enemy Game Objects in the scene
     /// </summary>
-    /// <param name="spawn"></param>
-    /// <param name="i"></param>
+    /// <param name="spawn">A Game Object from a list</param>
+    /// <param name="i">parameter that is which place in the array holds the object we want to spawn</param>
     void SpawnEnemy(List<GameObject> spawn ,int i)
     {
-       
-        {
-            spawn[i].SetActive(true);
+        // Sets the Game object to true
+        spawn[i].SetActive(true);
 
-            // Adds all enemies
-            EnemiesInGame.allEnemiesInGame.Add(spawn[i]);
-            
-            //Debug.Log(basicSpawnEnemies[i]);
-
-
-        }
-
-       
+        // Adds all enemies
+        EnemiesInGame.allEnemiesInGame.Add(spawn[i]);
     }
 }

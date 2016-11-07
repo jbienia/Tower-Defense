@@ -2,7 +2,9 @@
 // uses this to access the IsPointerOverGameObject ()
 using UnityEngine.EventSystems;
 
-
+/// <summary>
+/// Class that was used in the prototype when the ground was build from Nodes
+/// </summary>
 public class Node : MonoBehaviour {
 
     public Color hoverColor;
@@ -50,14 +52,12 @@ public class Node : MonoBehaviour {
         // IF the user clicks on the nodes but has not chosen a turret
         if(!buildManager.CanBuild)
         {
-            Debug.Log("TESTING!!//");
             return;
         }
 
         // Checks if node already has a turret
         if (turret != null)
         {
-            Debug.Log("Can't build here! To do Display on Screen");
             return;
         }
 

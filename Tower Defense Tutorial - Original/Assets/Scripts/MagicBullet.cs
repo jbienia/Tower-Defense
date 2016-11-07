@@ -3,28 +3,13 @@ using System.Collections;
 
 public class MagicBullet : Bullet {
 
+    // Used to make sure that the enemy only gets hit once per magic bullet
     private bool isFirstShot = true;
+
+    // 
     private bool stopFollowingEnemy = true;
     private Transform[] magicBulletChildren;
     public GameObject fireObject;
-
-    /*
-    public override void Awake()
-    {
-        magicBulletChildren = new Transform[gameObject.transform.childCount];
-
-        for(int i = 0; i < magicBulletChildren.Length;i++)
-        {
-            if (magicBulletChildren[i].name == "fire")
-            {
-                fireObject = magicBulletChildren[i].gameObject;
-            }
-            magicBulletChildren[i] = gameObject.transform.GetChild(i);
-            magicBulletChildren[i].name = "fire";
-        }
-        base.Awake();
-    }
-    */
 
     public override void Update()
     {
@@ -40,13 +25,10 @@ public class MagicBullet : Bullet {
         float distanceThisFrame = speed * Time.deltaTime;
 
         // Checks if the bullet has hit the enemy
-         if (isFirstShot)
+        if (isFirstShot)
         {
             if (dir.magnitude < 1f)
             {
-                Debug.Log(distanceThisFrame);
-
-                //Destroy(fireObject);
                 Destroy(gameObject, 1f);
                 HitTarget();
                 stopFollowingEnemy = false;
@@ -54,24 +36,22 @@ public class MagicBullet : Bullet {
             }
         }
 
-        // stopFollowingEnemy will be false if the bullet has reached the object
-        if (stopFollowingEnemy)
-        {
-            transform.Translate(dir.normalized * distanceThisFrame, Space.World);
-        }
-
-        lookRotation = Quaternion.LookRotation(dir);
-
-        transform.rotation = Quaternion.Lerp(target.rotation, lookRotation, Time.deltaTime * 50);
-
+        // Moves the bullet towards the enemy
+         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+        
+        // I'm not sure why I had this rotation set for the bullet. I'm going to leave it here for now and decide later if it's not necessary
+        //lookRotation = Quaternion.LookRotation(dir);
+        //transform.rotation = Quaternion.Lerp(target.rotation, lookRotation, Time.deltaTime * 50);
     }
 
+    /// <summary>
+    /// Deals damage to the enemy
+    /// </summary>
     public override void HitTarget()
     {
         if (explosionRadius > 0f)
         {
-            //Debug.Log("Dead");
-            Explode();
+           Explode();
         }
         else
         {
@@ -80,13 +60,15 @@ public class MagicBullet : Bullet {
 
         // Used to make sure that the enemy only gets hit once with one bullet
         isFirstShot = false;
-        //Destroy(gameObject, 1f);
-        
-    }
+     }
 
+    /// <summary>
+    /// Overrides the Damage() from the Base Class
+    /// Gets a reference to the enemies Enemy script and removes value from the health meter
+    /// </summary>
+    /// <param name="enemy">The switch statement uses the transfrom to access the tag parameter</param>
     public override void  Damage (Transform enemy)
     {
-        
         // Reference to the enemy script
         Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
 

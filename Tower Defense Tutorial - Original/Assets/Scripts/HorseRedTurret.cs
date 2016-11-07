@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-
+/// <summary>
+/// Class that is currently not being used. At some point it represented a horse style turret
+/// </summary>
 public class HorseRedTurret : MonoBehaviour {
 
     public float range = 15f;

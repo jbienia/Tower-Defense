@@ -2,35 +2,48 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/// <summary>
+/// Class is a component of the turret Game object
+/// </summary>
 public class Turret : MonoBehaviour {
 
+    // The transform of the target the turret is shooting at
     public Transform target;
 
     [Header("Attributes")]
-    //public float secondsBetweenFiring = 1f;
     public float fireCountdown = 5f;
     public float range = 15f;
+
+    // Strings that represent the different type of tanks
     public string enemyTag = "Enemy";
     public string tankEnemyTag = "Tank";
     public string flyingEnemyTag = "FlyingEnemy";
 
     [Header("Unity Setup Fields")]
-        
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
+    // Prefab for the bullet
     public GameObject bulletPrefab;
+
+    // The point in the game where turret fires from
     public Transform firePoint;
+
+    // A list of enemy game objects
     public List<GameObject> enemyList = new List<GameObject>();
+
+    // A static singleton instance of the EnemyManager
     EnemyManager instance;
-
-   
-
-
-	// Use this for initialization
-	void Start () {
+    
+	/// <summary>
+    /// Gets a reference to EnemyManager Singleton, and Invokes a method every few seconds
+    /// </summary>
+	void Start ()
+    {
+        // An instance of the enemy manager object 
         instance = EnemyManager.enemyManagerInstance;
-        // Invokes a method name every couple seconds
+
+        // Invokes a method named UpdateTarget every couple seconds
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
 	}
     
@@ -39,9 +52,9 @@ public class Turret : MonoBehaviour {
     /// </summary>
     void UpdateTarget()
     {
+        // A lists of all the Enemies in the game
         enemyList = EnemiesInGame.allEnemiesInGame;
-
-       
+               
         // Here we use infinity so that it is true;
         float shortestDistance = Mathf.Infinity;
 
@@ -77,54 +90,53 @@ public class Turret : MonoBehaviour {
 
             partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
         }
+
         else
         {
             target = null;
         }
     }
 	
-	// Update is called once per frame
-	void Update () {
+	/// <summary>
+    /// Update called once per frame
+    /// </summary>
+	void Update ()
+    {
         if(target == null)
         {
             return;
         }
 
-        // The direction from the turret to the enemy
-        
-
         if(fireCountdown <= 0)
         {
             Shoot();
             fireCountdown = 5f;
-            //fireCountdown = 1f / fireRate;
         }
 
         fireCountdown -= Time.deltaTime;
+     }
 
-
-	}
-
+    /// <summary>
+    /// 
+    /// </summary>
     public virtual void  Shoot()
     {
-        Debug.Log("SHOT");
-       // Creates the Bullet game object in the scene
-      GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-       // bulletGO.transform.rotation = Quaternion.Euler(90,0,0);
-        
+        // Creates the Bullet game object in the scene
+        GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+     
         // A reference to the Bullet script/Component
-         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        //CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
-
-
-        // passes the target/enemt to the bullet class
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        
+        // passes the target/enemy to the bullet class
         if(bullet != null)
         {
             bullet.Seek(target);
         }
-
     }
 
+    /// <summary>
+    /// Draws a circle that represents the range of the turret
+    /// </summary>
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

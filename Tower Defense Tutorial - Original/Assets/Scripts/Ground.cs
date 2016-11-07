@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Class that has a static object which holds a reference to the ground
+/// I don't thinkt his class is being used at all
+/// </summary>
 public class Ground : MonoBehaviour {
 
     public static Transform[] ground;

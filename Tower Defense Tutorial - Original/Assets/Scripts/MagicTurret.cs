@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// Class used to override the Shoot() from the base class
+/// </summary>
 public class MagicTurret : Turret {
 
+    // Instanciates a magic bullet and passes a reference to the target
 	public override void Shoot()
     {
         // Creates the Bullet game object in the scene
@@ -11,9 +15,7 @@ public class MagicTurret : Turret {
 
         // A reference to the Bullet script/Component
         MagicBullet bullet = bulletGO.GetComponent<MagicBullet>();
-        //CanonBullet bullet = bulletGO.GetComponent<CanonBullet>();
-
-
+       
         // passes the target/enemt to the bullet class
         if (bullet != null)
         {
