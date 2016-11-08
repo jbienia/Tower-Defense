@@ -65,6 +65,7 @@ public class Bullet : MonoBehaviour
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
+            
             GameObject bulletImpact =  (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
             Destroy(bulletImpact, 2f);
             return;
@@ -82,11 +83,11 @@ public class Bullet : MonoBehaviour
         // I'm not sure if this code does anything ???????????
         if (explosionRadius > 0f)
         {
-            Explode();
+           Explode();
         }
         else
         {
-            Damage(target);
+           Damage(target);
         }
          
         // Destroys the Bullet Object      
