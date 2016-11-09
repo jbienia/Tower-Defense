@@ -82,9 +82,9 @@ public class Enemy : MonoBehaviour {
         if(Vector3.Distance(transform.position, wayPoint.position) <= 0.4f)
         {
             GetNextWayPoint();
-            RotateCharacter();
+           // RotateCharacter();
         }
-        
+        RotateCharacter();
         // Sets the health bar above the enemy
         sliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
 
@@ -134,7 +134,8 @@ public class Enemy : MonoBehaviour {
         lookDirection = Quaternion.LookRotation(dir);
 
         // Sets the rotation towards a waypoint
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 90f * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookDirection, 3f * Time.deltaTime);
+       
      }
 
     /// <summary>

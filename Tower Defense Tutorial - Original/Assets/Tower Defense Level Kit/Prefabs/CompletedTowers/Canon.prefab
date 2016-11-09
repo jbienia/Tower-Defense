@@ -138,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011119806624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 75.57, y: 21.03, z: 326.35}
+  m_LocalPosition: {x: 87.6, y: 21.03, z: 341.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -420,8 +420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireRate: 0.5
-  range: 15
+  fireCountdown: 5
+  range: 9.81
   enemyTag: Enemy
   tankEnemyTag: Tank
   flyingEnemyTag: FlyingEnemy
@@ -431,7 +431,6 @@ MonoBehaviour:
     type: 2}
   firePoint: {fileID: 4000013469137714}
   enemyList: []
-  groundTerrain: {fileID: 0}
 --- !u!136 &136000014140330044
 CapsuleCollider:
   m_ObjectHideFlags: 1

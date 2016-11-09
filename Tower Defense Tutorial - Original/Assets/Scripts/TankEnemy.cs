@@ -24,12 +24,11 @@ public class TankEnemy : Enemy {
         // Determines whether to advance to the next way point
         if (Vector3.Distance(transform.position, waypointPosition) <= 0.4f)
         {
-
             GetNextWayPoint();
-            RotateCharacter();
-
+            
         }
 
+        RotateCharacter();
         // Displays the health bar above the enemy
         healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy(7f);
 

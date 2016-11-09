@@ -128,4 +128,3 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   lookRotation: {x: 0, y: 0, z: 0, w: 0}
-  adjust: {x: 0, y: 0, z: 0}
