@@ -24,7 +24,7 @@ public class Turret : MonoBehaviour {
     public float turnSpeed = 10f;
 
     // Prefab for the bullet
-    public GameObject bulletPrefab;
+    public  GameObject bulletPrefab;
 
     // The point in the game where turret fires from
     public Transform firePoint;
@@ -38,7 +38,7 @@ public class Turret : MonoBehaviour {
 	/// <summary>
     /// Gets a reference to EnemyManager Singleton, and Invokes a method every few seconds
     /// </summary>
-	void Start ()
+	public void Start ()
     {
         // An instance of the enemy manager object 
         instance = EnemyManager.enemyManagerInstance;

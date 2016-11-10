@@ -28,8 +28,10 @@ public class FlyingEnemy : Enemy
         {
             Debug.Log("I want to move!");
             GetNextWayPoint();
-            RotateCharacter();
+            
         }
+
+        RotateCharacter();
 
         // Displays the health bar above the enemy
         healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy(7f);

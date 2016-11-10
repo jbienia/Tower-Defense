@@ -30,25 +30,17 @@ public  class BuildTurret:MonoBehaviour  {
         Vector3 addY = transform.position;
         addY.y+= 10;
 
-      GameObject turretSelectMenu = (GameObject)Instantiate(turretSelector, addY, transform.rotation);
+        // Instanciates the Turret Chooser menu
+        GameObject turretSelectMenu = (GameObject)Instantiate(turretSelector, addY, transform.rotation);
 
+        // Gets a reference to the turret chooser component which is the script for the Turret Select menu
         TurretChooser placeToBuild = turretSelectMenu.GetComponent<TurretChooser>();
 
-        //Debug.Log(placeToBuild.buildHere);
-        //Debug.Log(box.transform);
+        // Passes a reference to the turret menu to the Turret Chooser object
         placeToBuild.turretMenu = turretSelectMenu;
+
+        // Passes a reference of the turret spawn point's, right now it's the box, transform to the Turret Chooser script
         placeToBuild.buildHere = gameObject.transform;
-
-        //newTurret.transform.position = transform.position;
+       
     }
-
-    void buildCanon()
-    {
-
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

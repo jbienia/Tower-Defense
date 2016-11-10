@@ -55,7 +55,7 @@ GameObject:
   - 4: {fileID: 4000012069273388}
   - 114: {fileID: 114000010983337720}
   m_Layer: 0
-  m_Name: Orb_1 (1)
+  m_Name: ElectricOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010026761540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.18, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -164,7 +164,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011736711326}
   m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
-  m_LocalPosition: {x: 92.592026, y: 21.003479, z: 349.4659}
+  m_LocalPosition: {x: 97.03789, y: 23, z: 345.9317}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
   m_Children:
@@ -236,7 +236,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: dbb6635e331249f4b9c9e71061f39e3c, type: 2}
+  - {fileID: 2100000, guid: 73af3d0b197fcf742b703c1af08cab42, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -343,7 +343,7 @@ ParticleSystem:
   moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1045751863
+  randomSeed: 1361123414
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -485,8 +485,8 @@ ParticleSystem:
         atime7: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
-      minColor: {r: 0.8980392, g: 0.38431373, b: 0.050980393, a: 1}
-      maxColor: {r: 0.9254902, g: 0.7882353, b: 0.33333334, a: 1}
+      minColor: {r: 0.019607844, g: 0.42352942, b: 0.56078434, a: 1}
+      maxColor: {r: 0.33333334, g: 0.78039217, b: 0.9254902, a: 1}
       minMaxState: 2
     startSize:
       scalar: 0.8
@@ -2027,7 +2027,7 @@ ParticleSystem:
   moveWithTransform: 1
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -1249414737
+  randomSeed: -725149542
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -3776,7 +3776,7 @@ ParticleSystem:
   moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -622527853
+  randomSeed: 323781950
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -5470,7 +5470,7 @@ ParticleSystem:
   moveWithTransform: 0
   autoRandomSeed: 1
   scalingMode: 1
-  randomSeed: -2105809592
+  randomSeed: -411919447
   InitialModule:
     serializedVersion: 2
     enabled: 1
@@ -5623,7 +5623,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0.38039216, b: 1, a: 1}
       minMaxState: 0
     startSize:
       scalar: 4
@@ -7220,7 +7220,7 @@ ParticleSystemRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9d23e739fdfbe82408daf5e0c547e932, type: 2}
+  - {fileID: 2100000, guid: 019bfd21830e401428020e1b9a48cedc, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}

@@ -8,12 +8,16 @@ public class TurretChooser : MonoBehaviour {
     public GameObject canonTurret;
     public GameObject artilleryTurret;
     public GameObject magicTurret;
+
+    // Value is set in the BuildTurret script
     public Transform buildHere;
+
+    //
     public GameObject turretMenu;
     
 	
 
-   public void CreateArrowTurret()
+    public void CreateArrowTurret()
     {
        
         Instantiate(arrowTurret, buildHere.position,buildHere.rotation);

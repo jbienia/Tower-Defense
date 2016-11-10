@@ -183,14 +183,6 @@ public class HammerDown : MonoBehaviour
     void Shoot()
     {
         attackValue = 1f;
-       // partToRotate.rotation = Quaternion.Lerp(transform.rotation,transform.rotation +Quaternion.x *3,Time.deltaTime);
-
-        // passes the target/enemt to the bullet class
-        // if (bullet != null)
-        //{
-        //   bullet.Seek(target);
-        //}
-
     }
 
     /// <summary>

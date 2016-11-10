@@ -84,6 +84,7 @@ public class Enemy : MonoBehaviour {
             GetNextWayPoint();
            // RotateCharacter();
         }
+
         RotateCharacter();
         // Sets the health bar above the enemy
         sliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
