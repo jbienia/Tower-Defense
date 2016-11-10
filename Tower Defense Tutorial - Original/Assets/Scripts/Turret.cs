@@ -11,7 +11,7 @@ public class Turret : MonoBehaviour {
     public Transform target;
 
     [Header("Attributes")]
-    public float fireCountdown = 5f;
+    public float fireCountdown;
     public float range = 15f;
 
     // Strings that represent the different type of tanks
@@ -23,8 +23,16 @@ public class Turret : MonoBehaviour {
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
+    [Header("Damage Values")]
+    public int damageToBasic;
+    public int damageToTank;
+    public int damageToFlying;
+    public int damageToFast;
+
     // Prefab for the bullet
     public  GameObject bulletPrefab;
+
+    float countdown;
 
     // The point in the game where turret fires from
     public Transform firePoint;
@@ -45,6 +53,9 @@ public class Turret : MonoBehaviour {
 
         // Invokes a method named UpdateTarget every couple seconds
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+
+        countdown = fireCountdown;
+
 	}
     
     /// <summary>
@@ -110,7 +121,7 @@ public class Turret : MonoBehaviour {
         if(fireCountdown <= 0)
         {
             Shoot();
-            fireCountdown = 5f;
+            fireCountdown = countdown;
         }
 
         fireCountdown -= Time.deltaTime;
@@ -126,11 +137,29 @@ public class Turret : MonoBehaviour {
      
         // A reference to the Bullet script/Component
         Bullet bullet = bulletGO.GetComponent<Bullet>();
-        
+
         // passes the target/enemy to the bullet class
-        if(bullet != null)
+        if (bullet != null)
         {
-            bullet.Seek(target);
+            switch (target.tag)
+            {
+                case "Enemy":
+                    bullet.Seek(target, damageToBasic);
+                    break;
+
+                case "FlyingEnemy":
+                    bullet.Seek(target, damageToFlying);
+                    break;
+
+                case "Tank":
+                    bullet.Seek(target, damageToTank);
+                    break;
+
+                case "FastEnemy":
+                    bullet.Seek(target, damageToFast);
+                    break;
+            }
+
         }
     }
 

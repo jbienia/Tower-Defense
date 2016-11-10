@@ -27,14 +27,20 @@ public class HammerDown : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
-    
+    [Header("Damage Values")]
+    public int damageToBasic;
+    public int damageToTank;
+    public int damageToFlying;
+    public int damageToFast;
+
+
     public List<GameObject> enemyList = new List<GameObject>();
     EnemyManager instance;
     public GameObject hammerPoint;
 
     // Used in the update so that the large collider on the hammer doesn't collide too many times. The collider can only hit the enemy
     // once it has returned to it's 0 x rotation
-    private bool preventMultipleCollisions = false;
+    private bool preventMultipleCollisions = true;
 
 
 
@@ -87,6 +93,7 @@ public class HammerDown : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // IF there is no target, because one is not in range, the rest of the code does not run.
         if (target == null)
         {
             return;
@@ -114,7 +121,7 @@ public class HammerDown : MonoBehaviour
 
         fireCountdown -= Time.deltaTime;
 
-        if(transform.rotation.eulerAngles.x == 0)
+        if(transform.rotation.eulerAngles.x < 1)
         {
             preventMultipleCollisions = true;
         }
@@ -133,6 +140,7 @@ public class HammerDown : MonoBehaviour
         if(preventMultipleCollisions == true)
         {
             preventMultipleCollisions = false;
+            
             DamageEnemy(collider);
         }
      }
@@ -150,17 +158,22 @@ public class HammerDown : MonoBehaviour
         {
             case "Enemy":
                 enemyScript = collider.GetComponent < Enemy>();
-                enemyScript.DecreaseHealthMeter("melee");
+                enemyScript.DecreaseHealthMeter("melee",damageToBasic);
                 break;
 
             case "FlyingEnemy":
                  enemyScript = collider.GetComponent<FlyingEnemy>();
-                enemyScript.DecreaseHealthMeter("melee");
+                enemyScript.DecreaseHealthMeter("melee",damageToFlying);
                 break;
 
             case "Tank":
                  enemyScript = collider.GetComponent<TankEnemy>();
-                enemyScript.DecreaseHealthMeter("melee");
+                enemyScript.DecreaseHealthMeter("melee",damageToTank);
+                break;
+
+            case "FastEnemy":
+                enemyScript = target.gameObject.GetComponent<Enemy>();
+                enemyScript.DecreaseHealthMeter("magic", damageToFast);
                 break;
         }
     }

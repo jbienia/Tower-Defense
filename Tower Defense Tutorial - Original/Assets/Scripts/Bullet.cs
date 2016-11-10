@@ -30,6 +30,8 @@ public class Bullet : MonoBehaviour
     // Quaternion used to tell a transform where to rotate to
     public Quaternion lookRotation;
 
+    public int damageValue;
+
     /// <summary>
     /// Sets the starting health
     /// </summary>
@@ -42,9 +44,11 @@ public class Bullet : MonoBehaviour
     /// Holds a reference to the target the bullet will hit
     /// </summary>
     /// <param name="_target"></param>
-    public void Seek(Transform _target)
+    public void Seek(Transform _target, int _damage)
     {
         target = _target;
+        damageValue = _damage;
+
     }
 
     // Update is called once per frame
@@ -87,9 +91,10 @@ public class Bullet : MonoBehaviour
         }
         else
         {
-           Damage(target);
+           Damage(target,damageValue);
         }
          
+       
         // Destroys the Bullet Object      
         Destroy(gameObject);
     }
@@ -110,7 +115,7 @@ public class Bullet : MonoBehaviour
         {
             if (collider.tag == "Enemy")
             {
-                Damage(collider.transform);
+                Damage(collider.transform,damageValue);
             }
          }
     }
@@ -119,25 +124,29 @@ public class Bullet : MonoBehaviour
     /// Method used to Damage an enemy. Uses the tag from the enemy to tell which enemy type was hit
     /// </summary>
     /// <param name="enemy"></param>
-    public virtual void Damage(Transform enemy)
+    public virtual void Damage(Transform enemy,int damage)
     {
         Enemy enemyScript;
         switch (enemy.tag)
         {
             case "Enemy":
                  enemyScript = enemy.gameObject.GetComponent<Enemy>();
-                enemyScript.DecreaseHealthMeter("arrow");
+                enemyScript.DecreaseHealthMeter("arrow",damage);
                 break;
 
             case "FlyingEnemy":
                 enemyScript = target.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.DecreaseHealthMeter("arrow");
+                enemyScript.DecreaseHealthMeter("arrow",damage);
                 break;
 
             case "Tank":
                 enemyScript = target.gameObject.GetComponent<TankEnemy>();
-                Debug.Log("HIT THE BIG GUY!");
-                enemyScript.DecreaseHealthMeter("arrow");
+                enemyScript.DecreaseHealthMeter("arrow",damage);
+                break;
+
+            case "FastEnemy":
+                enemyScript = target.gameObject.GetComponent<Enemy>();
+                enemyScript.DecreaseHealthMeter("arrow", damage);
                 break;
         }
     }

@@ -19,7 +19,25 @@ public class MagicTurret : Turret {
         // passes the target/enemt to the bullet class
         if (bullet != null)
         {
-            bullet.Seek(target);
+            switch(target.tag)
+            {
+                case "Enemy":
+                    bullet.Seek(target,damageToBasic);
+                    break;
+
+                case "FlyingEnemy":
+                    bullet.Seek(target, damageToFlying);
+                    break;
+
+                case "Tank":
+                    bullet.Seek(target, damageToTank);
+                    break;
+
+                case "FastEnemy":
+                    bullet.Seek(target, damageToFast);
+                    break;
+            }
+            
         }
     }
 }

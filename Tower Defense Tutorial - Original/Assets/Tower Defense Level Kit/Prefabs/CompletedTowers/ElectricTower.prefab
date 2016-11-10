@@ -107,7 +107,6 @@ GameObject:
   - 33: {fileID: 33000012803295108}
   - 23: {fileID: 23000010649485380}
   - 64: {fileID: 64000010724427598}
-  - 114: {fileID: 114000010791752652}
   - 114: {fileID: 114000011972944466}
   m_Layer: 0
   m_Name: ElectricTower
@@ -240,7 +239,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012394582272}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 96.07, y: 21.003479, z: 335.08}
+  m_LocalPosition: {x: 77.8, y: 22.347244, z: 327.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -397,29 +396,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.998609, y: 1.9380805, z: 1.8089089}
   m_Center: {x: -0.08657837, y: 1.9514505, z: -0.04569253}
---- !u!114 &114000010791752652
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012394582272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e48b4c4a237bc2545b00249dd9bab0a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  fireCountdown: 5
-  range: 31.5
-  enemyTag: Enemy
-  tankEnemyTag: Tank
-  flyingEnemyTag: FlyingEnemy
-  partToRotate: {fileID: 4000012286245932}
-  turnSpeed: 10
-  bulletPrefab: {fileID: 1000012636804150, guid: 8955c3c29ce782f48b20dfedcfd6d31b,
-    type: 2}
-  firePoint: {fileID: 4000011304411454}
-  enemyList: []
 --- !u!114 &114000011972944466
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -433,12 +409,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   fireCountdown: 5
-  range: 18.17
+  range: 11
   enemyTag: Enemy
   tankEnemyTag: Tank
   flyingEnemyTag: FlyingEnemy
   partToRotate: {fileID: 4000012286245932}
   turnSpeed: 10
+  damageToBasic: 10
+  damageToTank: 5
+  damageToFlying: 15
+  damageToFast: 15
   bulletPrefab: {fileID: 1000011736711326, guid: e2f568c90b3a3544e80d5f38598ff751,
     type: 2}
   firePoint: {fileID: 4000011304411454}

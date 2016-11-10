@@ -143,32 +143,45 @@ public class Enemy : MonoBehaviour {
     /// Decreases health from the enemy health bar
     /// </summary>
     /// <param name="turret">String value that represents the different type of turret that is doing damage</param>
-    public void DecreaseHealthMeter (string turret)
+    public void DecreaseHealthMeter (string turret,int decreaseValue)
     {
+        
+        
+
         if(turret == "melee")
         {
-            currentHealth -= 15;
+            currentHealth -= decreaseValue;
             healthSlider.value = currentHealth;
         }
 
         if(turret == "canon")
         {
-            currentHealth -= 20;
+            currentHealth -= decreaseValue;
             healthSlider.value = currentHealth;
         }
 
         if(turret == "arrow")
         {
-            currentHealth -= 10;
+            currentHealth -= decreaseValue;
             healthSlider.value = currentHealth;
         }
 
         if(turret == "magic")
         {
-            currentHealth -= 12;
+            currentHealth -= decreaseValue;
             healthSlider.value = currentHealth;
         }
-     }
+
+        if (this.healthSlider.value <= 0)
+        {
+            EnemiesInGame.allEnemiesInGame.Remove(enemy.gameObject);
+
+            Destroy(healthSliderCanvas.gameObject);
+            Destroy(enemy.gameObject);
+            
+            return;
+        }
+    }
 
     /// <summary>
     /// Displays the health bar above the enemy

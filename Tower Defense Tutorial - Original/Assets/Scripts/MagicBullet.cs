@@ -55,7 +55,7 @@ public class MagicBullet : Bullet {
         }
         else
         {
-            Damage(target);
+            Damage(target,damageValue);
         }
 
         // Used to make sure that the enemy only gets hit once with one bullet
@@ -67,7 +67,7 @@ public class MagicBullet : Bullet {
     /// Gets a reference to the enemies Enemy script and removes value from the health meter
     /// </summary>
     /// <param name="enemy">The switch statement uses the transfrom to access the tag parameter</param>
-    public override void  Damage (Transform enemy)
+    public override void  Damage (Transform enemy, int damage)
     {
         // Reference to the enemy script
         Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
@@ -75,17 +75,22 @@ public class MagicBullet : Bullet {
         switch (enemy.tag)
         {
             case "Enemy":
-                enemyScript.DecreaseHealthMeter("magic");
+                enemyScript.DecreaseHealthMeter("magic",damage);
                 break;
 
             case "FlyingEnemy":
                 enemyScript = target.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.DecreaseHealthMeter("magic");
+                enemyScript.DecreaseHealthMeter("magic",damage);
                 break;
 
             case "Tank":
                 enemyScript = target.gameObject.GetComponent<TankEnemy>();
-                enemyScript.DecreaseHealthMeter("magic");
+                enemyScript.DecreaseHealthMeter("magic",damage);
+                break;
+
+            case "FastEnemy":
+                 enemyScript = target.gameObject.GetComponent<Enemy>();
+                enemyScript.DecreaseHealthMeter("magic", damage);
                 break;
         }
     }

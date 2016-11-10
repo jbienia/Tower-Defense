@@ -127,7 +127,7 @@ public class HorseRedTurret : MonoBehaviour {
             isAttacking.SetBool("isAttacking", true);
             attackCountdown = 1f / fireRate;
 
-           GetCorrectScript(enemyTag);
+           //GetCorrectScript(enemyTag);
 
             //TankEnemy enemyScript = target.gameObject.GetComponent<TankEnemy>();
 
@@ -137,6 +137,7 @@ public class HorseRedTurret : MonoBehaviour {
         }
      }
 
+    /*
     void GetCorrectScript(string enemyTag)
     {
         Debug.Log("SWITCH STATEMENT");
@@ -161,6 +162,7 @@ public class HorseRedTurret : MonoBehaviour {
 
        // className enemyScript = target.gameObject.GetComponent<className>();
     }
+    */
 
     void OnDrawGizmosSelected()
     {

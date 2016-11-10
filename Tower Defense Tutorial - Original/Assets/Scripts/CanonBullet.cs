@@ -30,6 +30,8 @@ public class CanonBullet : MonoBehaviour
     // A Vector3 of the target transform
     private Vector3 stableTarget;
 
+    public int canonDamage;
+
     /// <summary>
     /// Gets a reference to the Rigid Body of the Canon Ball
     /// Gets a reference to the target
@@ -48,9 +50,10 @@ public class CanonBullet : MonoBehaviour
      }
 
     // stores a reference to the target
-    public void Seek(Transform _target)
+    public void Seek(Transform _target, int _damage)
     {
         target = _target;
+        canonDamage = _damage;
     }
 
     // Update is called once per frame
@@ -169,17 +172,22 @@ public class CanonBullet : MonoBehaviour
         {
             case "Enemy":
                  enemyScript = enemy.gameObject.GetComponent<Enemy>();
-                enemyScript.DecreaseHealthMeter(canon);
+                enemyScript.DecreaseHealthMeter(canon,canonDamage);
                 break;
 
             case "FlyingEnemy":
                 enemyScript = enemy.gameObject.GetComponent<FlyingEnemy>();
-                enemyScript.DecreaseHealthMeter(canon);
+                enemyScript.DecreaseHealthMeter(canon,canonDamage);
                 break;
 
             case "Tank":
                 enemyScript = enemy.gameObject.GetComponent<TankEnemy>();
-                enemyScript.DecreaseHealthMeter(canon);
+                enemyScript.DecreaseHealthMeter(canon,canonDamage);
+                break;
+
+            case "FastEnemy":
+                enemyScript = enemy.gameObject.GetComponent<Enemy>();
+                enemyScript.DecreaseHealthMeter(canon, canonDamage);
                 break;
         }
      }
