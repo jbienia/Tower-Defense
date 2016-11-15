@@ -12,6 +12,8 @@ public class FreezeTurret : Turret
 
     private Enemy[] enemies;
     private Collider[] colliders;
+    public float speed;
+    public Enemy enemyScript;
 
     /// <summary>
     /// Sets a couple inherited properties to null
@@ -27,6 +29,7 @@ public class FreezeTurret : Turret
 
         // Setting to false turns the light off
         freezeLight.gameObject.SetActive(false);
+       
     }
 
     /// <summary>
@@ -46,7 +49,12 @@ public class FreezeTurret : Turret
             if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank")
             {
                 // Reduces the speed of the enemy by three
-                collider.GetComponent<Enemy>().speed -= 3;
+
+                //speed = collider.GetComponent<Enemy>().this;
+                enemyScript = collider.GetComponent<Enemy>();
+                speed = enemyScript.speed;
+                enemyScript.speed = 0;
+                collider.GetComponent<Animator>().SetBool("isIdle",true);
 
             }
         }
@@ -61,7 +69,7 @@ public class FreezeTurret : Turret
     /// <returns></returns>
     IEnumerator TurnOffFreezeLight()
     {
-        // Waits for 3 seconds
+        // Waits for 3 secondsse
         yield return new WaitForSeconds(3f);
 
         // Turns the light off on the Freeze turret
@@ -74,7 +82,10 @@ public class FreezeTurret : Turret
             {
                 if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank")
                 {
-                    collider.gameObject.GetComponent<Enemy>().speed += 3;
+                    //collider.GetComponent<Animator>().SetBool("isIdle", false);
+                     collider.GetComponent<Animator>().SetBool("isWalking", true);
+                    collider.GetComponent<Enemy>().speed = speed;
+                    //enemyScript.speed = speed;
                 }
             }
            

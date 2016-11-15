@@ -52,7 +52,7 @@ public class Turret : MonoBehaviour {
         instance = EnemyManager.enemyManagerInstance;
 
         // Invokes a method named UpdateTarget every couple seconds
-        InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        InvokeRepeating("UpdateTarget", 0f, 0.2f);
 
         countdown = fireCountdown;
 

@@ -138,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011119806624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 87.6, y: 21.03, z: 341.86}
+  m_LocalPosition: {x: 104.88, y: 21.003479, z: 344.70255}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -427,6 +427,10 @@ MonoBehaviour:
   flyingEnemyTag: FlyingEnemy
   partToRotate: {fileID: 4000013920564038}
   turnSpeed: 10
+  damageToBasic: 20
+  damageToTank: 15
+  damageToFlying: 0
+  damageToFast: 20
   bulletPrefab: {fileID: 1000011741313630, guid: 13d3800d465bf1446a8b70c33e64cc01,
     type: 2}
   firePoint: {fileID: 4000013469137714}
