@@ -6,7 +6,9 @@
 public class Waypoints : MonoBehaviour {
 
     // A static array of Transfrom type
-	public static Transform[] points;
+	public static Transform[] firstPath;
+
+  
 
     /// <summary>
     /// Stores all Childen of the Waypoint gameobject in an array
@@ -14,12 +16,13 @@ public class Waypoints : MonoBehaviour {
     void Awake()
     {
         // sets the size of the array by the amount of Waypoints children
-        points = new Transform[transform.childCount];
+        firstPath = new Transform[transform.childCount];
 
         // Loops throught the children and stores all of the transforms in an array
-        for(int i = 0; i < points.Length;i++)
+        for(int i = 0; i < firstPath.Length;i++)
         {
-           points[i] = transform.GetChild(i);
+           firstPath[i] = transform.GetChild(i);
         }
-    }
+
+     }
 }

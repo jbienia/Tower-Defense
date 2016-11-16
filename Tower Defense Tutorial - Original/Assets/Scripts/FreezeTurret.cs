@@ -82,7 +82,7 @@ public class FreezeTurret : Turret
             {
                 if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank")
                 {
-                    //collider.GetComponent<Animator>().SetBool("isIdle", false);
+                    collider.GetComponent<Animator>().SetBool("isIdle", false);
                      collider.GetComponent<Animator>().SetBool("isWalking", true);
                     collider.GetComponent<Enemy>().speed = speed;
                     //enemyScript.speed = speed;

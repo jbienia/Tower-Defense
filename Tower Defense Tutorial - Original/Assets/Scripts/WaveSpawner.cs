@@ -78,7 +78,7 @@ public class WaveSpawner : MonoBehaviour {
                     SpawnEnemy(enemyManager.firstBasicWaveToSpawn,i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1.5f);
                  }
                 
                 // Set the boolean to start the countdown

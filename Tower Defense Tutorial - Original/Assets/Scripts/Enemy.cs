@@ -34,6 +34,9 @@ public class Enemy : MonoBehaviour {
     // The Transform of the Enemy
     public Transform enemy;
 
+    // Value used to determine which paths of waypoints to follow
+    public int randomNumber;
+
     // Direction to be rotated
     private Quaternion lookDirection;
 
@@ -47,8 +50,24 @@ public class Enemy : MonoBehaviour {
     /// </summary>
     public void Start()
     {
-        // Sets the target to the first waypoint
-        wayPoint = Waypoints.points[0];
+        // Selects a random number used to determine which set of waypoints the enemy should follow
+        randomNumber = RandomNumber.randomNumber();
+
+        Debug.Log(randomNumber);
+        if(randomNumber == 1)
+        {
+            // Sets the target to the first waypoint
+            wayPoint = Waypoints.firstPath[0];
+           
+            
+        }
+
+        if(randomNumber == 2)
+        {
+            // Sets the target to the first waypoint
+            wayPoint = SecondPath.secondPath[0];
+        }
+        
 
         // Method that rotates the character to the Waypoint
         RotateCharacter();
@@ -98,30 +117,64 @@ public class Enemy : MonoBehaviour {
     /// </summary>
    public virtual void GetNextWayPoint()
     {
-        // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
-        if(wavepointIndex >= Waypoints.points.Length -1)
+        if(randomNumber == 1)
         {
-            // Destroys the Enemy
-            DestroyObject(gameObject);
+            // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
+            if (wavepointIndex >= Waypoints.firstPath.Length - 1)
+            {
+                DestroyGameObjects();
 
-            // Destroys the health slider canvas
-            Destroy(sliderCanvas.gameObject);
-
-            // Destroys the health slider game object
-            Destroy(healthSlider.gameObject);
-
-            // Removes the Enemy from the list of enemy game objects in the game
-            EnemiesInGame.allEnemiesInGame.Remove(gameObject);
-
-            return;
+                return;
+            }
         }
+
+        if(randomNumber == 2)
+        {
+            // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
+            if (wavepointIndex >= SecondPath.secondPath.Length - 1)
+            {
+                DestroyGameObjects();
+
+                return;
+            }
+        }
+       
 
         // Increments the wave point index
         wavepointIndex++;
 
-        // Sets a reference to the new waypoint
-        wayPoint = Waypoints.points[wavepointIndex];
+        if(randomNumber== 1)
+        {
+            // Sets a reference to the new waypoint
+            wayPoint = Waypoints.firstPath[wavepointIndex];
+        }
+
+        if(randomNumber == 2)
+        {
+            wayPoint = SecondPath.secondPath[wavepointIndex];
+        }
+            
+          
     }
+
+    /// <summary>
+    /// Called when enemies have reached the end of the path and there is no more waypoints to follows
+    /// </summary>
+    public void DestroyGameObjects ()
+        {
+        // Destroys the Enemy
+        DestroyObject(gameObject);
+
+        // Destroys the health slider canvas
+        Destroy(sliderCanvas.gameObject);
+
+        // Destroys the health slider game object
+        Destroy(healthSlider.gameObject);
+
+        // Removes the Enemy from the list of enemy game objects in the game
+        EnemiesInGame.allEnemiesInGame.Remove(gameObject);
+    }
+
 
     /// <summary>
     /// Rotates the character to the next way point
