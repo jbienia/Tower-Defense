@@ -28,7 +28,7 @@ public  class BuildTurret:MonoBehaviour  {
     {
         Debug.Log("Build that  trret!!");
         Vector3 addY = transform.position;
-        addY.y+= 10;
+        addY.y+= 5;
 
         // Instanciates the Turret Chooser menu
         GameObject turretSelectMenu = (GameObject)Instantiate(turretSelector, addY, transform.rotation);

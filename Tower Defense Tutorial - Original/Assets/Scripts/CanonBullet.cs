@@ -117,7 +117,7 @@ public class CanonBullet : MonoBehaviour
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
 
         // Destroys the impact effect after 5 seconds
-        Destroy(effectIns, 5f);
+        Destroy(effectIns, .9f);
 
         if (explosionRadius > 0f)
         {

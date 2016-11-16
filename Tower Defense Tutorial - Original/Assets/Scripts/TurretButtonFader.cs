@@ -19,6 +19,12 @@ public class TurretButtonFader : MonoBehaviour {
     // The Artillery Button
     public Button artilleryButton;
 
+    public Button mortarButton;
+
+    public Button electricityButton;
+
+    public Button freezeButton;
+
     // Boolean used to check if a tower is chosen
     private bool towerChosen = false;
 
@@ -90,6 +96,42 @@ public class TurretButtonFader : MonoBehaviour {
         arrowButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
     }
 
+    public void FadeMortarIcon()
+    {
+        // Causes the button to be non interactible
+        mortarButton.interactable = false;
+
+        // Sets the type of transition to be applied when the state changes. I think that zero means there is no transition applied.
+        mortarButton.transition = 0;
+
+        // Causes a fade on the canon button
+        mortarButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+    }
+
+    public void FadeElectricityIcon()
+    {
+        // Causes the button to be non interactible
+        electricityButton.interactable = false;
+
+        // Sets the type of transition to be applied when the state changes. I think that zero means there is no transition applied.
+        electricityButton.transition = 0;
+
+        // Causes a fade on the canon button
+        electricityButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+    }
+
+    public void FadeFreezeIcon()
+    {
+        // Causes the button to be non interactible
+        freezeButton.interactable = false;
+
+        // Sets the type of transition to be applied when the state changes. I think that zero means there is no transition applied.
+        freezeButton.transition = 0;
+
+        // Causes a fade on the canon button
+        freezeButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+    }
+
     /// <summary>
     /// Sets the interactibilty to false and fades out the button visually
     /// </summary>
@@ -124,6 +166,24 @@ public class TurretButtonFader : MonoBehaviour {
     {
         canonButton.interactable = false;
         canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+    }
+
+    public void mortarChosen()
+    {
+        mortarButton.interactable = false;
+        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+    }
+
+    public void freezeChosen()
+    {
+        freezeButton.interactable = false;
+        freezeButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+    }
+
+    public void electricityChosen()
+    {
+        electricityButton.interactable = false;
+        electricityButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
     }
 
     /// <summary>

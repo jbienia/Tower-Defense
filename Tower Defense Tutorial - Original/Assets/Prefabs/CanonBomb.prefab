@@ -117,7 +117,7 @@ MonoBehaviour:
   startingHealth: 100
   currentHealth: 0
   lookRotation: {x: 0, y: 0, z: 0, w: 0}
-  adjust: {x: 0, y: 0, z: 0}
+  damageValue: 0
 --- !u!114 &114000013481131238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -130,11 +130,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 30
-  impactEffect: {fileID: 1000012900672122, guid: a536819eabc74314a9488dac6c723c8b,
+  impactEffect: {fileID: 1000014022554426, guid: e0b6dbbd44b8818458c4ca56eedcab54,
     type: 2}
   explosionRadius: 6.84
   healthBar: {fileID: 0}
   canonBall: {fileID: 1000011741313630}
+  canonDamage: 0
 --- !u!136 &136000012360019526
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -46,7 +46,7 @@ public class FreezeTurret : Turret
         // Loops through the colliders and checks the tags
         foreach (Collider collider in colliders)
         {
-            if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank")
+            if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank" || collider.tag == "FastEnemy")
             {
                 // Reduces the speed of the enemy by three
 
@@ -80,7 +80,7 @@ public class FreezeTurret : Turret
         {
             if(collider != null)
             {
-                if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank")
+                if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank" || collider.tag == "FastEnemy")
                 {
                     collider.GetComponent<Animator>().SetBool("isIdle", false);
                      collider.GetComponent<Animator>().SetBool("isWalking", true);

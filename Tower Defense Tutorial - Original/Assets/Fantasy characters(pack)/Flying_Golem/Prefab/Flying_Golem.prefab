@@ -803,6 +803,7 @@ MonoBehaviour:
   currentHealth: 0
   starterHealth: 0
   enemy: {fileID: 0}
+  randomNumber: 0
 --- !u!114 &114000010788832950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -916,7 +917,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f7fb8344c53a640a5bb12552a3b232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 4
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}
@@ -925,6 +926,7 @@ MonoBehaviour:
   currentHealth: 0
   starterHealth: 45
   enemy: {fileID: 400036}
+  randomNumber: 0
 --- !u!114 &114000013600970528
 MonoBehaviour:
   m_ObjectHideFlags: 1

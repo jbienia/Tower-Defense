@@ -8,6 +8,9 @@ public class TurretChooser : MonoBehaviour {
     public GameObject canonTurret;
     public GameObject artilleryTurret;
     public GameObject magicTurret;
+    public GameObject mortarTurret;
+    public GameObject electricTurret;
+    public GameObject freezeTurret;
 
     // Value is set in the BuildTurret script
     public Transform buildHere;
@@ -40,6 +43,24 @@ public class TurretChooser : MonoBehaviour {
     public void CreateArtilleryTurret()
     {
         Instantiate(artilleryTurret, buildHere.position, buildHere.rotation);
+        Destroy(turretMenu, 4f);
+    }
+
+    public void CreateMortarTurret()
+    {
+        Instantiate(mortarTurret, buildHere.position, buildHere.rotation);
+        Destroy(turretMenu,4f);
+    }
+
+    public void CreateElectricTurret()
+    {
+        Instantiate(electricTurret, buildHere.position, buildHere.rotation);
+        Destroy(turretMenu, 4f);
+    }
+
+    public void CreateFreezeTurret()
+    {
+        Instantiate(freezeTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 4f);
     }
 }

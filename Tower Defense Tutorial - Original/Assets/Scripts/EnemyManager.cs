@@ -41,6 +41,8 @@ public class EnemyManager : MonoBehaviour
     public int fast;
     public int tanks;
     public int flying;
+    public int secondBasicWave;
+    public int secondFastWave;
 
     /// <summary>
     /// A static singleton object
@@ -51,15 +53,17 @@ public class EnemyManager : MonoBehaviour
     /// <summary>
     /// An enum that contains the amount of enemies and their type
     /// </summary>
+     /*
     public enum LevelOne
     {
-        Basic = 15,
-        Fast = 8,
-        Tank = 4,
-        Flying = 6,
-        secondBasicWave = 10,
-        secondFlyingWave = 7
+        Basic ,
+        Fast,
+        Tank,
+        Flying,
+        secondBasicWave,
+        secondFlyingWave
     }
+    */
 
     /// <summary>
     /// Singleton instance of the turret manager
@@ -85,12 +89,12 @@ public class EnemyManager : MonoBehaviour
         if (level == 1)
         {
             // Gets the numerical value for the specified enum
-            int basic = (int)LevelOne.Basic;
-            int tank = (int)LevelOne.Tank;
-            int fast = (int)LevelOne.Fast;
-            int flying = (int)LevelOne.Flying;
-            int secondBasicWave = (int)LevelOne.secondBasicWave;
-            int secondFastWave = (int)LevelOne.secondFlyingWave;
+          //  int basic = (int)LevelOne.Basic;
+           // int tank = (int)LevelOne.Tank;
+            //int fast = (int)LevelOne.Fast;
+            //int flying = (int)LevelOne.Flying;
+            //int secondBasicWave = (int)LevelOne.secondBasicWave;
+            //int secondFastWave = (int)LevelOne.secondFlyingWave;
 
             // Creates and stores the basic enemy waves in a List. 
             int i = 0;
@@ -102,7 +106,7 @@ public class EnemyManager : MonoBehaviour
 
             // Creates and stores the Tank enemy waves in a List. 
             int j = 0;
-            while (j < tank)
+            while (j < tanks)
             {
                 secondTankWaveToSpawn.Add((GameObject)Instantiate(CreateTank().enemy, spawnPoint.position, spawnPoint.rotation));
                 j++;

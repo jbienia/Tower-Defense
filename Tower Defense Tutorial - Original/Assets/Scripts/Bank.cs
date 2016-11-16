@@ -71,31 +71,21 @@ public class Bank : MonoBehaviour {
     {
         bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 200).ToString("C0");
     }
-  
 
-    /*
-    void Start()
+    public void buyMortarTurret()
     {
-        buildManager = BuildManager.instance;
+        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 250).ToString("C0");
     }
 
-    public void SelectStandardTurret()
+    public void buyElectricityTurret()
     {
-       buildManager.SelectTurretToBuild(standardTurret);
-        
+        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 275).ToString("C0");
     }
 
-    public void SelectMissileLauncher()
+    public void buyFreezeTurret()
     {
-        buildManager.SelectTurretToBuild(missleLauncher);
+        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 300).ToString("C0");
     }
 
-    public void SelectHorseTurret()
-    {
-        buildManager.SelectTurretToBuild(horseTurret);
-    }
-
-    */
-    
     
 }
