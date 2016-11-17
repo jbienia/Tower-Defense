@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSelector: {fileID: 223000011941666850}
-  canonPrice: 100
+  canonPrice: 0
   playerBank: 500
   playerBalance: {fileID: 114000013419602114, guid: 5b90127eba5656c41a429a47933fc971,
     type: 2}

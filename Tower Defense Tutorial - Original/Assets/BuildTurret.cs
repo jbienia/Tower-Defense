@@ -11,7 +11,7 @@ public  class BuildTurret:MonoBehaviour  {
     {
         gameObject.GetComponent<Renderer>().material.color = Color.red;
        
-        Debug.Log("change to red");
+       
     }
 
     void OnMouseExit()
@@ -26,7 +26,7 @@ public  class BuildTurret:MonoBehaviour  {
 
     void OnMouseDown()
     {
-        Debug.Log("Build that  trret!!");
+        
         Vector3 addY = transform.position;
         addY.y+= 5;
 
@@ -42,5 +42,11 @@ public  class BuildTurret:MonoBehaviour  {
         // Passes a reference of the turret spawn point's, right now it's the box, transform to the Turret Chooser script
         placeToBuild.buildHere = gameObject.transform;
        
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * 10f);
     }
 }

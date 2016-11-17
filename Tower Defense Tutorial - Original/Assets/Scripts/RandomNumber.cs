@@ -13,7 +13,7 @@ public class RandomNumber : MonoBehaviour {
        
         
       value = Random.Range(0, randomValue.Length);
-        Debug.Log(value);
+        
         return randomValue[value];
 	}
 }

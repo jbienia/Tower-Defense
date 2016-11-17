@@ -13,8 +13,8 @@ public class Bank : MonoBehaviour {
 
     BuildManager buildManager;
     public Canvas turretSelector;
-    public int canonPrice = 100;
-    public int playerBank = 500;
+    private int canonPrice = 100;
+    private int playerBank = 500;
     public Text playerBalance;
     public Canvas currencyDisplay;
     private  Canvas playerMoney;
@@ -39,6 +39,8 @@ public class Bank : MonoBehaviour {
         // Instanciates the bank canvas and stores a refernce to it
         bank.playerMoney = Instantiate(currencyDisplay);
 
+        Debug.Log("Only once!");
+        bank.playerMoney.GetComponentInChildren<Text>().text = bank.playerBank.ToString("C0");
     }
 
     /// <summary>
@@ -46,7 +48,7 @@ public class Bank : MonoBehaviour {
     /// </summary>
     public void Start()
     {
-       bank.playerMoney.GetComponentInChildren<Text>().text = playerBank.ToString("C0");
+       
     }
 
     /// <summary>
@@ -54,37 +56,45 @@ public class Bank : MonoBehaviour {
     /// </summary>
     public void buyCanonTurret()
     {
-       bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 100).ToString("C0");
+       bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 100).ToString("C0");
+        bank.playerBank = bank.playerBank - 100;
+        Debug.Log("Buy that canon");
     }
 
     public void buyArrowTurret()
     {
-        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 120).ToString("C0");
+        bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 120).ToString("C0");
+        bank.playerBank = bank.playerBank - 120;
     }
 
     public void buyMagicTurret()
     {
-        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 175).ToString("C0");
+        bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 175).ToString("C0");
+        bank.playerBank = bank.playerBank - 175;
     }
 
     public void buyArtilleryTurret()
     {
-        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 200).ToString("C0");
+        bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 200).ToString("C0");
+        bank.playerBank = bank.playerBank - 200;
     }
 
     public void buyMortarTurret()
     {
-        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 250).ToString("C0");
+        bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 250).ToString("C0");
+        bank.playerBank = bank.playerBank - 250;
     }
 
     public void buyElectricityTurret()
     {
-        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 275).ToString("C0");
+        bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 275).ToString("C0");
+        bank.playerBank = bank.playerBank - 275;
     }
 
     public void buyFreezeTurret()
     {
-        bank.playerMoney.GetComponentInChildren<Text>().text = (playerBank - 300).ToString("C0");
+        bank.playerMoney.GetComponentInChildren<Text>().text = (bank.playerBank - 300).ToString("C0");
+        bank.playerBank = bank.playerBank - 300;
     }
 
     

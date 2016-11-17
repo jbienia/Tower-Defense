@@ -13,6 +13,7 @@ public class Turret : MonoBehaviour {
     [Header("Attributes")]
     public float fireCountdown;
     public float range = 15f;
+    public Vector3 inRange;
 
     // Strings that represent the different type of tanks
     public string enemyTag = "Enemy";
@@ -76,6 +77,7 @@ public class Turret : MonoBehaviour {
         {
             // Gets the distance from our turret to the enemy
             float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            
 
             // Tests for the enemy that is closest to the turret
             if(distanceToEnemy < shortestDistance)
@@ -86,7 +88,7 @@ public class Turret : MonoBehaviour {
         }
 
         // Sets the target transform if the target is in range
-        if(nearestEnemy != null && shortestDistance <= range)
+        if(nearestEnemy != null && shortestDistance <= inRange.z)
         {
             target = nearestEnemy.transform;
 
@@ -169,6 +171,9 @@ public class Turret : MonoBehaviour {
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position,range);
+       // Gizmos.DrawWireSphere(transform.position,range);
+       // Gizmos.DrawCube(transform.position, inRange);
+        Gizmos.DrawWireCube(transform.position + transform.forward * 5, inRange);
+        
     }
 }
