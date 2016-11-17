@@ -35,6 +35,8 @@ public class Turret : MonoBehaviour {
 
     float countdown;
 
+    Vector3 arrowTurretRange = new Vector3(9,2,10);
+
     // The point in the game where turret fires from
     public Transform firePoint;
 
@@ -53,7 +55,7 @@ public class Turret : MonoBehaviour {
         instance = EnemyManager.enemyManagerInstance;
 
         // Invokes a method named UpdateTarget every couple seconds
-        InvokeRepeating("UpdateTarget", 0f, 0.2f);
+        InvokeRepeating("UpdateTarget", 0f, 0.1f);
 
         countdown = fireCountdown;
 
@@ -88,12 +90,19 @@ public class Turret : MonoBehaviour {
         }
 
         // Sets the target transform if the target is in range
-        if(nearestEnemy != null && shortestDistance <= inRange.z)
+        if(nearestEnemy != null && shortestDistance <= range)
         {
+            //Rect rect = new Rect(0, 0, 10, 10);
+
+           // Debug.Log(inRange.z/2);
             target = nearestEnemy.transform;
-
-
             Vector3 dir = target.position - transform.position;
+
+          
+            
+
+
+           
 
             // Sets the rotation with the specified dir
             Quaternion lookRotation = Quaternion.LookRotation(dir);
@@ -123,6 +132,7 @@ public class Turret : MonoBehaviour {
         if(fireCountdown <= 0)
         {
             Shoot();
+            target = null;
             fireCountdown = countdown;
         }
 
@@ -171,9 +181,10 @@ public class Turret : MonoBehaviour {
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-       // Gizmos.DrawWireSphere(transform.position,range);
+        Gizmos.DrawWireSphere(transform.position + Vector3.up *3,range);
        // Gizmos.DrawCube(transform.position, inRange);
-        Gizmos.DrawWireCube(transform.position + transform.forward * 5, inRange);
+        //Gizmos.DrawWireCube(transform.position + transform.forward * 5, inRange);
+       
         
     }
 }
