@@ -58,6 +58,7 @@ public class Turret : MonoBehaviour {
         InvokeRepeating("UpdateTarget", 0f, 0.1f);
 
         countdown = fireCountdown;
+        fireCountdown = 0;
 
 	}
     
@@ -97,12 +98,6 @@ public class Turret : MonoBehaviour {
            // Debug.Log(inRange.z/2);
             target = nearestEnemy.transform;
             Vector3 dir = target.position - transform.position;
-
-          
-            
-
-
-           
 
             // Sets the rotation with the specified dir
             Quaternion lookRotation = Quaternion.LookRotation(dir);

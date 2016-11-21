@@ -1714,7 +1714,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100116}
   m_LocalRotation: {x: 0, y: 0.6308789, z: 0, w: 0.7758813}
-  m_LocalPosition: {x: 80.34105, y: 21.003479, z: 340.25586}
+  m_LocalPosition: {x: 99.146576, y: 21.003479, z: 348.5234}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_LocalEulerAnglesHint: {x: 0, y: 78.23, z: 0}
   m_Children:
@@ -2056,8 +2056,10 @@ MonoBehaviour:
   healthSlider: {fileID: 114000013865886388}
   healthSliderCanvas: {fileID: 223000012297539100}
   currentHealth: 0
-  starterHealth: 55
+  starterHealth: 35
   enemy: {fileID: 400116}
+  randomNumber: 0
+  enemyValue: 50
 --- !u!114 &114000011310823118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2189,9 +2191,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 224000012760102616}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 60
+  m_MaxValue: 35
   m_WholeNumbers: 0
-  m_Value: 60
+  m_Value: 35
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -2340,7 +2342,7 @@ RectTransform:
   m_GameObject: {fileID: 1000013243311942}
   m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
   m_LocalPosition: {x: 0, y: 0, z: -7.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.96, y: 4.21, z: 0.73}
   m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
   m_Children:
   - {fileID: 224000010133536444}

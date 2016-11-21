@@ -26,7 +26,7 @@ public class FlyingEnemy : Enemy
         // Determines whether to advance to the next way point
         if (Vector3.Distance(transform.position, wayPointPosition) <= 0.4f)
         {
-            Debug.Log("I want to move!");
+           
             GetNextWayPoint();
             
         }
@@ -34,7 +34,7 @@ public class FlyingEnemy : Enemy
         RotateCharacter();
 
         // Displays the health bar above the enemy
-        healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy(7f);
+        healthSliderCanvas.transform.position = DisplayHealthBarAboveEnemy(3f);
 
         // Rotates the health bar towards the camer
         RotateHealthBar();

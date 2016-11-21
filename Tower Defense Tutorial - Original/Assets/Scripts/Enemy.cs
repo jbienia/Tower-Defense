@@ -37,6 +37,8 @@ public class Enemy : MonoBehaviour {
     // Value used to determine which paths of waypoints to follow
     public int randomNumber;
 
+    public int enemyValue;
+
     // Direction to be rotated
     private Quaternion lookDirection;
 
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour {
         // Selects a random number used to determine which set of waypoints the enemy should follow
         randomNumber = RandomNumber.randomNumber();
 
-        Debug.Log(randomNumber);
+       
         if(randomNumber == 1)
         {
             // Sets the target to the first waypoint
@@ -198,8 +200,8 @@ public class Enemy : MonoBehaviour {
     /// <param name="turret">String value that represents the different type of turret that is doing damage</param>
     public void DecreaseHealthMeter (string turret,int decreaseValue)
     {
-        
-        
+
+       // int valueDecreasedFromBank;
 
         if(turret == "melee")
         {
@@ -211,6 +213,7 @@ public class Enemy : MonoBehaviour {
         {
             currentHealth -= decreaseValue;
             healthSlider.value = currentHealth;
+            
         }
 
         if(turret == "arrow")
@@ -231,7 +234,10 @@ public class Enemy : MonoBehaviour {
 
             Destroy(healthSliderCanvas.gameObject);
             Destroy(enemy.gameObject);
-            
+
+            Bank.bank.playerBalanceTextComponent.text = (Bank.bank.playerBank + enemyValue).ToString("C0");
+            Bank.bank.playerBank = Bank.bank.playerBank + enemyValue;
+
             return;
         }
     }

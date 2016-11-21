@@ -546,7 +546,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: 0, y: 0.5018127, z: 0, w: 0.86497635}
-  m_LocalPosition: {x: 81.94709, y: 21.003479, z: 344.76294}
+  m_LocalPosition: {x: 104.53718, y: 21.003479, z: 348.52005}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_LocalEulerAnglesHint: {x: 0, y: 60.24, z: 0}
   m_Children:
@@ -804,6 +804,7 @@ MonoBehaviour:
   starterHealth: 0
   enemy: {fileID: 0}
   randomNumber: 0
+  enemyValue: 0
 --- !u!114 &114000010788832950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -927,6 +928,7 @@ MonoBehaviour:
   starterHealth: 45
   enemy: {fileID: 400036}
   randomNumber: 0
+  enemyValue: 25
 --- !u!114 &114000013600970528
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1058,7 +1060,7 @@ RectTransform:
   m_GameObject: {fileID: 1000010627600860}
   m_LocalRotation: {x: -0.258819, y: 0, z: 0, w: 0.9659259}
   m_LocalPosition: {x: 0, y: 0, z: -5.8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.53, y: 3.9, z: 1.48}
   m_LocalEulerAnglesHint: {x: -30, y: 0, z: 0}
   m_Children:
   - {fileID: 224000012039126190}

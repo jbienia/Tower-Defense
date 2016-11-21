@@ -140,7 +140,7 @@ public class CanonBullet : MonoBehaviour
         // Loops through the colliders and checks the tags
         foreach (Collider collider in colliders)
         {
-            if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank")
+            if (collider.tag == "Enemy" || collider.tag == "FlyingEnemy" || collider.tag == "Tank" || collider.tag == "FastEnemy")
             {
                 Damage(collider.transform,collider.tag);
             }
