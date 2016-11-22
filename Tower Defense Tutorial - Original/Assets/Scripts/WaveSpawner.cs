@@ -80,7 +80,7 @@ public class WaveSpawner : MonoBehaviour {
                     SpawnEnemy(enemyManager.firstBasicWaveToSpawn,i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(0.5f);
                  }
                 
                 // Set the boolean to start the countdown
@@ -149,8 +149,7 @@ public class WaveSpawner : MonoBehaviour {
                     yield return new WaitForSeconds(0.5f);
                  }
 
-                // Set the boolean to start the countdown
-                //startCountdown = true;
+               
             }
 
             // Checks which wave should spawn
@@ -170,8 +169,27 @@ public class WaveSpawner : MonoBehaviour {
                     // Waits a few seconds before the next one
                     yield return new WaitForSeconds(0.5f);
                  }
-                // Set the boolean to start the countdown
-                //startCountdown = true;
+               
+            }
+
+            // Checks which wave should spawn
+            if (waveCounter == 6)
+            {
+                // Sets the a bool to false to stop the countdown timer
+                startCountdown = false;
+
+
+                // loops through a list of enemy game objects
+                for (int i = 0; i <= enemyManager.fourthBasicWaveToSpawn.Count - 1; i++)
+                {
+                    enemiesOnScreen++;
+                    // Sets the already instanciated game object SetActive property to True
+                    SpawnEnemy(enemyManager.fourthBasicWaveToSpawn, i);
+
+                    // Waits a few seconds before the next one
+                    yield return new WaitForSeconds(1.5f);
+                }
+
             }
 
             // Increments the the value that represents which wave we are on

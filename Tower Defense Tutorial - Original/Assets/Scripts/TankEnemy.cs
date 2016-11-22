@@ -25,7 +25,6 @@ public class TankEnemy : Enemy {
         if (Vector3.Distance(transform.position, waypointPosition) <= 0.4f)
         {
             GetNextWayPoint();
-            
         }
 
         RotateCharacter();

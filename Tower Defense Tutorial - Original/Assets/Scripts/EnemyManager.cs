@@ -38,11 +38,11 @@ public class EnemyManager : MonoBehaviour
     // Waiting to see if I can adjust the enemy volume in the inspector
     [Header("LevelOne")]
     public int basic;
-    public int fast;
     public int tanks;
+    public int fast;
     public int flying;
-    public int secondBasicWave;
     public int secondFastWave;
+    public int secondBasicWave;
 
     /// <summary>
     /// A static singleton object

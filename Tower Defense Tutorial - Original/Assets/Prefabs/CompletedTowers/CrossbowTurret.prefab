@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireCountdown: 3.5
+  fireCountdown: 4.5
   range: 7.1
   inRange: {x: 9, y: 2, z: 10}
   enemyTag: Enemy
@@ -422,7 +422,7 @@ MonoBehaviour:
   flyingEnemyTag: FlyingEnemy
   partToRotate: {fileID: 4000012954741806}
   turnSpeed: 10
-  damageToBasic: 15
+  damageToBasic: 25
   damageToTank: 5
   damageToFlying: 15
   damageToFast: 15
