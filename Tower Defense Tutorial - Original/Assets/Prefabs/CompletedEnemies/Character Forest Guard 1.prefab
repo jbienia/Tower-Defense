@@ -2139,6 +2139,8 @@ MonoBehaviour:
   currentHealth: 15
   starterHealth: 50
   enemy: {fileID: 4000010519458772}
+  randomNumber: 0
+  enemyValue: 20
 --- !u!114 &114000013689510634
 MonoBehaviour:
   m_ObjectHideFlags: 1

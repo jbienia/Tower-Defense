@@ -31,10 +31,46 @@ public class TurretButtonFader : MonoBehaviour {
     // Array of buttons
     Button[] towerButtons;
 
-    
+
     /*
      * Many of these methods are called using the on click events of the button in the inspector
      */
+
+
+    public void Update()
+    {
+        if (Bank.bank.playerBank < Bank.bank.magicPrice)
+        {
+            magicButton.interactable = false;
+        }
+
+        else
+        {
+            magicButton.interactable = true;
+        }
+
+        if(Bank.bank.playerBank < Bank.bank.canonPrice)
+        {
+            canonButton.interactable = false;
+        }
+
+        else
+        {
+            canonButton.interactable = true;
+        }
+
+        if(Bank.bank.playerBank < Bank.bank.arrowPrice)
+        {
+            arrowButton.interactable = false;
+        }
+
+        else
+        {
+            arrowButton.interactable = true;
+        }
+
+
+    }
 
     /// <summary>
     /// Causes the Canon button to non interactable and fades it from view
@@ -48,7 +84,7 @@ public class TurretButtonFader : MonoBehaviour {
         canonButton.transition = 0;
 
         // Causes a fade on the canon button
-        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -63,7 +99,7 @@ public class TurretButtonFader : MonoBehaviour {
         magicButton.transition = 0;
 
         // Causes a fade on the canon button
-        magicButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        magicButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -78,7 +114,7 @@ public class TurretButtonFader : MonoBehaviour {
         artilleryButton.transition = 0;
 
         // Causes a fade on the canon button
-        artilleryButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        artilleryButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -93,7 +129,7 @@ public class TurretButtonFader : MonoBehaviour {
         arrowButton.transition = 0;
 
         // Causes a fade on the canon button
-        arrowButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        arrowButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     public void FadeMortarIcon()
@@ -105,7 +141,7 @@ public class TurretButtonFader : MonoBehaviour {
         mortarButton.transition = 0;
 
         // Causes a fade on the canon button
-        mortarButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        mortarButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     public void FadeElectricityIcon()
@@ -117,7 +153,7 @@ public class TurretButtonFader : MonoBehaviour {
         electricityButton.transition = 0;
 
         // Causes a fade on the canon button
-        electricityButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        electricityButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     public void FadeFreezeIcon()
@@ -129,7 +165,7 @@ public class TurretButtonFader : MonoBehaviour {
         freezeButton.transition = 0;
 
         // Causes a fade on the canon button
-        freezeButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 2.0f, false);
+        freezeButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -138,7 +174,7 @@ public class TurretButtonFader : MonoBehaviour {
     public void arrowChosen()
     {
         arrowButton.interactable = false;
-        arrowButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        arrowButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -147,7 +183,7 @@ public class TurretButtonFader : MonoBehaviour {
     public void magicChosen()
     {
         magicButton.interactable = false;
-        magicButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        magicButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -156,7 +192,7 @@ public class TurretButtonFader : MonoBehaviour {
     public void artilleryChosen()
     {
         artilleryButton.interactable = false;
-        artilleryButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        artilleryButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>
@@ -165,25 +201,25 @@ public class TurretButtonFader : MonoBehaviour {
     public void canonChosen()
     {
         canonButton.interactable = false;
-        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     public void mortarChosen()
     {
         mortarButton.interactable = false;
-        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        canonButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     public void freezeChosen()
     {
         freezeButton.interactable = false;
-        freezeButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        freezeButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     public void electricityChosen()
     {
         electricityButton.interactable = false;
-        electricityButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 3.0f, false);
+        electricityButton.GetComponent<Image>().CrossFadeAlpha(0.1f, 1.0f, false);
     }
 
     /// <summary>

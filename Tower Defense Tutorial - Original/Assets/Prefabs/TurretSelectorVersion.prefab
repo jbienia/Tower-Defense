@@ -1039,10 +1039,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSelector: {fileID: 223000011941666850}
-  playerBalance: {fileID: 114000013419602114, guid: 5b90127eba5656c41a429a47933fc971,
-    type: 2}
+  playerBank: 520
+  playerBalanceTextComponent: {fileID: 0}
   currencyDisplay: {fileID: 223000012728678220, guid: 5b90127eba5656c41a429a47933fc971,
     type: 2}
+  arrowPrice: 120
+  canonPrice: 140
+  magicPrice: 175
 --- !u!114 &114000011952467634
 MonoBehaviour:
   m_ObjectHideFlags: 1

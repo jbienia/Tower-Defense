@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010450291026}
   m_LocalRotation: {x: 0, y: -0.5922242, z: 0, w: 0.8057733}
-  m_LocalPosition: {x: 84.6525, y: 20.458479, z: 345.14426}
+  m_LocalPosition: {x: 91.694145, y: 20.458479, z: 344.3516}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: -72.63, z: 0}
   m_Children:
@@ -414,18 +414,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireCountdown: 2
-  range: 12.84
+  fireCountdown: 3.5
+  range: 7.1
   inRange: {x: 9, y: 2, z: 10}
   enemyTag: Enemy
   tankEnemyTag: Tank
   flyingEnemyTag: FlyingEnemy
-  partToRotate: {fileID: 4000011089129862}
+  partToRotate: {fileID: 4000012954741806}
   turnSpeed: 10
-  damageToBasic: 10
+  damageToBasic: 15
   damageToTank: 5
   damageToFlying: 15
-  damageToFast: 10
+  damageToFast: 15
   bulletPrefab: {fileID: 1000010683741052, guid: 86d6103c447e85942939d66b00504bfc,
     type: 2}
   firePoint: {fileID: 4000013351678170}

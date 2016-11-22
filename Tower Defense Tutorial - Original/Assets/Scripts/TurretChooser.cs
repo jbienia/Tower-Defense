@@ -25,42 +25,42 @@ public class TurretChooser : MonoBehaviour {
        
         Instantiate(arrowTurret, buildHere.position,buildHere.rotation);
         
-        Destroy(turretMenu,4f);
+        Destroy(turretMenu,1f);
     }
 
     public void CreateCanonTurret()
     {
         Instantiate(canonTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu,4f);
+        Destroy(turretMenu, 1f);
     }
 
     public void CreateMagicTurret()
     {
         Instantiate(magicTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu, 4f);
+        Destroy(turretMenu, 1f);
     }
 
     public void CreateArtilleryTurret()
     {
         Instantiate(artilleryTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu, 4f);
+        Destroy(turretMenu, 1f);
     }
 
     public void CreateMortarTurret()
     {
         Instantiate(mortarTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu,4f);
+        Destroy(turretMenu, 1f);
     }
 
     public void CreateElectricTurret()
     {
         Instantiate(electricTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu, 4f);
+        Destroy(turretMenu, 1f);
     }
 
     public void CreateFreezeTurret()
     {
         Instantiate(freezeTurret, buildHere.position, buildHere.rotation);
-        Destroy(turretMenu, 4f);
+        Destroy(turretMenu, 1f);
     }
 }

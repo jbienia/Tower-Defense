@@ -93,18 +93,18 @@ public class CanonBullet : MonoBehaviour
     {
         //Debug.Log("Velocity!");
         var dir = target - transform.position; // get target direction
-        Debug.Log("Dir = " + dir);
+
         var h = dir.y;  // get height difference
-        Debug.Log("h = " + h);
+        
        // dir.y = 0;  // retain only the horizontal direction
         var dist = dir.magnitude;  // get horizontal distance
-        Debug.Log("Dist = " + dist);
+       
         dir.y = dist * 1.5f;  // set elevation to 45 degrees
         dist += h;  // correct for different heights
         
         float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude * 1.5f);
         //vel -= 2f;
-        Debug.Log("Final Vector 3 = " + vel * dir.normalized);
+        
         return vel * dir.normalized;  // returns Vector3 velocity
      }
     

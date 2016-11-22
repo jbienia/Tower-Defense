@@ -1905,7 +1905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9310fffb5c15cc74791147cc49a058bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1.8
+  speed: 1
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}
@@ -1914,6 +1914,8 @@ MonoBehaviour:
   currentHealth: 0
   starterHealth: 60
   enemy: {fileID: 400096}
+  randomNumber: 0
+  enemyValue: 20
 --- !u!136 &136000010699973812
 CapsuleCollider:
   m_ObjectHideFlags: 1

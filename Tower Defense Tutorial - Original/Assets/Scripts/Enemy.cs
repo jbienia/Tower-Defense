@@ -175,6 +175,18 @@ public class Enemy : MonoBehaviour {
 
         // Removes the Enemy from the list of enemy game objects in the game
         EnemiesInGame.allEnemiesInGame.Remove(gameObject);
+        
+        // Subtracts one from a value that represents the number of enemies on the screen
+        WaveSpawner.enemiesOnScreen--;
+        Debug.Log(WaveSpawner.enemiesOnScreen);
+
+        // Sets a boolean that lets the WaveSpawner script start the countdown to the next wave
+        if(WaveSpawner.enemiesOnScreen == 0)
+        {
+            Debug.Log("Enemies are Gone!");
+            WaveSpawner.startCountdown = true;
+        }
+        
     }
 
 
@@ -234,6 +246,15 @@ public class Enemy : MonoBehaviour {
 
             Destroy(healthSliderCanvas.gameObject);
             Destroy(enemy.gameObject);
+
+            WaveSpawner.enemiesOnScreen--;
+            Debug.Log(WaveSpawner.enemiesOnScreen);
+
+            if (WaveSpawner.enemiesOnScreen == 0)
+            {
+                Debug.Log("Enemies are Gone!");
+                WaveSpawner.startCountdown = true;
+            }
 
             Bank.bank.playerBalanceTextComponent.text = (Bank.bank.playerBank + enemyValue).ToString("C0");
             Bank.bank.playerBank = Bank.bank.playerBank + enemyValue;

@@ -15,8 +15,8 @@ public class WaveSpawner : MonoBehaviour {
     private float countDown = 2f;
 
     private int waveIndex = 5;
-    private bool startCountdown = true;
-
+    public static bool startCountdown = true;
+    public static int enemiesOnScreen;
     // text displayed to the user for a countdown
     public Text waveCountdownText;
     private EnemyManager enemyManager;
@@ -74,6 +74,8 @@ public class WaveSpawner : MonoBehaviour {
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.firstBasicWaveToSpawn.Count-1; i++)
                 {
+                    enemiesOnScreen++;
+                    Debug.Log(enemiesOnScreen);
                     // Sets the already instanciated game object SetActive property to True 
                     SpawnEnemy(enemyManager.firstBasicWaveToSpawn,i);
 
@@ -82,7 +84,7 @@ public class WaveSpawner : MonoBehaviour {
                  }
                 
                 // Set the boolean to start the countdown
-                startCountdown = true;
+                //startCountdown = true;
             }
 
             // Checks which wave should spawn
@@ -91,9 +93,11 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
+                
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.secondTankWaveToSpawn.Count-1; i++)
                 {
+                    enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.secondTankWaveToSpawn, i);
 
@@ -102,7 +106,7 @@ public class WaveSpawner : MonoBehaviour {
                  }
 
                 // Set the boolean to start the countdown
-                startCountdown = true;
+                //startCountdown = true;
             }
 
             // Checks which wave should spawn
@@ -111,9 +115,11 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets a value to stop the countdown timer
                 startCountdown = false;
 
+               
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.thirdFastWaveToSpawn.Count-1; i++)
                 {
+                    enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.thirdFastWaveToSpawn, i);
 
@@ -122,7 +128,7 @@ public class WaveSpawner : MonoBehaviour {
                  }
 
                 // Set the boolean to start the countdown
-                startCountdown = true;
+                //startCountdown = true;
             }
 
             // Checks which wave should spawn
@@ -131,9 +137,11 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
+                
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.flyingWaveToSpawn.Count-1; i++)
                 {
+                    enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.flyingWaveToSpawn, i);
 
@@ -142,7 +150,7 @@ public class WaveSpawner : MonoBehaviour {
                  }
 
                 // Set the boolean to start the countdown
-                startCountdown = true;
+                //startCountdown = true;
             }
 
             // Checks which wave should spawn
@@ -151,9 +159,11 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
+                
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.fifthFastWaveToSpawn.Count-1; i++)
                 {
+                    enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
                     SpawnEnemy(enemyManager.fifthFastWaveToSpawn, i);
 
@@ -161,7 +171,7 @@ public class WaveSpawner : MonoBehaviour {
                     yield return new WaitForSeconds(0.5f);
                  }
                 // Set the boolean to start the countdown
-                startCountdown = true;
+                //startCountdown = true;
             }
 
             // Increments the the value that represents which wave we are on

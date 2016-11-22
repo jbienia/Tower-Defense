@@ -13,11 +13,14 @@ public class Bank : MonoBehaviour {
 
     BuildManager buildManager;
     public Canvas turretSelector;
-    private int canonPrice = 100;
+   
     public int playerBank = 520;
     public Text playerBalanceTextComponent;
     public Canvas currencyDisplay;
     private  Canvas playerMoney;
+    public int arrowPrice;
+     public int canonPrice;
+    public int magicPrice;
 
     // Static object used to represent our one bank
     public static Bank bank;
@@ -39,7 +42,6 @@ public class Bank : MonoBehaviour {
         // Instanciates the bank canvas and stores a refernce to it
         bank.playerMoney = Instantiate(currencyDisplay);
 
-        Debug.Log("Only once!");
         bank.playerBalanceTextComponent = bank.playerMoney.GetComponentInChildren<Text>();
         bank.playerBalanceTextComponent.text = bank.playerBank.ToString("C0");
     }
@@ -47,9 +49,12 @@ public class Bank : MonoBehaviour {
     /// <summary>
     /// Displays the starting balance of the bank
     /// </summary>
-    public void Start()
+    public void Update()
     {
-       
+       //if(bank.playerBank < 175)
+        //{
+
+//        }
     }
 
     /// <summary>
@@ -57,21 +62,21 @@ public class Bank : MonoBehaviour {
     /// </summary>
     public void buyCanonTurret()
     {
-       bank.playerBalanceTextComponent.text = (bank.playerBank - 140).ToString("C0");
-        bank.playerBank = bank.playerBank - 140;
-        Debug.Log("Buy that canon");
+       bank.playerBalanceTextComponent.text = (bank.playerBank - canonPrice).ToString("C0");
+        bank.playerBank = bank.playerBank - canonPrice;
+       
     }
 
     public void buyArrowTurret()
     {
-        bank.playerBalanceTextComponent.text = (bank.playerBank - 120).ToString("C0");
-        bank.playerBank = bank.playerBank - 120;
+        bank.playerBalanceTextComponent.text = (bank.playerBank - arrowPrice).ToString("C0");
+        bank.playerBank = bank.playerBank - arrowPrice;
     }
 
     public void buyMagicTurret()
     {
-        bank.playerBalanceTextComponent.text = (bank.playerBank - 175).ToString("C0");
-        bank.playerBank = bank.playerBank - 175;
+        bank.playerBalanceTextComponent.text = (bank.playerBank - magicPrice).ToString("C0");
+        bank.playerBank = bank.playerBank - magicPrice;
     }
 
     public void buyArtilleryTurret()
