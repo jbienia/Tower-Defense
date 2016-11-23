@@ -1915,7 +1915,7 @@ MonoBehaviour:
   starterHealth: 60
   enemy: {fileID: 400096}
   randomNumber: 0
-  enemyValue: 20
+  enemyValue: 35
 --- !u!136 &136000010699973812
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -97,6 +97,7 @@ public class Turret : MonoBehaviour {
 
            // Debug.Log(inRange.z/2);
             target = nearestEnemy.transform;
+
             Vector3 dir = target.position - transform.position;
 
             // Sets the rotation with the specified dir
@@ -121,6 +122,11 @@ public class Turret : MonoBehaviour {
     {
         if(target == null)
         {
+            if(fireCountdown > 0)
+            {
+                fireCountdown -= Time.deltaTime;
+            }
+            
             return;
         }
 
@@ -131,6 +137,7 @@ public class Turret : MonoBehaviour {
             fireCountdown = countdown;
         }
 
+        
         fireCountdown -= Time.deltaTime;
      }
 

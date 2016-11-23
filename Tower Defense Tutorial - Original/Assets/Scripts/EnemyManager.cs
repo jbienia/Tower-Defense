@@ -25,12 +25,13 @@ public class EnemyManager : MonoBehaviour
     public Transform spawnPoint;
 
     //Level one Lists of Waves
-    public List<GameObject> firstBasicWaveToSpawn = new List<GameObject>();
-    public List<GameObject> secondTankWaveToSpawn = new List<GameObject>();
-    public List<GameObject> thirdFastWaveToSpawn = new List<GameObject>();
-    public List<GameObject> fourthBasicWaveToSpawn = new List<GameObject>();
-    public List<GameObject> fifthFastWaveToSpawn = new List<GameObject>();
+    public List<GameObject> BasicWaveToSpawn = new List<GameObject>();
+    public List<GameObject> TankWaveToSpawn = new List<GameObject>();
+    public List<GameObject> FastWaveToSpawn = new List<GameObject>();
+    public List<GameObject> NextBasicWaveToSpawn = new List<GameObject>();
+    public List<GameObject> NextFastWaveToSpawn = new List<GameObject>();
     public List<GameObject> flyingWaveToSpawn = new List<GameObject>();
+    public List<GameObject> thirdFastWaveToSpawn = new List<GameObject>();
 
     // Value that represents the level
     private int level = 1;
@@ -38,10 +39,11 @@ public class EnemyManager : MonoBehaviour
     // Waiting to see if I can adjust the enemy volume in the inspector
     [Header("LevelOne")]
     public int basic;
-    public int tanks;
     public int fast;
-    public int flying;
+    public int tanks;
     public int secondFastWave;
+    public int flying;
+    public int thirdFastWave;
     public int secondBasicWave;
 
     /// <summary>
@@ -100,7 +102,7 @@ public class EnemyManager : MonoBehaviour
             int i = 0;
             while (i < basic)
             {
-                firstBasicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                BasicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 i++;
             }
 
@@ -108,7 +110,7 @@ public class EnemyManager : MonoBehaviour
             int j = 0;
             while (j < tanks)
             {
-                secondTankWaveToSpawn.Add((GameObject)Instantiate(CreateTank().enemy, spawnPoint.position, spawnPoint.rotation));
+                TankWaveToSpawn.Add((GameObject)Instantiate(CreateTank().enemy, spawnPoint.position, spawnPoint.rotation));
                 j++;
             }
 
@@ -124,7 +126,7 @@ public class EnemyManager : MonoBehaviour
             int z = 0;
             while (z < fast)
             {
-                thirdFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                FastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 z++;
             }
 
@@ -132,7 +134,7 @@ public class EnemyManager : MonoBehaviour
             int b = 0;
             while (b < secondBasicWave)
             {
-                fourthBasicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                NextBasicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 b++;
             }
 
@@ -140,8 +142,14 @@ public class EnemyManager : MonoBehaviour
             int c = 0;
             while (c < secondFastWave)
             {
-                fifthFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                NextFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
                 c++;
+            }
+
+            int p = 0;
+            while(p < thirdFastWave)
+            {
+                thirdFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
             }
         }
 

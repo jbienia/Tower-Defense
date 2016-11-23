@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: -0.053396508, y: 0.9121737, z: 0.38624662, w: 0.12610146}
-  m_LocalPosition: {x: 79.55571, y: -34.91031, z: 352.03134}
+  m_LocalRotation: {x: -0.018336698, y: 0.9133525, z: 0.4046458, w: 0.041385993}
+  m_LocalPosition: {x: 80.86061, y: -33.948647, z: 358.38318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4562,8 +4562,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804354057}
-  m_LocalRotation: {x: -0.0935562, y: 0.9063192, z: 0.28338322, w: 0.2992101}
-  m_LocalPosition: {x: 79.59331, y: -27.24178, z: 352.16937}
+  m_LocalRotation: {x: -0.04034, y: 0.850471, z: 0.5203117, w: 0.0659359}
+  m_LocalPosition: {x: 72.24498, y: -57.336506, z: 375.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5026,17 +5026,19 @@ MonoBehaviour:
   tank: {fileID: 100096, guid: b997f7573e63d5041abc10c77e811e74, type: 2}
   fastEnemy: {fileID: 100116, guid: 7f3e625a8376d6042851557bb0945595, type: 2}
   spawnPoint: {fileID: 4000010356852592, guid: 1678cb719f08fd3499b1ba14cf047bf0, type: 2}
-  firstBasicWaveToSpawn: []
-  secondTankWaveToSpawn: []
-  thirdFastWaveToSpawn: []
-  fourthBasicWaveToSpawn: []
-  fifthFastWaveToSpawn: []
+  BasicWaveToSpawn: []
+  TankWaveToSpawn: []
+  FastWaveToSpawn: []
+  NextBasicWaveToSpawn: []
+  NextFastWaveToSpawn: []
   flyingWaveToSpawn: []
+  thirdFastWaveToSpawn: []
   basic: 10
-  tanks: 6
   fast: 8
-  flying: 1
+  tanks: 6
   secondFastWave: 15
+  flying: 1
+  thirdFastWave: 20
   secondBasicWave: 25
 --- !u!114 &2047094500
 MonoBehaviour:
@@ -5103,7 +5105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSelector: {fileID: 0}
-  playerBank: 520
+  playerBank: 500
   playerBalanceTextComponent: {fileID: 0}
   currencyDisplay: {fileID: 223000012728678220, guid: 5b90127eba5656c41a429a47933fc971,
     type: 2}

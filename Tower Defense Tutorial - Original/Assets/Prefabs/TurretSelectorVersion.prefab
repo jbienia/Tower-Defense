@@ -782,7 +782,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Canon - $140
+  m_Text: Canon - $120
 --- !u!114 &114000010922661350
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1026,7 +1026,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Arrows  - $120
+  m_Text: Arrows  - $100
 --- !u!114 &114000011627585382
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1043,9 +1043,9 @@ MonoBehaviour:
   playerBalanceTextComponent: {fileID: 0}
   currencyDisplay: {fileID: 223000012728678220, guid: 5b90127eba5656c41a429a47933fc971,
     type: 2}
-  arrowPrice: 120
-  canonPrice: 140
-  magicPrice: 175
+  arrowPrice: 100
+  canonPrice: 120
+  magicPrice: 150
 --- !u!114 &114000011952467634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1499,7 +1499,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Magic - $175
+  m_Text: Magic - $150
 --- !u!114 &114000012694473316
 MonoBehaviour:
   m_ObjectHideFlags: 1
