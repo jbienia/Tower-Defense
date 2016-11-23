@@ -72,12 +72,12 @@ public class WaveSpawner : MonoBehaviour {
             if (waveCounter == 1)
             {
                 // loops through a list of enemy game objects
-                for (int i = 0; i <= enemyManager.BasicWaveToSpawn.Count-1; i++)
+                for (int i = 0; i <= enemyManager.basicWaveToSpawn.Count-1; i++)
                 {
                     enemiesOnScreen++;
                     Debug.Log(enemiesOnScreen);
                     // Sets the already instanciated game object SetActive property to True 
-                    SpawnEnemy(enemyManager.BasicWaveToSpawn,i);
+                    SpawnEnemy(enemyManager.basicWaveToSpawn,i);
 
                     // Waits a few seconds before the next one
                     yield return new WaitForSeconds(0.5f);
@@ -95,14 +95,15 @@ public class WaveSpawner : MonoBehaviour {
 
                 
                 // loops through a list of enemy game objects
-                for (int i = 0; i <= enemyManager.FastWaveToSpawn.Count-1; i++)
+                for (int i = 0; i <= enemyManager.fastWaveToSpawn.Count-1; i++)
                 {
                     enemiesOnScreen++;
+
                     // Sets the already instanciated game object SetActive property to True
-                    SpawnEnemy(enemyManager.FastWaveToSpawn, i);
+                    SpawnEnemy(enemyManager.fastWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(2.0f);
+                    yield return new WaitForSeconds(0.8f);
                  }
 
                 // Set the boolean to start the countdown
@@ -117,14 +118,14 @@ public class WaveSpawner : MonoBehaviour {
 
                
                 // loops through a list of enemy game objects
-                for (int i = 0; i <= enemyManager.TankWaveToSpawn.Count-1; i++)
+                for (int i = 0; i <= enemyManager.tankWaveToSpawn.Count-1; i++)
                 {
                     enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
-                    SpawnEnemy(enemyManager.TankWaveToSpawn, i);
+                    SpawnEnemy(enemyManager.tankWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1.5f);
                  }
 
                 // Set the boolean to start the countdown
@@ -139,14 +140,14 @@ public class WaveSpawner : MonoBehaviour {
 
                 
                 // loops through a list of enemy game objects
-                for (int i = 0; i <= enemyManager.FastWaveToSpawn.Count-1; i++)
+                for (int i = 0; i <= enemyManager.nextFastWaveToSpawn.Count-1; i++)
                 {
                     enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
-                    SpawnEnemy(enemyManager.FastWaveToSpawn, i);
+                    SpawnEnemy(enemyManager.nextFastWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.8f);
                  }
 
                
@@ -180,14 +181,14 @@ public class WaveSpawner : MonoBehaviour {
 
 
                 // loops through a list of enemy game objects
-                for (int i = 0; i <= enemyManager.NextFastWaveToSpawn.Count - 1; i++)
+                for (int i = 0; i <= enemyManager.thirdFastWaveToSpawn.Count - 1; i++)
                 {
                     enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
-                    SpawnEnemy(enemyManager.NextFastWaveToSpawn, i);
+                    SpawnEnemy(enemyManager.thirdFastWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(0.8f);
                 }
 
             }
@@ -200,11 +201,11 @@ public class WaveSpawner : MonoBehaviour {
 
 
                 // loops through a list of enemy game objects
-                for (int i = 0; i <= enemyManager.NextBasicWaveToSpawn.Count - 1; i++)
+                for (int i = 0; i <= enemyManager.nextBasicWaveToSpawn.Count - 1; i++)
                 {
                     enemiesOnScreen++;
                     // Sets the already instanciated game object SetActive property to True
-                    SpawnEnemy(enemyManager.NextBasicWaveToSpawn, i);
+                    SpawnEnemy(enemyManager.nextBasicWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
                     yield return new WaitForSeconds(1.5f);

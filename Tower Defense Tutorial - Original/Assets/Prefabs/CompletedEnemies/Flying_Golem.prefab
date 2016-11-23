@@ -918,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44f7fb8344c53a640a5bb12552a3b232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2.5
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}

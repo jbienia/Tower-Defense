@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: -0.018336698, y: 0.9133525, z: 0.4046458, w: 0.041385993}
-  m_LocalPosition: {x: 80.86061, y: -33.948647, z: 358.38318}
+  m_LocalRotation: {x: -0.01269269, y: 0.9472015, z: 0.31815156, w: 0.03778656}
+  m_LocalPosition: {x: 78.9999, y: -35.521587, z: 356.7196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4562,8 +4562,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804354057}
-  m_LocalRotation: {x: -0.04034, y: 0.850471, z: 0.5203117, w: 0.0659359}
-  m_LocalPosition: {x: 72.24498, y: -57.336506, z: 375.01}
+  m_LocalRotation: {x: -0.044194233, y: 0.9154653, z: 0.38598362, w: 0.104818374}
+  m_LocalPosition: {x: 81.97208, y: -36.71183, z: 357.50345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5026,18 +5026,18 @@ MonoBehaviour:
   tank: {fileID: 100096, guid: b997f7573e63d5041abc10c77e811e74, type: 2}
   fastEnemy: {fileID: 100116, guid: 7f3e625a8376d6042851557bb0945595, type: 2}
   spawnPoint: {fileID: 4000010356852592, guid: 1678cb719f08fd3499b1ba14cf047bf0, type: 2}
-  BasicWaveToSpawn: []
-  TankWaveToSpawn: []
-  FastWaveToSpawn: []
-  NextBasicWaveToSpawn: []
-  NextFastWaveToSpawn: []
+  basicWaveToSpawn: []
+  tankWaveToSpawn: []
+  fastWaveToSpawn: []
+  nextBasicWaveToSpawn: []
+  nextFastWaveToSpawn: []
   flyingWaveToSpawn: []
   thirdFastWaveToSpawn: []
   basic: 10
   fast: 8
   tanks: 6
   secondFastWave: 15
-  flying: 1
+  flying: 10
   thirdFastWave: 20
   secondBasicWave: 25
 --- !u!114 &2047094500
