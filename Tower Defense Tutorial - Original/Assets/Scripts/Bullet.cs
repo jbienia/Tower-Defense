@@ -93,9 +93,10 @@ public class Bullet : MonoBehaviour
         {
            Damage(target,damageValue);
         }
-         
-       
-        // Destroys the Bullet Object      
+
+
+        // Destroys the Bullet Object 
+        Debug.Log("It should be destroyed!");     
         Destroy(gameObject);
     }
 

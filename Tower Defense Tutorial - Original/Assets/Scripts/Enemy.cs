@@ -45,6 +45,8 @@ public class Enemy : MonoBehaviour {
 
     private GameObject sliderCanvas;
 
+    public Vector3 futureTransform;
+
     /// <summary>
     /// On start a reference to the first waypoint is stored, and the enemy is rotated towards it. 
     /// Health Bars are placed above the enemies heads and their parent is set to null
@@ -97,7 +99,7 @@ public class Enemy : MonoBehaviour {
         
         // Moves the enemy toward the waypoint 
         transform.Translate(dir.normalized * speed * Time.deltaTime,Space.World);
-
+        
         // Checks the distance between the enemy and the way point
         // Determines whether to advance to the next way point
         if(Vector3.Distance(transform.position, wayPoint.position) <= 0.4f)
@@ -111,8 +113,27 @@ public class Enemy : MonoBehaviour {
         sliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
 
         // Rotates the enemy towards the waypoint
+
         RotateHealthBar();
     }
+
+    
+    public Vector3 GetFuturePosition (float seconds,Transform transform)
+    {
+        float currentTime = Time.deltaTime;
+        float endTime = currentTime + seconds;
+        
+        //invisibleEnemy.transform = transform;
+
+        while (currentTime < endTime)
+        {
+         futureTransform  = Vector3.MoveTowards(transform.position,wayPoint.position,2);
+            currentTime += Time.deltaTime;
+        }
+
+        return futureTransform;
+    }
+    
 
     /// <summary>
     /// Stores a reference to the next waypoint the enemy should move towards
@@ -248,7 +269,7 @@ public class Enemy : MonoBehaviour {
             Destroy(enemy.gameObject);
 
             WaveSpawner.enemiesOnScreen--;
-            Debug.Log(WaveSpawner.enemiesOnScreen);
+           
 
             if (WaveSpawner.enemiesOnScreen == 0)
             {
@@ -297,5 +318,11 @@ public class Enemy : MonoBehaviour {
 
         // Sets the rotation of the health slider canvas using the Euler method 
         healthSliderCanvas.transform.rotation = Quaternion.Euler(rotation);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(transform.position, transform.forward * 10f);
     }
 }

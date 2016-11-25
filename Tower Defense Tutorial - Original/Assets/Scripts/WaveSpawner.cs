@@ -75,7 +75,7 @@ public class WaveSpawner : MonoBehaviour {
                 for (int i = 0; i <= enemyManager.basicWaveToSpawn.Count-1; i++)
                 {
                     enemiesOnScreen++;
-                    Debug.Log(enemiesOnScreen);
+                    
                     // Sets the already instanciated game object SetActive property to True 
                     SpawnEnemy(enemyManager.basicWaveToSpawn,i);
 
@@ -83,8 +83,7 @@ public class WaveSpawner : MonoBehaviour {
                     yield return new WaitForSeconds(0.5f);
                  }
                 
-                // Set the boolean to start the countdown
-                //startCountdown = true;
+                
             }
 
             // Checks which wave should spawn
@@ -106,8 +105,7 @@ public class WaveSpawner : MonoBehaviour {
                     yield return new WaitForSeconds(0.8f);
                  }
 
-                // Set the boolean to start the countdown
-                //startCountdown = true;
+             
             }
 
             // Checks which wave should spawn
@@ -226,10 +224,16 @@ public class WaveSpawner : MonoBehaviour {
     /// <param name="i">parameter that is which place in the array holds the object we want to spawn</param>
     void SpawnEnemy(List<GameObject> spawn ,int i)
     {
-        // Sets the Game object to true
-        spawn[i].SetActive(true);
+        if(spawn[i] != null) 
+        {
+            // Adds all enemies
+            EnemiesInGame.allEnemiesInGame.Add(spawn[i]);
 
-        // Adds all enemies
-        EnemiesInGame.allEnemiesInGame.Add(spawn[i]);
+            // Sets the Game object to true
+            spawn[i].SetActive(true);
+        }
+        
+
+        
     }
 }

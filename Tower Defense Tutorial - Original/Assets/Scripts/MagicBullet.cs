@@ -6,7 +6,7 @@ public class MagicBullet : Bullet {
     // Used to make sure that the enemy only gets hit once per magic bullet
     private bool isFirstShot = true;
 
-    // 
+     
     private bool stopFollowingEnemy = true;
     private Transform[] magicBulletChildren;
     public GameObject fireObject;
@@ -15,6 +15,7 @@ public class MagicBullet : Bullet {
     {
         if (target == null)
         {
+            Destroy(gameObject, 1f);
             return;
         }
 
@@ -27,8 +28,9 @@ public class MagicBullet : Bullet {
         // Checks if the bullet has hit the enemy
         if (isFirstShot)
         {
-            if (dir.magnitude < 1f)
+            if (dir.magnitude < 0.5f)
             {
+                Debug.Log(dir.magnitude);
                 Destroy(gameObject, 1f);
                 HitTarget();
                 stopFollowingEnemy = false;
@@ -55,6 +57,7 @@ public class MagicBullet : Bullet {
         }
         else
         {
+            Debug.Log("Take Magic Damage!");
             Damage(target,damageValue);
         }
 

@@ -428,7 +428,7 @@ MonoBehaviour:
   flyingEnemyTag: FlyingEnemy
   partToRotate: {fileID: 4000013920564038}
   turnSpeed: 10
-  damageToBasic: 35
+  damageToBasic: 25
   damageToTank: 15
   damageToFlying: 0
   damageToFast: 20

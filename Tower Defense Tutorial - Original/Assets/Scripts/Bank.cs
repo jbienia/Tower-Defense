@@ -6,15 +6,12 @@ using UnityEngine.UI;
 /// </summary>
 public class Bank : MonoBehaviour {
 
-    // References to the TurretBlueprint class has a Game Object and Cost 
-    // public TurretBlueprint standardTurret;
-    //public TurretBlueprint missleLauncher;
-    //public TurretBlueprint horseTurret;
+    
 
     BuildManager buildManager;
     public Canvas turretSelector;
    
-    public int playerBank = 520;
+    public int playerBank;
     public Text playerBalanceTextComponent;
     public Canvas currencyDisplay;
     private  Canvas playerMoney;
@@ -44,6 +41,14 @@ public class Bank : MonoBehaviour {
 
         bank.playerBalanceTextComponent = bank.playerMoney.GetComponentInChildren<Text>();
         bank.playerBalanceTextComponent.text = bank.playerBank.ToString("C0");
+
+        // Sets the values of the bank singleton object
+       // bank.magicPrice = this.magicPrice;
+        //bank.canonPrice = this.canonPrice;
+        //bank.arrowPrice = this.arrowPrice;
+        Debug.Log(bank.playerBank);
+        //Debug.Log(bank.);
+            
     }
 
     /// <summary>

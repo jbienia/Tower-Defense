@@ -9,6 +9,8 @@ public class CanonBullet : MonoBehaviour
     // The target the canon ball is heading towards
     private Transform target;
 
+    private Transform futureTarget;
+
     // Variable used to regulate speed
     public float speed = 70f;
 
@@ -32,6 +34,8 @@ public class CanonBullet : MonoBehaviour
 
     public int canonDamage;
 
+    Vector3 futurePosition;
+
     /// <summary>
     /// Gets a reference to the Rigid Body of the Canon Ball
     /// Gets a reference to the target
@@ -40,12 +44,13 @@ public class CanonBullet : MonoBehaviour
     {
         canonballRigid = GetComponent<Rigidbody>();
         stableTarget = target.transform.position;
-
+        
         // Sets the Velocity of all canonballs shots at the start. 
         // Might be better to have this in a fixed update at some point
         if (stableTarget != null)
         {
-            canonballRigid.AddForce(BallisticVel(stableTarget), ForceMode.VelocityChange);
+            canonballRigid.AddForce(
+                BallisticVel(stableTarget), ForceMode.VelocityChange);
         }
      }
 
@@ -54,6 +59,7 @@ public class CanonBullet : MonoBehaviour
     {
         target = _target;
         canonDamage = _damage;
+        futureTarget = target.transform;
     }
 
     // Update is called once per frame
@@ -81,6 +87,7 @@ public class CanonBullet : MonoBehaviour
         {
             HitTarget();
             Destroy(gameObject);
+           
         }
      }
 
@@ -91,20 +98,41 @@ public class CanonBullet : MonoBehaviour
     /// <returns></returns>
     Vector3 BallisticVel(Vector3 target)
     {
-        //Debug.Log("Velocity!");
-        var dir = target - transform.position; // get target direction
+        futurePosition = futureTarget.GetComponent<Enemy>().GetFuturePosition(.2f,futureTarget);
+        Debug.Log(futurePosition);
+        Debug.Log(target);
 
-        var h = dir.y;  // get height difference
-        
-       // dir.y = 0;  // retain only the horizontal direction
-        var dist = dir.magnitude;  // get horizontal distance
+        //for (int i = 0; i < 10; i++)
+        //{
+           
+
+          //futurePosition = futureTarget.transform.Translate(futureTarget.gameObject.GetComponent<Enemy>().dir * futureTarget.gameObject.GetComponent<Enemy>().speed * Time.deltaTime); 
+
+        //}
        
-        dir.y = dist * 1.5f;  // set elevation to 45 degrees
-        dist += h;  // correct for different heights
+        // Chaged 'target' to futurePosition
+        var dir = (futurePosition) - transform.position; // get target direction
+       
+
+        var heightDifference = dir.y ;  // get height difference
+       
+
+        //var dist = dir.magnitude;  // get horizontal distance
+
+        
+
+        var dist = 3.0f;
+        
+        dir.y = dist * 2.5f;  // set elevation to 45 degrees
+
+        //dist += heightDifference;  // correct for different heights
         
         float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude * 1.5f);
         //vel -= 2f;
-        
+
+              
+       // var t = dir.magnitude / 2.5f;
+       // var futurePos = transform + vel * t;
         return vel * dir.normalized;  // returns Vector3 velocity
      }
     
