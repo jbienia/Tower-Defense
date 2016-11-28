@@ -422,10 +422,10 @@ MonoBehaviour:
   flyingEnemyTag: FlyingEnemy
   partToRotate: {fileID: 4000012954741806}
   turnSpeed: 10
-  damageToBasic: 10
-  damageToTank: 5
-  damageToFlying: 15
-  damageToFast: 10
+  damageToBasic: 5
+  damageToTank: 2
+  damageToFlying: 5
+  damageToFast: 5
   bulletPrefab: {fileID: 1000010683741052, guid: 86d6103c447e85942939d66b00504bfc,
     type: 2}
   firePoint: {fileID: 4000013351678170}

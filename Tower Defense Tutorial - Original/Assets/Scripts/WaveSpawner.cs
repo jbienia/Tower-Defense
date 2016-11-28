@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour {
     public float timeBetweenWaves = 5.5f;
 
     // The value used to count down till the next wave
-    private float countDown = 2f;
+    private float countDown = 10f;
 
     private int waveIndex = 5;
     public static bool startCountdown = true;
@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour {
     public Text waveCountdownText;
     private EnemyManager enemyManager;
     private int level = 1;
-    private int waveCounter = 1;
+    public static int waveCounter = 1;
    
     // A list of GameObject type
     public List<GameObject> basicSpawnEnemies = new List<GameObject>();

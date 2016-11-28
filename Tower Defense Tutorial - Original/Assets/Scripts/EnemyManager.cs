@@ -46,6 +46,8 @@ public class EnemyManager : MonoBehaviour
     public int thirdFastWave;
     public int secondBasicWave;
 
+    private GameObject badGuy;
+
     /// <summary>
     /// A static singleton object
     /// Only one object of this class can exist in the game
@@ -95,11 +97,16 @@ public class EnemyManager : MonoBehaviour
             // Creates and stores the basic enemy waves in a List. 
             int i = 0;
             while (i < basic)
-            {
-                basicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+            { 
+                  badGuy = CreateEnemy().enemy;
+                //badGuy.GetComponent<Enemy>().enemyValue = 2;
+                basicWaveToSpawn.Add((GameObject)Instantiate(badGuy, spawnPoint.position, spawnPoint.rotation));
+               // badGuy.GetComponent<Enemy>().enemyValue = 
                 i++;
+               
             }
 
+            
             // Creates and stores the Tank enemy waves in a List. 
             int j = 0;
             while (j < tanks)
@@ -128,7 +135,10 @@ public class EnemyManager : MonoBehaviour
             int b = 0;
             while (b < secondBasicWave)
             {
-                nextBasicWaveToSpawn.Add((GameObject)Instantiate(CreateEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                badGuy = CreateEnemy().enemy;
+                badGuy = Instantiate((GameObject)Instantiate(badGuy, spawnPoint.position, spawnPoint.rotation));
+                nextBasicWaveToSpawn.Add(badGuy);
+                badGuy.GetComponent<Enemy>().enemyValue = 17;
                 b++;
             }
 
@@ -136,14 +146,20 @@ public class EnemyManager : MonoBehaviour
             int c = 0;
             while (c < secondFastWave)
             {
-                nextFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                badGuy = CreateFastEnemy().enemy;
+                badGuy = Instantiate((GameObject)Instantiate(badGuy, spawnPoint.position, spawnPoint.rotation));
+                nextFastWaveToSpawn.Add(badGuy);
+                badGuy.GetComponent<Enemy>().enemyValue = 15;
                 c++;
             }
 
             int p = 0;
             while(p < thirdFastWave)
             {
-                thirdFastWaveToSpawn.Add((GameObject)Instantiate(CreateFastEnemy().enemy, spawnPoint.position, spawnPoint.rotation));
+                badGuy = CreateFastEnemy().enemy;
+                badGuy = Instantiate((GameObject)Instantiate(badGuy, spawnPoint.position, spawnPoint.rotation));
+                thirdFastWaveToSpawn.Add(badGuy);
+                badGuy.GetComponent<Enemy>().enemyValue = 15;
                 p++;
             }
         }

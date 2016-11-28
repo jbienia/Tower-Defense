@@ -22,7 +22,7 @@ GameObject:
   - 114: {fileID: 114000010300060848}
   m_Layer: 0
   m_Name: Canon
-  m_TagString: Untagged
+  m_TagString: Canon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireCountdown: 5
+  fireCountdown: 7
   range: 6.24
   inRange: {x: 0, y: 0, z: 0}
   enemyTag: Enemy

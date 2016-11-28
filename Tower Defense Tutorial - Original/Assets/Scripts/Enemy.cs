@@ -277,9 +277,11 @@ public class Enemy : MonoBehaviour {
                 WaveSpawner.startCountdown = true;
             }
 
-            Bank.bank.playerBalanceTextComponent.text = (Bank.bank.playerBank + enemyValue).ToString("C0");
-            Bank.bank.playerBank = Bank.bank.playerBank + enemyValue;
-
+           
+                Bank.bank.playerBalanceTextComponent.text = (Bank.bank.playerBank + enemyValue).ToString("C0");
+                Bank.bank.playerBank = Bank.bank.playerBank + enemyValue;
+            
+            
             return;
         }
     }

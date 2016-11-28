@@ -41,8 +41,7 @@ public class TurretButtonFader : MonoBehaviour {
 
     public void Update()
     {
-      //  Debug.Log(Bank.bank.magicPrice);
-      // Debug.Log(Bank.bank.playerBank);
+      
         if (Bank.bank.playerBank < Bank.bank.magicPrice)
         {
             Debug.Log("it's less!!!");

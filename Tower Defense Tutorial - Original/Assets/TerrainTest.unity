@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: 0.036242526, y: 0.93834513, z: 0.32776356, w: -0.10375903}
-  m_LocalPosition: {x: 101.183136, y: -30.797104, z: 344.59683}
+  m_LocalRotation: {x: -0.010889871, y: 0.8846423, z: 0.465684, w: 0.020683527}
+  m_LocalPosition: {x: 81.05016, y: -60.19949, z: 361.72717}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5109,8 +5109,8 @@ MonoBehaviour:
   playerBalanceTextComponent: {fileID: 0}
   currencyDisplay: {fileID: 223000012728678220, guid: 5b90127eba5656c41a429a47933fc971,
     type: 2}
-  arrowPrice: 120
-  canonPrice: 100
+  arrowPrice: 100
+  canonPrice: 120
   magicPrice: 150
 --- !u!4 &2048045433 stripped
 Transform:

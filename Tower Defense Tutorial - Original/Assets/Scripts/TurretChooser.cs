@@ -18,45 +18,7 @@ public class TurretChooser : MonoBehaviour {
     //
     public GameObject turretMenu;
 
-    /*
-    public void Update()
-    {
-        if (Bank.bank.playerBank < Bank.bank.magicPrice)
-        {
-
-            magicButton.interactable = false;
-        }
-
-        else
-        {
-            magicButton.interactable = true;
-        }
-
-        if (Bank.bank.playerBank < Bank.bank.canonPrice)
-        {
-            canonButton.interactable = false;
-        }
-
-        else
-        {
-            canonButton.interactable = true;
-        }
-
-        if (Bank.bank.playerBank < Bank.bank.arrowPrice)
-        {
-            arrowButton.interactable = false;
-        }
-
-        else
-        {
-            arrowButton.interactable = true;
-        }
-
-
-    }
-
-    */
-
+   
     public void CreateArrowTurret()
     {
        

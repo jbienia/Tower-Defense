@@ -99,16 +99,7 @@ public class CanonBullet : MonoBehaviour
     Vector3 BallisticVel(Vector3 target)
     {
         futurePosition = futureTarget.GetComponent<Enemy>().GetFuturePosition(.2f,futureTarget);
-        Debug.Log(futurePosition);
-        Debug.Log(target);
-
-        //for (int i = 0; i < 10; i++)
-        //{
-           
-
-          //futurePosition = futureTarget.transform.Translate(futureTarget.gameObject.GetComponent<Enemy>().dir * futureTarget.gameObject.GetComponent<Enemy>().speed * Time.deltaTime); 
-
-        //}
+      
        
         // Chaged 'target' to futurePosition
         var dir = (futurePosition) - transform.position; // get target direction

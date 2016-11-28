@@ -132,8 +132,18 @@ public class Turret : MonoBehaviour {
 
         if(fireCountdown <= 0)
         {
-            Shoot();
-            target = null;
+            // This makes sure that Canons don't fire at the Flying Enemies and that magic towers only fire at flying enemeies.
+            if(gameObject.tag == "Canon" && target.tag == "FlyingEnemy" || gameObject.tag == "AntiAir" && target.tag != "FlyingEnemy")
+            {
+                
+                target = null;
+            }
+            else
+            {
+                Shoot();
+                target = null;
+            }
+            
             fireCountdown = countdown;
         }
 
