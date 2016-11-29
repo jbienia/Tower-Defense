@@ -102,7 +102,7 @@ public class WaveSpawner : MonoBehaviour {
                     SpawnEnemy(enemyManager.fastWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(0.8f);
+                    yield return new WaitForSeconds(0.4f);
                  }
 
              
@@ -145,7 +145,7 @@ public class WaveSpawner : MonoBehaviour {
                     SpawnEnemy(enemyManager.nextFastWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(0.8f);
+                    yield return new WaitForSeconds(0.2f);
                  }
 
                
@@ -186,7 +186,7 @@ public class WaveSpawner : MonoBehaviour {
                     SpawnEnemy(enemyManager.thirdFastWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(0.8f);
+                    yield return new WaitForSeconds(0.2f);
                 }
 
             }
@@ -206,7 +206,7 @@ public class WaveSpawner : MonoBehaviour {
                     SpawnEnemy(enemyManager.nextBasicWaveToSpawn, i);
 
                     // Waits a few seconds before the next one
-                    yield return new WaitForSeconds(1.5f);
+                    yield return new WaitForSeconds(0.2f);
                 }
 
             }

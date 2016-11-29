@@ -79,7 +79,7 @@ public class Turret : MonoBehaviour {
         foreach(GameObject enemy in enemyList)
         {
             // Gets the distance from our turret to the enemy
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            float distanceToEnemy = Vector3.Distance(transform.position + transform.forward * 5 + Vector3.up, enemy.transform.position);
             
 
             // Tests for the enemy that is closest to the turret
@@ -193,7 +193,7 @@ public class Turret : MonoBehaviour {
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + Vector3.up *3,range);
+        Gizmos.DrawWireSphere(transform.position+ transform.forward * 5 + Vector3.up,range);
        // Gizmos.DrawCube(transform.position, inRange);
         //Gizmos.DrawWireCube(transform.position + transform.forward * 5, inRange);
        

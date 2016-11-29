@@ -421,7 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   fireCountdown: 7
-  range: 6.24
+  range: 3.81
   inRange: {x: 0, y: 0, z: 0}
   enemyTag: Enemy
   tankEnemyTag: Tank

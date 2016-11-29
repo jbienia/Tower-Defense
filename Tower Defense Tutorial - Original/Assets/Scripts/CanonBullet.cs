@@ -98,7 +98,7 @@ public class CanonBullet : MonoBehaviour
     /// <returns></returns>
     Vector3 BallisticVel(Vector3 target)
     {
-        futurePosition = futureTarget.GetComponent<Enemy>().GetFuturePosition(.2f,futureTarget);
+        futurePosition = futureTarget.GetComponent<Enemy>().GetFuturePosition(.1f,futureTarget);
       
        
         // Chaged 'target' to futurePosition

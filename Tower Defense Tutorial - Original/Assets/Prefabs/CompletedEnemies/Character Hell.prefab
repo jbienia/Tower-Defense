@@ -2049,14 +2049,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9903a4d88d6374680892a70e1dbe41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 3
   wayPoint: {fileID: 0}
   wavepointIndex: 0
   dir: {x: 0, y: 0, z: 0}
   healthSlider: {fileID: 114000013865886388}
   healthSliderCanvas: {fileID: 223000012297539100}
   currentHealth: 0
-  starterHealth: 25
+  starterHealth: 40
   enemy: {fileID: 400116}
   randomNumber: 0
   enemyValue: 40

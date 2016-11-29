@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &95595372
 AudioListener:
   m_ObjectHideFlags: 0
@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: 0.31542253, y: 0.65890574, z: 0.35701776, w: -0.58214283}
-  m_LocalPosition: {x: 90.75258, y: -42.655426, z: 329.35434}
+  m_LocalRotation: {x: 0.20143798, y: 0.38067105, z: 0.085349575, w: -0.89845854}
+  m_LocalPosition: {x: 69.60976, y: -28.792246, z: 315.1136}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1081,7 +1081,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: b544816461f324e56a39767fdeb5b114, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: b544816461f324e56a39767fdeb5b114, type: 2}
       propertyPath: edgeBlend
@@ -1687,7 +1687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010356852592, guid: 1678cb719f08fd3499b1ba14cf047bf0, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1000010150358184, guid: 1678cb719f08fd3499b1ba14cf047bf0, type: 2}
       propertyPath: m_Name
@@ -3208,7 +3208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!45 &1374202536
 Skybox:
   m_ObjectHideFlags: 0
@@ -3284,7 +3284,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 20.04, y: 4.5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1001 &1403034026
 Prefab:
   m_ObjectHideFlags: 0
@@ -4562,8 +4562,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804354057}
-  m_LocalRotation: {x: 0.31542253, y: 0.6589057, z: 0.35701796, w: -0.5821427}
-  m_LocalPosition: {x: 90.75258, y: -42.655426, z: 329.35434}
+  m_LocalRotation: {x: -0.044194233, y: 0.9154653, z: 0.38598362, w: 0.104818374}
+  m_LocalPosition: {x: 81.97208, y: -36.71183, z: 357.50345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4828,7 +4828,7 @@ Transform:
   - {fileID: 798544406}
   - {fileID: 18465594}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!114 &1996212419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5036,10 +5036,10 @@ MonoBehaviour:
   basic: 10
   fast: 8
   tanks: 6
-  secondFastWave: 15
+  secondFastWave: 20
   flying: 10
-  thirdFastWave: 20
-  secondBasicWave: 25
+  thirdFastWave: 30
+  secondBasicWave: 35
 --- !u!114 &2047094500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,7 +5105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSelector: {fileID: 0}
-  playerBank: 700
+  playerBank: 600
   playerBalanceTextComponent: {fileID: 0}
   currencyDisplay: {fileID: 223000012728678220, guid: 5b90127eba5656c41a429a47933fc971,
     type: 2}
