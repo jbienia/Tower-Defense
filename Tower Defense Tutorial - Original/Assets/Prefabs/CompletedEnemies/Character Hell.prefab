@@ -2056,10 +2056,11 @@ MonoBehaviour:
   healthSlider: {fileID: 114000013865886388}
   healthSliderCanvas: {fileID: 223000012297539100}
   currentHealth: 0
-  starterHealth: 40
+  starterHealth: 25
   enemy: {fileID: 400116}
   randomNumber: 0
-  enemyValue: 30
+  enemyValue: 40
+  futureTransform: {x: 0, y: 0, z: 0}
 --- !u!114 &114000011310823118
 MonoBehaviour:
   m_ObjectHideFlags: 1

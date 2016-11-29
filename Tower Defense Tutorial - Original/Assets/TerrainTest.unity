@@ -203,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &95595372
 AudioListener:
   m_ObjectHideFlags: 0
@@ -265,8 +265,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 95595371}
-  m_LocalRotation: {x: 0.047021057, y: 0.8856658, z: -0.45268327, w: 0.09199563}
-  m_LocalPosition: {x: 91.36001, y: 52.443836, z: 366.4003}
+  m_LocalRotation: {x: -0.3154265, y: 0.6589039, z: -0.35701433, w: -0.5821449}
+  m_LocalPosition: {x: 90.75258, y: 45.795425, z: 329.35434}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 20.04, y: 4.5, z: 0}
   m_Children: []
@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: -0.010889871, y: 0.8846423, z: 0.465684, w: 0.020683527}
-  m_LocalPosition: {x: 81.05016, y: -60.19949, z: 361.72717}
+  m_LocalRotation: {x: 0.31542253, y: 0.65890574, z: 0.35701776, w: -0.58214283}
+  m_LocalPosition: {x: 90.75258, y: -42.655426, z: 329.35434}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -3208,7 +3208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!45 &1374202536
 Skybox:
   m_ObjectHideFlags: 0
@@ -3589,8 +3589,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1531120479}
-  m_LocalRotation: {x: -0.054004777, y: 0.8223733, z: 0.5608158, w: 0.0791919}
-  m_LocalPosition: {x: 80.286064, y: -31.585686, z: 348.44272}
+  m_LocalRotation: {x: 0.31542253, y: 0.65890574, z: 0.35701776, w: -0.58214283}
+  m_LocalPosition: {x: 90.75258, y: -42.655426, z: 329.35434}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4562,8 +4562,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804354057}
-  m_LocalRotation: {x: -0.044194233, y: 0.9154653, z: 0.38598362, w: 0.104818374}
-  m_LocalPosition: {x: 81.97208, y: -36.71183, z: 357.50345}
+  m_LocalRotation: {x: 0.31542253, y: 0.6589057, z: 0.35701796, w: -0.5821427}
+  m_LocalPosition: {x: 90.75258, y: -42.655426, z: 329.35434}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []

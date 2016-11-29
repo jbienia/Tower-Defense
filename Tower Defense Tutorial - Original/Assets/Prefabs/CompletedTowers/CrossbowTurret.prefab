@@ -414,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  fireCountdown: 1.5
+  fireCountdown: 2
   range: 7.1
   inRange: {x: 9, y: 2, z: 10}
   enemyTag: Enemy
@@ -422,10 +422,10 @@ MonoBehaviour:
   flyingEnemyTag: FlyingEnemy
   partToRotate: {fileID: 4000012954741806}
   turnSpeed: 10
-  damageToBasic: 5
+  damageToBasic: 10
   damageToTank: 2
   damageToFlying: 5
-  damageToFast: 5
+  damageToFast: 10
   bulletPrefab: {fileID: 1000010683741052, guid: 86d6103c447e85942939d66b00504bfc,
     type: 2}
   firePoint: {fileID: 4000013351678170}
