@@ -32,6 +32,8 @@ public class Bullet : MonoBehaviour
 
     public int damageValue;
 
+    public AudioClip arrowThud;
+
     /// <summary>
     /// Sets the starting health
     /// </summary>
@@ -68,14 +70,20 @@ public class Bullet : MonoBehaviour
         // Checks if the bullet is close enough to cause a hit    
         if (dir.magnitude <= distanceThisFrame)
         {
+            AudioManager.audioManager.ArrowSound(arrowThud);
+            // Deals damage to the enemy
             HitTarget();
             
+            // Instanciates the impact particle and gets a refernce to it
             GameObject bulletImpact =  (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+
+            // Destroys the particle effect after two seconds
             Destroy(bulletImpact, 2f);
+
             return;
         }
 
-        // Moves the bullet in the correct direction
+        // Moves the bullet in the correct direction..dir.normalized keeps the length of 1, but still moves it in the proper direction
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
 

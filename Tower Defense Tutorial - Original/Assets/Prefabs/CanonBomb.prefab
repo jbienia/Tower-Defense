@@ -118,6 +118,7 @@ MonoBehaviour:
   currentHealth: 0
   lookRotation: {x: 0, y: 0, z: 0, w: 0}
   damageValue: 0
+  arrowThud: {fileID: 0}
 --- !u!114 &114000013481131238
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,6 +137,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   canonBall: {fileID: 1000011741313630}
   canonDamage: 0
+  explosionSound: {fileID: 8300000, guid: d6d5c64605241f041bf7fca139843f35, type: 3}
 --- !u!136 &136000012360019526
 CapsuleCollider:
   m_ObjectHideFlags: 1

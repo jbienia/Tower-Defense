@@ -10,7 +10,8 @@ public class WaveSpawner : MonoBehaviour {
 
     // the time between waves
     public float timeBetweenWaves = 5.5f;
-
+    
+    
     // The value used to count down till the next wave
     private float countDown = 10f;
 
@@ -22,7 +23,14 @@ public class WaveSpawner : MonoBehaviour {
     private EnemyManager enemyManager;
     private int level = 1;
     public static int waveCounter = 1;
-   
+
+    public AudioClip basicEnemySteps;
+    public AudioClip tankEnemySteps;
+    public AudioClip fastEnemySteps;
+    public AudioClip flyingEnemySteps;
+
+    private AudioManager audioManager;
+
     // A list of GameObject type
     public List<GameObject> basicSpawnEnemies = new List<GameObject>();
 
@@ -32,6 +40,7 @@ public class WaveSpawner : MonoBehaviour {
     void Start()
     {
         enemyManager = EnemyManager.enemyManagerInstance;
+        audioManager = GetComponent<AudioManager>();
     }
 
     /// <etactiveummary>
@@ -39,6 +48,7 @@ public class WaveSpawner : MonoBehaviour {
     /// </summary>
     void Update()
     {
+        
         // Checks the countDown timer
         if ( countDown <= 0)
         {
@@ -71,6 +81,10 @@ public class WaveSpawner : MonoBehaviour {
             // Checks which wave should spawn
             if (waveCounter == 1)
             {
+                audioManager.PlayBasicEnemyFootsteps(basicEnemySteps);
+
+                StartCoroutine(audioManager.PlayBasicEnemyFootsteps(basicEnemySteps));
+
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.basicWaveToSpawn.Count-1; i++)
                 {

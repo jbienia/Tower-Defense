@@ -47,6 +47,13 @@ public class Enemy : MonoBehaviour {
 
     public Vector3 futureTransform;
 
+    public AudioManager audioManager;
+
+    
+
+
+
+
     /// <summary>
     /// On start a reference to the first waypoint is stored, and the enemy is rotated towards it. 
     /// Health Bars are placed above the enemies heads and their parent is set to null
@@ -57,7 +64,7 @@ public class Enemy : MonoBehaviour {
         // Selects a random number used to determine which set of waypoints the enemy should follow
         randomNumber = RandomNumber.randomNumber();
 
-       
+        
         if(randomNumber == 1)
         {
             // Sets the target to the first waypoint
@@ -99,16 +106,19 @@ public class Enemy : MonoBehaviour {
         
         // Moves the enemy toward the waypoint 
         transform.Translate(dir.normalized * speed * Time.deltaTime,Space.World);
+
+
         
         // Checks the distance between the enemy and the way point
         // Determines whether to advance to the next way point
         if(Vector3.Distance(transform.position, wayPoint.position) <= 0.4f)
         {
             GetNextWayPoint();
-           // RotateCharacter();
+           
         }
 
         RotateCharacter();
+
         // Sets the health bar above the enemy
         sliderCanvas.transform.position = DisplayHealthBarAboveEnemy(4.88f);
 
@@ -117,18 +127,24 @@ public class Enemy : MonoBehaviour {
         RotateHealthBar();
     }
 
-    
+    /// <summary>
+    /// Determines the future position of the the enemy.
+    /// This is mainly used to get more precise aiming with the lobbing canonballs.
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <param name="transform"></param>
+    /// <returns></returns>
     public Vector3 GetFuturePosition (float seconds,Transform transform)
     {
-        float currentTime = Time.deltaTime;
+        float currentTime = 3;
         float endTime = currentTime + seconds;
         
         //invisibleEnemy.transform = transform;
 
-        while (currentTime < endTime)
+        while (seconds > 0)
         {
          futureTransform  = Vector3.MoveTowards(transform.position,wayPoint.position,2);
-            currentTime += Time.deltaTime;
+            seconds -= Time.deltaTime;
         }
 
         return futureTransform;
@@ -137,6 +153,7 @@ public class Enemy : MonoBehaviour {
 
     /// <summary>
     /// Stores a reference to the next waypoint the enemy should move towards
+    /// Destroys the Enemies if there is no more waypoints.
     /// </summary>
    public virtual void GetNextWayPoint()
     {
@@ -199,13 +216,15 @@ public class Enemy : MonoBehaviour {
         
         // Subtracts one from a value that represents the number of enemies on the screen
         WaveSpawner.enemiesOnScreen--;
+
         Debug.Log(WaveSpawner.enemiesOnScreen);
 
         // Sets a boolean that lets the WaveSpawner script start the countdown to the next wave
         if(WaveSpawner.enemiesOnScreen == 0)
         {
-            Debug.Log("Enemies are Gone!");
             WaveSpawner.startCountdown = true;
+
+            AudioManager.audioManager.stopPlayingEnemyFootsteps();
         }
         
     }
@@ -234,33 +253,11 @@ public class Enemy : MonoBehaviour {
     public void DecreaseHealthMeter (string turret,int decreaseValue)
     {
 
-       // int valueDecreasedFromBank;
-
-        if(turret == "melee")
-        {
             currentHealth -= decreaseValue;
             healthSlider.value = currentHealth;
-        }
-
-        if(turret == "canon")
-        {
-            currentHealth -= decreaseValue;
-            healthSlider.value = currentHealth;
-            
-        }
-
-        if(turret == "arrow")
-        {
-            currentHealth -= decreaseValue;
-            healthSlider.value = currentHealth;
-        }
-
-        if(turret == "magic")
-        {
-            currentHealth -= decreaseValue;
-            healthSlider.value = currentHealth;
-        }
-
+        
+        // Checks if there is any health left
+        //Removes the enemy from any list is currently resides in
         if (this.healthSlider.value <= 0)
         {
             EnemiesInGame.allEnemiesInGame.Remove(enemy.gameObject);
@@ -268,18 +265,21 @@ public class Enemy : MonoBehaviour {
             Destroy(healthSliderCanvas.gameObject);
             Destroy(enemy.gameObject);
 
+            // Value the represents the amount of enemies currently active on the screen
             WaveSpawner.enemiesOnScreen--;
            
-
+            // Checks to see if the countdown to the next wave needs to start
             if (WaveSpawner.enemiesOnScreen == 0)
             {
-                Debug.Log("Enemies are Gone!");
                 WaveSpawner.startCountdown = true;
             }
 
-           
-                Bank.bank.playerBalanceTextComponent.text = (Bank.bank.playerBank + enemyValue).ToString("C0");
-                Bank.bank.playerBank = Bank.bank.playerBank + enemyValue;
+            // Try using method instead of call it directly outside of the Bank Script!!!!!!!!!!!!!
+            // If an enemy has been destroyed money is added to the players bank on screen
+            Bank.bank.playerBalanceTextComponent.text = (Bank.bank.playerBank + enemyValue).ToString("C0");
+
+            // If an enemy has been destroyed money is added to the players bank
+            Bank.bank.playerBank = Bank.bank.playerBank + enemyValue;
             
             
             return;
@@ -322,6 +322,7 @@ public class Enemy : MonoBehaviour {
         healthSliderCanvas.transform.rotation = Quaternion.Euler(rotation);
     }
 
+    // Draws an arrow forward so that I can confirm the direction that the enemy is facing
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

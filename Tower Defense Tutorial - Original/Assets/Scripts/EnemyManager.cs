@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 /// <summary>
+/// This class puts all the waves into accessible lists
 /// This class manages the turrets
 /// It is a static singleton class
 /// It collects an array of all the game objects and provides them to the turrets
@@ -54,21 +55,7 @@ public class EnemyManager : MonoBehaviour
     /// </summary>
     public static EnemyManager enemyManagerInstance;
 
-    /// <summary>
-    /// An enum that contains the amount of enemies and their type
-    /// </summary>
-     /*
-    public enum LevelOne
-    {
-        Basic ,
-        Fast,
-        Tank,
-        Flying,
-        secondBasicWave,
-        secondFlyingWave
-    }
-    */
-
+   
     /// <summary>
     /// Singleton instance of the turret manager
     /// </summary>
@@ -99,9 +86,9 @@ public class EnemyManager : MonoBehaviour
             while (i < basic)
             { 
                   badGuy = CreateEnemy().enemy;
-                //badGuy.GetComponent<Enemy>().enemyValue = 2;
+                
                 basicWaveToSpawn.Add((GameObject)Instantiate(badGuy, spawnPoint.position, spawnPoint.rotation));
-               // badGuy.GetComponent<Enemy>().enemyValue = 
+             
                 i++;
                
             }

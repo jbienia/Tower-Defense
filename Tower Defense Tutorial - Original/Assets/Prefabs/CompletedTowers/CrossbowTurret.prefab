@@ -426,6 +426,7 @@ MonoBehaviour:
   damageToTank: 5
   damageToFlying: 10
   damageToFast: 10
+  arrowSwoosh: {fileID: 8300000, guid: 01296eaa87fbecf469615465780335cc, type: 3}
   bulletPrefab: {fileID: 1000010683741052, guid: 86d6103c447e85942939d66b00504bfc,
     type: 2}
   firePoint: {fileID: 4000013351678170}

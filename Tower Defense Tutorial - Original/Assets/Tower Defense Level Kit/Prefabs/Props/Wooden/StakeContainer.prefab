@@ -129,3 +129,4 @@ MonoBehaviour:
   currentHealth: 0
   lookRotation: {x: 0, y: 0, z: 0, w: 0}
   damageValue: 0
+  arrowThud: {fileID: 8300000, guid: 2ec417c723586ef439f956131e60ad35, type: 3}

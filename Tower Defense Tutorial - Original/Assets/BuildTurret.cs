@@ -28,6 +28,7 @@ public  class BuildTurret:MonoBehaviour  {
     {
         
         Vector3 addY = transform.position;
+
         addY.y+= 5;
 
         // Instanciates the Turret Chooser menu
@@ -48,5 +49,6 @@ public  class BuildTurret:MonoBehaviour  {
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * 10f);
+        
     }
 }

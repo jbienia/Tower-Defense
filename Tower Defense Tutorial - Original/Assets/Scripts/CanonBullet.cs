@@ -34,6 +34,8 @@ public class CanonBullet : MonoBehaviour
 
     public int canonDamage;
 
+    public AudioClip explosionSound;
+
     Vector3 futurePosition;
 
     /// <summary>
@@ -98,32 +100,28 @@ public class CanonBullet : MonoBehaviour
     /// <returns></returns>
     Vector3 BallisticVel(Vector3 target)
     {
-        futurePosition = futureTarget.GetComponent<Enemy>().GetFuturePosition(.1f,futureTarget);
+        futurePosition = futureTarget.GetComponent<Enemy>().GetFuturePosition(0.04f,futureTarget);
       
        
         // Chaged 'target' to futurePosition
         var dir = (futurePosition) - transform.position; // get target direction
        
 
-        var heightDifference = dir.y ;  // get height difference
-       
+       // var heightDifference = dir.y ;  // get height difference
+       //var dist = dir.magnitude;  // get horizontal distance
 
-        //var dist = dir.magnitude;  // get horizontal distance
-
-        
-
-        var dist = 3.0f;
+       var dist = 3.0f;
         
         dir.y = dist * 2.5f;  // set elevation to 45 degrees
 
         //dist += heightDifference;  // correct for different heights
         
         float vel = Mathf.Sqrt(dist * Physics.gravity.magnitude * 1.5f);
-        //vel -= 2f;
 
-              
+        //vel -= 2f;
        // var t = dir.magnitude / 2.5f;
        // var futurePos = transform + vel * t;
+
         return vel * dir.normalized;  // returns Vector3 velocity
      }
     
@@ -132,6 +130,7 @@ public class CanonBullet : MonoBehaviour
     /// </summary>
     void HitTarget()
     {
+        AudioManager.audioManager.canonExplosion(explosionSound);
         // Displays an impact effect
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
 
@@ -143,6 +142,7 @@ public class CanonBullet : MonoBehaviour
             Explode();
         }
 
+        // Destroys the Canon ball object
         Destroy(gameObject);
     }
     
@@ -173,6 +173,7 @@ public class CanonBullet : MonoBehaviour
     /// <param name="tag"></param>
     void Damage(Transform enemy,string tag)
     {
+        // Decreases health from the correct enemy
         GetCorrectScript(enemy,tag);
     }
 

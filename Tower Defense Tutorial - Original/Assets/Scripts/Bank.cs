@@ -39,36 +39,22 @@ public class Bank : MonoBehaviour {
         // Instanciates the bank canvas and stores a refernce to it
         bank.playerMoney = Instantiate(currencyDisplay);
 
+        // Gets a reference to the Text component of the canvas
         bank.playerBalanceTextComponent = bank.playerMoney.GetComponentInChildren<Text>();
+
+        // Sets the Value in the player bank to the Bank Canvas on the users screen
         bank.playerBalanceTextComponent.text = bank.playerBank.ToString("C0");
-
-        // Sets the values of the bank singleton object
-       // bank.magicPrice = this.magicPrice;
-        //bank.canonPrice = this.canonPrice;
-        //bank.arrowPrice = this.arrowPrice;
-        Debug.Log(bank.playerBank);
-        //Debug.Log(bank.);
-            
-    }
-
-    /// <summary>
-    /// Displays the starting balance of the bank
-    /// </summary>
-    public void Update()
-    {
-       //if(bank.playerBank < 175)
-        //{
-
-//        }
+                   
     }
 
     /// <summary>
     /// Purchase a canon from the bank
+    /// These methods are all used with the onClick() methods connected to the buttons in the inspector
     /// </summary>
     public void buyCanonTurret()
     {
        bank.playerBalanceTextComponent.text = (bank.playerBank - canonPrice).ToString("C0");
-        bank.playerBank = bank.playerBank - canonPrice;
+       bank.playerBank = bank.playerBank - canonPrice;
        
     }
 

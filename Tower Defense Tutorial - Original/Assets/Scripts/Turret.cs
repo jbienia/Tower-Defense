@@ -30,6 +30,9 @@ public class Turret : MonoBehaviour {
     public int damageToFlying;
     public int damageToFast;
 
+    public AudioClip arrowSwoosh;
+    
+
     // Prefab for the bullet
     public  GameObject bulletPrefab;
 
@@ -117,9 +120,11 @@ public class Turret : MonoBehaviour {
 	
 	/// <summary>
     /// Update called once per frame
+    /// 
     /// </summary>
 	void Update ()
     {
+        // Checks if there is a target to shoot at and if the fireCountdown has reached zero
         if(target == null)
         {
             if(fireCountdown > 0)
@@ -130,6 +135,7 @@ public class Turret : MonoBehaviour {
             return;
         }
 
+        // Turret fires only if there is a target and the firecountdown had reached zero
         if(fireCountdown <= 0)
         {
             // This makes sure that Canons don't fire at the Flying Enemies and that magic towers only fire at flying enemeies.
@@ -140,6 +146,8 @@ public class Turret : MonoBehaviour {
             }
             else
             {
+                // Turret shoots at the enemy
+                AudioManager.audioManager.ArrowSound(arrowSwoosh);
                 Shoot();
                 target = null;
             }
@@ -152,7 +160,7 @@ public class Turret : MonoBehaviour {
      }
 
     /// <summary>
-    /// 
+    /// Instanciates a bullet object and sends a message to the bullet script with information about the target and how much damage to do
     /// </summary>
     public virtual void  Shoot()
     {
