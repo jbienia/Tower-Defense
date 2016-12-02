@@ -6,8 +6,12 @@ using System.Collections;
 /// </summary>
 public class CanonTurret : Turret {
 
+    public AudioClip canonShot;
+
     public override void Shoot()
     {
+        AudioManager.audioManager.canonShot(canonShot);
+
         // Creates the Bullet game object in the scene
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         

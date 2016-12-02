@@ -262,6 +262,8 @@ public class Enemy : MonoBehaviour {
         {
             EnemiesInGame.allEnemiesInGame.Remove(enemy.gameObject);
 
+            AudioManager.audioManager.PlayeEnemyDeathSound(enemy.tag);
+
             Destroy(healthSliderCanvas.gameObject);
             Destroy(enemy.gameObject);
 

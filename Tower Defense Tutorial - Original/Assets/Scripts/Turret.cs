@@ -146,8 +146,7 @@ public class Turret : MonoBehaviour {
             }
             else
             {
-                // Turret shoots at the enemy
-                AudioManager.audioManager.ArrowSound(arrowSwoosh);
+               
                 Shoot();
                 target = null;
             }
@@ -164,6 +163,9 @@ public class Turret : MonoBehaviour {
     /// </summary>
     public virtual void  Shoot()
     {
+        // Turret shoots at the enemy
+        AudioManager.audioManager.ArrowSound(arrowSwoosh);
+
         // Creates the Bullet game object in the scene
         GameObject bulletGO = (GameObject) Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
      

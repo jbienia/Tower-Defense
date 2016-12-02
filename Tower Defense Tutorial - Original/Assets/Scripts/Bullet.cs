@@ -99,6 +99,7 @@ public class Bullet : MonoBehaviour
         }
         else
         {
+
            Damage(target,damageValue);
         }
 
@@ -135,6 +136,8 @@ public class Bullet : MonoBehaviour
     /// <param name="enemy"></param>
     public virtual void Damage(Transform enemy,int damage)
     {
+
+        AudioManager.audioManager.PlayEnemyHurtSound(enemy.tag);
         Enemy enemyScript;
         switch (enemy.tag)
         {

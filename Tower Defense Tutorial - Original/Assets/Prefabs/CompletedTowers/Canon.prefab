@@ -432,10 +432,12 @@ MonoBehaviour:
   damageToTank: 15
   damageToFlying: 0
   damageToFast: 20
+  arrowSwoosh: {fileID: 0}
   bulletPrefab: {fileID: 1000011741313630, guid: 13d3800d465bf1446a8b70c33e64cc01,
     type: 2}
   firePoint: {fileID: 4000013469137714}
   enemyList: []
+  canonShot: {fileID: 8300000, guid: 39fd03511c7032d47a061c7e8c619b13, type: 3}
 --- !u!136 &136000014140330044
 CapsuleCollider:
   m_ObjectHideFlags: 1

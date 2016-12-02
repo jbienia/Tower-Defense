@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: -0.03457523, y: 0.92266387, z: 0.37448615, w: 0.085182644}
-  m_LocalPosition: {x: 83.254875, y: -34.378654, z: 356.8926}
+  m_LocalRotation: {x: -0.030966075, y: 0.91905445, z: 0.385931, w: 0.073738396}
+  m_LocalPosition: {x: 80.94859, y: -30.693779, z: 355.70526}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4562,8 +4562,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804354057}
-  m_LocalRotation: {x: -0.044194233, y: 0.9154653, z: 0.38598362, w: 0.104818374}
-  m_LocalPosition: {x: 81.97208, y: -36.71183, z: 357.50345}
+  m_LocalRotation: {x: 0.005206834, y: 0.93256915, z: 0.36070266, w: -0.013466231}
+  m_LocalPosition: {x: 80.84546, y: -27.444994, z: 352.1353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5049,11 +5049,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 0bda7d40ed81fb643a392c32bf33b4c5, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -5102,7 +5102,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -5127,6 +5127,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeStepper: 0.05
   counter: 0.4
+  backingTrack: {fileID: 8300000, guid: 0bda7d40ed81fb643a392c32bf33b4c5, type: 3}
+  basicEnemyHurtSound: {fileID: 8300000, guid: 6f702eb8ee271ef43963c21ddec0dceb, type: 3}
+  flyingEnemyHurtSound: {fileID: 8300000, guid: 5362b7894e338ad4eb6d78a138b14047,
+    type: 3}
+  fastEnemyHurtSound: {fileID: 8300000, guid: f644466ffa496eb49bac844239e5ae37, type: 3}
+  tankHurtSound: {fileID: 8300000, guid: ced51381a27301748a449c7ff65cea57, type: 3}
+  basicEnemyDeathSound: {fileID: 8300000, guid: 61c9bfb45d986e741bdc687b74e87ba6,
+    type: 3}
+  flyingEnemyDeathSound: {fileID: 8300000, guid: 5362b7894e338ad4eb6d78a138b14047,
+    type: 3}
+  fastEnemyDeathSound: {fileID: 8300000, guid: bc5e88496da13db44b8d29ebba237b60, type: 3}
+  tankDeathSound: {fileID: 8300000, guid: 8762d72e142f643498ef3f094bc06bfa, type: 3}
 --- !u!114 &2047094502
 MonoBehaviour:
   m_ObjectHideFlags: 0

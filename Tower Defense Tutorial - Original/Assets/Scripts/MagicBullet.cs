@@ -72,6 +72,7 @@ public class MagicBullet : Bullet {
     /// <param name="enemy">The switch statement uses the transfrom to access the tag parameter</param>
     public override void  Damage (Transform enemy, int damage)
     {
+        AudioManager.audioManager.PlayEnemyHurtSound(enemy.tag);
         // Reference to the enemy script
         Enemy enemyScript = enemy.gameObject.GetComponent<Enemy>();
 

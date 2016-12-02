@@ -131,6 +131,8 @@ public class CanonBullet : MonoBehaviour
     void HitTarget()
     {
         AudioManager.audioManager.canonExplosion(explosionSound);
+
+
         // Displays an impact effect
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
 
@@ -173,6 +175,7 @@ public class CanonBullet : MonoBehaviour
     /// <param name="tag"></param>
     void Damage(Transform enemy,string tag)
     {
+        AudioManager.audioManager.PlayEnemyHurtSound(enemy.tag);
         // Decreases health from the correct enemy
         GetCorrectScript(enemy,tag);
     }
