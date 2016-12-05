@@ -29,6 +29,11 @@ public class WaveSpawner : MonoBehaviour {
     public AudioClip fastEnemySteps;
     public AudioClip flyingEnemySteps;
 
+    public Sprite basicEnemySprite;
+    public Sprite fastEnemySprite;
+    public Sprite tankEnemySprite;
+    public Sprite flyingEnemySprite;
+
     private AudioManager audioManager;
 
     // A list of GameObject type
@@ -63,6 +68,7 @@ public class WaveSpawner : MonoBehaviour {
         if(startCountdown)
         {
             countDown -= Time.deltaTime;
+            GameplayUI.inGameUserInterface.countdown.text = countDown.ToString();
             countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
         }
     }
@@ -85,6 +91,9 @@ public class WaveSpawner : MonoBehaviour {
 
                 StartCoroutine(audioManager.PlayBasicEnemyFootsteps(basicEnemySteps));
 
+                // Display the current Image for the Enemy Wave to the user
+                GameplayUI.inGameUserInterface.enemyImage.sprite = fastEnemySprite;
+                 
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.basicWaveToSpawn.Count-1; i++)
                 {
@@ -106,7 +115,8 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
-                
+                GameplayUI.inGameUserInterface.enemyImage.sprite = tankEnemySprite;
+
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.fastWaveToSpawn.Count-1; i++)
                 {
@@ -128,7 +138,9 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets a value to stop the countdown timer
                 startCountdown = false;
 
-               
+
+                GameplayUI.inGameUserInterface.enemyImage.sprite = fastEnemySprite;
+
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.tankWaveToSpawn.Count-1; i++)
                 {
@@ -150,7 +162,9 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
-                
+
+                GameplayUI.inGameUserInterface.enemyImage.sprite = flyingEnemySprite;
+
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.nextFastWaveToSpawn.Count-1; i++)
                 {
@@ -171,7 +185,8 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
-                
+                GameplayUI.inGameUserInterface.enemyImage.sprite = fastEnemySprite;
+
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.flyingWaveToSpawn.Count-1; i++)
                 {
@@ -191,6 +206,7 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
+                GameplayUI.inGameUserInterface.enemyImage.sprite = basicEnemySprite;
 
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.thirdFastWaveToSpawn.Count - 1; i++)
@@ -211,6 +227,7 @@ public class WaveSpawner : MonoBehaviour {
                 // Sets the a bool to false to stop the countdown timer
                 startCountdown = false;
 
+                GameplayUI.inGameUserInterface.enemyImage.sprite = basicEnemySprite;
 
                 // loops through a list of enemy game objects
                 for (int i = 0; i <= enemyManager.nextBasicWaveToSpawn.Count - 1; i++)
