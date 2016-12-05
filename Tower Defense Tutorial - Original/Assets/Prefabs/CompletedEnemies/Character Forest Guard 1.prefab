@@ -2142,6 +2142,7 @@ MonoBehaviour:
   randomNumber: 0
   enemyValue: 35
   futureTransform: {x: 0, y: 0, z: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &114000013689510634
 MonoBehaviour:
   m_ObjectHideFlags: 1

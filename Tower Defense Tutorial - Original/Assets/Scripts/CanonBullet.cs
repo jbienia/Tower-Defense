@@ -70,7 +70,7 @@ public class CanonBullet : MonoBehaviour
 
         if (target == null)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
         

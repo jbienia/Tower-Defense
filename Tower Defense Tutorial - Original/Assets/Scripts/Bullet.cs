@@ -58,6 +58,7 @@ public class Bullet : MonoBehaviour
     {
         if (target == null)
         {
+            Destroy(gameObject);
             return;
         }
 
@@ -82,6 +83,8 @@ public class Bullet : MonoBehaviour
 
             return;
         }
+
+        
 
         // Moves the bullet in the correct direction..dir.normalized keeps the length of 1, but still moves it in the proper direction
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
