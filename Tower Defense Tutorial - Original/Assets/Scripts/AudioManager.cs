@@ -71,6 +71,17 @@ public class AudioManager : MonoBehaviour {
          
     }
 
+    public void PlayFinalBleepOfCountdown(AudioClip finalBleep)
+    {
+        source.PlayOneShot(finalBleep,1f);
+        Debug.Log("DId you hear it!");
+    }
+
+    public void PlayCountdownBlips(AudioClip countdownBlips)
+    {
+        source.PlayOneShot(countdownBlips, 1f);
+    }
+
     public void ArrowSound(AudioClip arrowSound)
     {
         source.PlayOneShot(arrowSound, 1f);
@@ -84,12 +95,12 @@ public class AudioManager : MonoBehaviour {
 
     public void canonExplosion(AudioClip canonExplosion)
     {
-        source.PlayOneShot(canonExplosion,0.4f);
+        source.PlayOneShot(canonExplosion,0.8f);
     }
 
     public void canonShot(AudioClip canonShot)
     {
-        source.PlayOneShot(canonShot,0.5f);
+        source.PlayOneShot(canonShot,0.9f);
     }
 
     public void playBackingTrack(AudioClip backingTrack)

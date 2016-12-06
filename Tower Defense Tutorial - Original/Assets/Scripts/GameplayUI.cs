@@ -12,6 +12,7 @@ public class GameplayUI : MonoBehaviour {
    public  Image enemyImage;
     public Transform panel;
     public Text countdown;
+    public Animator countBouncer;
     
 
 	// Use this for initialization
@@ -28,7 +29,7 @@ public class GameplayUI : MonoBehaviour {
 
        childCount = panel.childCount;
        
-        Debug.Log(childCount);
+       // Debug.Log(childCount);
 
         for(int i = 0; i < childCount;i++)
         {
@@ -55,6 +56,8 @@ public class GameplayUI : MonoBehaviour {
            if(userComponents[i].name == "Countdown")
             {
                 countdown = userComponents[i].GetComponent<Text>();
+                countBouncer = userComponents[i].GetComponent<Animator>();
+                countBouncer.enabled = false;
             }
         }
 

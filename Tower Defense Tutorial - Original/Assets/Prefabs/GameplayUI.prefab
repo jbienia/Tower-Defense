@@ -91,6 +91,7 @@ GameObject:
   - 224: {fileID: 224000011770779290}
   - 222: {fileID: 222000013050089152}
   - 114: {fileID: 114000013312360532}
+  - 95: {fileID: 95000011838380758}
   m_Layer: 5
   m_Name: Countdown
   m_TagString: Untagged
@@ -149,6 +150,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &95000011838380758
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011596827190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f462c5783bfdd344a979ab5bfe59e13a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010201758960
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,10 +297,8 @@ MonoBehaviour:
   lives: {fileID: 0}
   enemyImage: {fileID: 0}
   panel: {fileID: 0}
-  basicEnemySprite: {fileID: 0}
-  fastEnemySprite: {fileID: 0}
-  tankEnemySprite: {fileID: 0}
-  flyingEnemySprite: {fileID: 0}
+  countdown: {fileID: 0}
+  countBouncer: {fileID: 0}
 --- !u!114 &114000013141544206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -628,6 +644,6 @@ RectTransform:
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 151.2, y: 144}
+  m_AnchoredPosition: {x: 151.2, y: 174}
   m_SizeDelta: {x: -640, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}

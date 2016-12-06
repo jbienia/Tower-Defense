@@ -651,8 +651,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 322719457}
-  m_LocalRotation: {x: -0.05401317, y: 0.0308722, z: 0.0016689551, w: 0.9980615}
-  m_LocalPosition: {x: 535.21405, y: -45.592064, z: -186.3212}
+  m_LocalRotation: {x: -0.044194233, y: 0.9154653, z: 0.38598362, w: 0.104818374}
+  m_LocalPosition: {x: 81.97208, y: -36.71183, z: 357.50345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -4666,8 +4666,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1804354057}
-  m_LocalRotation: {x: 0.06301572, y: 0.015546223, z: 0.0009835206, w: -0.99789095}
-  m_LocalPosition: {x: 533.7687, y: -48.334457, z: -171.52777}
+  m_LocalRotation: {x: -0.044194233, y: 0.9154653, z: 0.38598362, w: 0.104818374}
+  m_LocalPosition: {x: 81.97208, y: -36.71183, z: 357.50345}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -5260,6 +5260,8 @@ MonoBehaviour:
   tankEnemySteps: {fileID: 0}
   fastEnemySteps: {fileID: 0}
   flyingEnemySteps: {fileID: 0}
+  countdownBleeps: {fileID: 8300000, guid: 793f2ca8a4967f54db04090597d9ac94, type: 3}
+  releaseBleep: {fileID: 8300000, guid: f6be6f9702377ad4f81946dec49f2413, type: 3}
   basicEnemySprite: {fileID: 21300000, guid: 00fd6eddac576f544be60f57cb0f0265, type: 3}
   fastEnemySprite: {fileID: 21300000, guid: f10991c9088ef524497109914030b17d, type: 3}
   tankEnemySprite: {fileID: 21300000, guid: edc1932056510b84290983c20d7e4d91, type: 3}

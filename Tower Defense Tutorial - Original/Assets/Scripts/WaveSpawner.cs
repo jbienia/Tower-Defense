@@ -13,7 +13,9 @@ public class WaveSpawner : MonoBehaviour {
     
     
     // The value used to count down till the next wave
-    private float countDown = 10f;
+    private float countDown = 10;
+    private int countdownChecker;
+    private int countdownHelper = 4;
 
     private int waveIndex = 5;
     public static bool startCountdown = true;
@@ -23,11 +25,14 @@ public class WaveSpawner : MonoBehaviour {
     private EnemyManager enemyManager;
     private int level = 1;
     public static int waveCounter = 1;
+    private bool noBeep = true;
 
     public AudioClip basicEnemySteps;
     public AudioClip tankEnemySteps;
     public AudioClip fastEnemySteps;
     public AudioClip flyingEnemySteps;
+    public AudioClip countdownBleeps;
+    public AudioClip releaseBleep;
 
     public Sprite basicEnemySprite;
     public Sprite fastEnemySprite;
@@ -46,6 +51,7 @@ public class WaveSpawner : MonoBehaviour {
     {
         enemyManager = EnemyManager.enemyManagerInstance;
         audioManager = GetComponent<AudioManager>();
+       //GameplayUI.inGameUserInterface.countBouncer.enabled = false;
     }
 
     /// <etactiveummary>
@@ -68,8 +74,60 @@ public class WaveSpawner : MonoBehaviour {
         if(startCountdown)
         {
             countDown -= Time.deltaTime;
-            GameplayUI.inGameUserInterface.countdown.text = countDown.ToString();
-            countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+            countdownChecker = int.Parse(countDown.ToString("N0"));
+           // Debug.Log(countdownChecker);
+
+            if(noBeep)
+            {
+                if (countdownChecker < countdownHelper)
+                {
+                    audioManager.PlayCountdownBlips(countdownBleeps);
+                    countdownHelper--;
+
+                    if (countdownHelper == 1)
+                    {
+                        noBeep = false;
+                    }
+                }
+            }
+            
+
+            if (countDown < 1)
+            {
+               
+            }
+
+            else
+            {
+                GameplayUI.inGameUserInterface.countdown.text = countDown.ToString("N0");
+            }
+
+            if(countDown < 4 && !(countDown <= 0))
+            {
+                GameplayUI.inGameUserInterface.countBouncer.enabled = true;
+                //Debug.Log("Get Out of Here!");
+            }
+            
+            
+           // countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+
+            if(countdownChecker == 0)
+            {
+                
+                GameplayUI.inGameUserInterface.countdown.text = "Defend Yourself!";
+
+                GameplayUI.inGameUserInterface.countBouncer.enabled = false;
+                
+                audioManager.PlayFinalBleepOfCountdown(releaseBleep);
+
+
+                Debug.Log("It says it right here!");
+                GameplayUI.inGameUserInterface.countBouncer.enabled = false;
+                countdownHelper = 4;
+                countDown = 0;
+                noBeep = true;
+                startCountdown = false;
+            }
         }
     }
 
