@@ -44,7 +44,7 @@ public class TurretButtonFader : MonoBehaviour {
       
         if (Bank.bank.playerBank < Bank.bank.magicPrice)
         {
-            Debug.Log("it's less!!!");
+           
             magicButton.interactable = false;
         }
 

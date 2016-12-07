@@ -264,6 +264,9 @@ public class Enemy : MonoBehaviour {
 
             AudioManager.audioManager.PlayeEnemyDeathSound(enemy.tag);
 
+            // GameplayUI.inGameUserInterface.CoinBounceAnimation();
+            GameplayUI.inGameUserInterface.StartCoroutine(GameplayUI.inGameUserInterface.CoinBounceAnimation());
+
             Destroy(healthSliderCanvas.gameObject);
             Destroy(enemy.gameObject);
 

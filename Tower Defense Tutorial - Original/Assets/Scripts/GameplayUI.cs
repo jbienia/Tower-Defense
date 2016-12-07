@@ -2,36 +2,45 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class GameplayUI : MonoBehaviour {
+public class GameplayUI : MonoBehaviour
+{
 
     public static GameplayUI inGameUserInterface = null;
     public Transform[] userComponents;
     private int childCount;
     public Text bank;
     public Text lives;
-   public  Image enemyImage;
+    public Image enemyImage;
     public Transform panel;
     public Text countdown;
     public Animator countBouncer;
-    
+    public GameObject coin;
+    private Transform coinPlaceholder;
+    private GameObject coinBounceReference;
+    private float number = 0.5f;
+    float i;
 
-	// Use this for initialization
-	void Start () {
-        
-        if(inGameUserInterface == null)
+    public AudioClip coinDropSound;
+
+
+    // Use this for initialization
+    void Start()
+    {
+
+        if (inGameUserInterface == null)
         {
             inGameUserInterface = this;
         }
 
-       // inGameUserInterface.
-         panel = inGameUserInterface.transform.GetChild(0);
-        
+      
+        panel = inGameUserInterface.transform.GetChild(0);
 
-       childCount = panel.childCount;
+
+        childCount = panel.childCount;
+
        
-       // Debug.Log(childCount);
 
-        for(int i = 0; i < childCount;i++)
+        for (int i = 0; i < childCount; i++)
         {
             userComponents = new Transform[childCount];
 
@@ -47,26 +56,51 @@ public class GameplayUI : MonoBehaviour {
                 lives = userComponents[i].GetComponent<Text>();
             }
 
-           if (userComponents[i].name == "Enemy")
+            if (userComponents[i].name == "Enemy")
             {
                 enemyImage = userComponents[i].GetComponent<Image>();
-                
+
             }
 
-           if(userComponents[i].name == "Countdown")
+            if (userComponents[i].name == "Countdown")
             {
                 countdown = userComponents[i].GetComponent<Text>();
                 countBouncer = userComponents[i].GetComponent<Animator>();
                 countBouncer.enabled = false;
             }
+
+            if (userComponents[i].name == "BounceCoinPlaceholder")
+            {
+                coinPlaceholder = userComponents[i];
+            }
+        }
+   }
+
+    public IEnumerator CoinBounceAnimation()
+    {
+
+
+        if (inGameUserInterface.number == 0.5f)
+        {
+            inGameUserInterface.number = 0.1f;
+        }
+        else if (inGameUserInterface.number == 0.5f)
+        {
+            inGameUserInterface.number = 0.3f;
+        }
+        else
+        {
+            inGameUserInterface.number = 0.5f;
         }
 
-        
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        AudioManager.audioManager.playCoinDrop(coinDropSound);
+        yield return new WaitForSeconds(inGameUserInterface.number);
+
+       
+        GameObject go = (GameObject)Instantiate(coin, coinPlaceholder.position, coinPlaceholder.rotation, panel);
+
+        Debug.Log(inGameUserInterface.number);
+
+    }
+
 }

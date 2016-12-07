@@ -12,6 +12,8 @@ public class TurretChooser : MonoBehaviour {
     public GameObject electricTurret;
     public GameObject freezeTurret;
 
+    public AudioClip turretChosen;
+
     // Value is set in the BuildTurret script
     public Transform buildHere;
 
@@ -21,7 +23,8 @@ public class TurretChooser : MonoBehaviour {
    
     public void CreateArrowTurret()
     {
-       
+        AudioManager.audioManager.playTurretChoiceBloop(turretChosen);
+
         Instantiate(arrowTurret, buildHere.position,buildHere.rotation);
         
         Destroy(turretMenu,0.5f);
@@ -29,12 +32,14 @@ public class TurretChooser : MonoBehaviour {
 
     public void CreateCanonTurret()
     {
+        AudioManager.audioManager.playTurretChoiceBloop(turretChosen);
         Instantiate(canonTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
     }
 
     public void CreateMagicTurret()
     {
+        AudioManager.audioManager.playTurretChoiceBloop(turretChosen);
         Instantiate(magicTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
     }

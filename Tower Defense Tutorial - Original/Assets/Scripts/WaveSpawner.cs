@@ -121,7 +121,7 @@ public class WaveSpawner : MonoBehaviour {
                 audioManager.PlayFinalBleepOfCountdown(releaseBleep);
 
 
-                Debug.Log("It says it right here!");
+
                 GameplayUI.inGameUserInterface.countBouncer.enabled = false;
                 countdownHelper = 4;
                 countDown = 0;

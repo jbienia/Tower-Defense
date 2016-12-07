@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b0149b63085f6144bf0b227126a1e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turretSelector: {fileID: 1000010469188786, guid: 72b780c64e232624dbbfcf9129ea422f,
+  turretSelector: {fileID: 1000010945821010, guid: 57c754907a7399a489d8ef9c27ae9942,
     type: 2}
   box: {fileID: 0}
+  click: {fileID: 8300000, guid: c5ee09799c38e49488ef69d4e61e2667, type: 3}

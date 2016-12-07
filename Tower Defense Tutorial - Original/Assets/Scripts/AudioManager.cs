@@ -74,7 +74,7 @@ public class AudioManager : MonoBehaviour {
     public void PlayFinalBleepOfCountdown(AudioClip finalBleep)
     {
         source.PlayOneShot(finalBleep,1f);
-        Debug.Log("DId you hear it!");
+
     }
 
     public void PlayCountdownBlips(AudioClip countdownBlips)
@@ -110,10 +110,26 @@ public class AudioManager : MonoBehaviour {
         //source.PlayOneShot(backingTrack, 0.5f);
         source.loop = true;
     }
+    
+    public void playCoinDrop(AudioClip coinDrop)
+    {
+        source.PlayOneShot(coinDrop, 1f);
+    }
+
+    public void playBoxClick(AudioClip click)
+    {
+        source.PlayOneShot(click, 0.7f);
+    }
+
 
     public void stopPlayingEnemyFootsteps()
     {
         stopPlaying = true;
+    }
+
+    public void playTurretChoiceBloop(AudioClip turretChoiceBloop)
+    {
+        source.PlayOneShot(turretChoiceBloop, 0.7f);
     }
 
     public void PlayEnemyHurtSound(string enemyTag)
