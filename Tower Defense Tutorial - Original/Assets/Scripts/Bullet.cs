@@ -108,7 +108,7 @@ public class Bullet : MonoBehaviour
 
 
         // Destroys the Bullet Object 
-        Debug.Log("It should be destroyed!");     
+       // Debug.Log("It should be destroyed!");     
         Destroy(gameObject);
     }
 

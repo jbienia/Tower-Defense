@@ -25,7 +25,7 @@ GameObject:
   - 114: {fileID: 114000011051387962}
   m_Layer: 0
   m_Name: TurretSpawnPoint
-  m_TagString: Untagged
+  m_TagString: SpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretSelector: {fileID: 1000010945821010, guid: 57c754907a7399a489d8ef9c27ae9942,
+    type: 2}
+  turretSelectorPanel: {fileID: 224000012183236084, guid: 57c754907a7399a489d8ef9c27ae9942,
     type: 2}
   box: {fileID: 0}
   click: {fileID: 8300000, guid: c5ee09799c38e49488ef69d4e61e2667, type: 3}

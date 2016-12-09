@@ -51,7 +51,10 @@ public class WaveSpawner : MonoBehaviour {
     {
         enemyManager = EnemyManager.enemyManagerInstance;
         audioManager = GetComponent<AudioManager>();
-       //GameplayUI.inGameUserInterface.countBouncer.enabled = false;
+        //GameplayUI.inGameUserInterface.countBouncer.enabled = false;
+
+
+       // AudioListener.volume = 0;
     }
 
     /// <etactiveummary>

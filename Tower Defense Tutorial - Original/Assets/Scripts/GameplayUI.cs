@@ -99,7 +99,7 @@ public class GameplayUI : MonoBehaviour
        
         GameObject go = (GameObject)Instantiate(coin, coinPlaceholder.position, coinPlaceholder.rotation, panel);
 
-        Debug.Log(inGameUserInterface.number);
+       
 
     }
 
