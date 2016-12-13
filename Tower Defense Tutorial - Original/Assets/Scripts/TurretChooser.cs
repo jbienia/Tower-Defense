@@ -107,7 +107,6 @@ public class TurretChooser : MonoBehaviour {
 
     public void Update()
     {
-        //StartCoroutine(newThang());
         StartCoroutine(findButtonClick());
     }
 
@@ -127,27 +126,17 @@ public class TurretChooser : MonoBehaviour {
             }
         }
 
-       
-
-       else if (isFirstFrame == false)
+        else if (isFirstFrame == false)
         {
-            
-
             if (Input.GetMouseButton(0) == true)
             {
-             
-
                 if (turretMenu != null)
                 {
                     Destroy(turretMenu,1f);
                 }
-
             }
-
         }
     }
-
-    
 
     public IEnumerator findButtonClick()
     {
@@ -179,7 +168,7 @@ public class TurretChooser : MonoBehaviour {
                 if (EventSystem.current.currentSelectedGameObject == null)
                 {
                     
-                    Destroy(turretMenu, 1f);
+                    Destroy(turretMenu, 0.2f);
                 }
 
 

@@ -48,6 +48,9 @@ public class Enemy : MonoBehaviour {
     public Vector3 futureTransform;
 
     public AudioManager audioManager;
+    
+    private static int  livesLeft = 10;
+    
 
     
 
@@ -160,8 +163,25 @@ public class Enemy : MonoBehaviour {
         if(randomNumber == 1)
         {
             // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
-            if (wavepointIndex >= Waypoints.firstPath.Length - 1)
+            if (wavepointIndex >= Waypoints.firstPath.Length -1 )
             {
+                Transform panel = GameplayUI.inGameUserInterface.transform.GetChild(0);
+
+               
+                Transform[] children = new Transform[panel.childCount];
+
+                for(int i = 0; i < panel.childCount; i++)
+                {
+                    children[i] = panel.GetChild(i);
+
+                    if(children[i].name == "Lives")
+                    {
+                        livesLeft --;
+
+                        Text livesOnScreen = children[i].GetComponent<Text>();
+                        livesOnScreen.text = "Lives " + livesLeft;
+                    }
+                }
                 DestroyGameObjects();
 
                 return;
@@ -173,6 +193,24 @@ public class Enemy : MonoBehaviour {
             // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
             if (wavepointIndex >= SecondPath.secondPath.Length - 1)
             {
+                Transform panel = GameplayUI.inGameUserInterface.transform.GetChild(0);
+
+                
+
+                Transform[] children = new Transform[panel.childCount];
+
+                for (int i = 0; i < panel.childCount; i++)
+                {
+                    children[i] = panel.GetChild(i);
+
+                    if (children[i].name == "Lives")
+                    {
+                        livesLeft--;
+
+                        Text livesOnScreen = children[i].GetComponent<Text>();
+                        livesOnScreen.text = "Lives " + livesLeft;
+                    }
+                }
                 DestroyGameObjects();
 
                 return;

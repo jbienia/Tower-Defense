@@ -569,6 +569,7 @@ GameObject:
   - 95: {fileID: 95000010952839108}
   - 114: {fileID: 114000013303223024}
   - 136: {fileID: 136000010079219512}
+  - 114: {fileID: 114000013842286366}
   m_Layer: 0
   m_Name: Character Forest Guard 1
   m_TagString: Enemy
@@ -2212,6 +2213,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000013842286366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012383197528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f324797e5a7f3a4ca839f8f3deb5906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136000010079219512
 CapsuleCollider:
   m_ObjectHideFlags: 1

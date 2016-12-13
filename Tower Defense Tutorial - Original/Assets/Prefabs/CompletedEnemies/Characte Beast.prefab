@@ -736,6 +736,7 @@ GameObject:
   - 95: {fileID: 9500000}
   - 114: {fileID: 114000013936896216}
   - 136: {fileID: 136000010699973812}
+  - 114: {fileID: 114000010082574872}
   m_Layer: 0
   m_Name: Characte Beast
   m_TagString: Tank
@@ -1728,6 +1729,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114000010082574872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f324797e5a7f3a4ca839f8f3deb5906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000010427000030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1916,6 +1928,8 @@ MonoBehaviour:
   enemy: {fileID: 400096}
   randomNumber: 0
   enemyValue: 35
+  futureTransform: {x: 0, y: 0, z: 0}
+  audioManager: {fileID: 0}
 --- !u!136 &136000010699973812
 CapsuleCollider:
   m_ObjectHideFlags: 1
