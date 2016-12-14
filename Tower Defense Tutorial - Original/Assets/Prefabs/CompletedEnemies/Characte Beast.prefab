@@ -737,6 +737,7 @@ GameObject:
   - 114: {fileID: 114000013936896216}
   - 136: {fileID: 136000010699973812}
   - 114: {fileID: 114000010082574872}
+  - 114: {fileID: 114000011608037226}
   m_Layer: 0
   m_Name: Characte Beast
   m_TagString: Tank
@@ -1831,6 +1832,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114000011608037226
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e21f1743c6c32447825957361ccc2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetButton: {fileID: 1000014234088126, guid: 1e39c1702f17c2e40af2e7dcda2ad61d,
+    type: 2}
 --- !u!114 &114000012012586580
 MonoBehaviour:
   m_ObjectHideFlags: 1

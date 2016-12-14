@@ -69,9 +69,9 @@ public  class BuildTurret:MonoBehaviour  {
         // Takes the the Spawnpoint position in world space and converts it to a Vector 2 in screen/viewport space.
         Vector2 ViewportPosition = Camera.main.WorldToViewportPoint(gameObject.transform.position);
 
-        Debug.Log(ViewportPosition.x * CanvasRect.sizeDelta.x);
+       // Debug.Log(ViewportPosition.x * CanvasRect.sizeDelta.x);
 
-        Debug.Log(CanvasRect.sizeDelta.x * 0.5f);
+       // Debug.Log(CanvasRect.sizeDelta.x * 0.5f);
 
         //
         Vector2 WorldObject_ScreenPosition = new Vector2(

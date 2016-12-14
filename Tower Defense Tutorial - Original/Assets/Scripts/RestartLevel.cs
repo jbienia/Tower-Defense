@@ -4,18 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class RestartLevel : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-   public void reLoadLevel()
+	public void reLoadLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //int scene = SceneManager.GetActiveScene().buildIndex;
+        //SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        //Time.timeScale = 1;
+
+        // Empties the list of enemies in game. 
+        EnemiesInGame.allEnemiesInGame.Clear();
+
+        SceneManager.LoadScene("TerrainTest");
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

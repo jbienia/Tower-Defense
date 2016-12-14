@@ -2,15 +2,22 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class DisplayLivesLeft : MonoBehaviour {
 
-    private static int livesLeft = 10;
-    private Text livesOnScreen;
+    private static float livesLeft = 10;
+    private static  Text livesOnScreen;
+    public GameObject resetButton;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    livesLeft = 10;
+    //}
+
+    public void GetReferenceToPanelInUi()
     {
-        Transform panel = GameplayUI.inGameUserInterface.transform.GetChild(0);
-
+        Transform panel;
+        
+          panel = GameplayUI.inGameUserInterface.transform.GetChild(0);
 
         Transform[] children = new Transform[panel.childCount];
 
@@ -31,5 +38,17 @@ public class NewBehaviourScript : MonoBehaviour {
         livesLeft--;
 
         livesOnScreen.text = "Lives " + livesLeft;
+
+        if(livesLeft == 0)
+        {
+            Instantiate(resetButton);
+            //RestartLevel restartLevel = GetComponent<RestartLevel>();
+            //restartLevel.reLoadLevel();
+        }
+    }
+
+    public void setLivesLeft()
+    {
+        livesLeft = 10;
     }
 }

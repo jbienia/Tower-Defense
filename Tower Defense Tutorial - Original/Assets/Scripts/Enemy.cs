@@ -165,23 +165,13 @@ public class Enemy : MonoBehaviour {
             // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
             if (wavepointIndex >= Waypoints.firstPath.Length -1 )
             {
-                Transform panel = GameplayUI.inGameUserInterface.transform.GetChild(0);
+                DisplayLivesLeft livesLeft = GetComponent<DisplayLivesLeft>();
 
-               
-                Transform[] children = new Transform[panel.childCount];
+                livesLeft.DecreaseLivesLeftOnUi();
+                WaveSpawner.enemiesOnScreen--;
+                AudioManager.audioManager.PlayEnemyLaughSound(gameObject.tag);
+                GameplayUI.inGameUserInterface.StartCoroutine(GameplayUI.inGameUserInterface.DecreaseLivesAnimation());
 
-                for(int i = 0; i < panel.childCount; i++)
-                {
-                    children[i] = panel.GetChild(i);
-
-                    if(children[i].name == "Lives")
-                    {
-                        livesLeft --;
-
-                        Text livesOnScreen = children[i].GetComponent<Text>();
-                        livesOnScreen.text = "Lives " + livesLeft;
-                    }
-                }
                 DestroyGameObjects();
 
                 return;
@@ -193,24 +183,11 @@ public class Enemy : MonoBehaviour {
             // Once the enemy has no more waypoints to go to, destroy the enemy and its health bar
             if (wavepointIndex >= SecondPath.secondPath.Length - 1)
             {
-                Transform panel = GameplayUI.inGameUserInterface.transform.GetChild(0);
-
-                
-
-                Transform[] children = new Transform[panel.childCount];
-
-                for (int i = 0; i < panel.childCount; i++)
-                {
-                    children[i] = panel.GetChild(i);
-
-                    if (children[i].name == "Lives")
-                    {
-                        livesLeft--;
-
-                        Text livesOnScreen = children[i].GetComponent<Text>();
-                        livesOnScreen.text = "Lives " + livesLeft;
-                    }
-                }
+                DisplayLivesLeft livesLeft = GetComponent<DisplayLivesLeft>();
+                livesLeft.DecreaseLivesLeftOnUi();
+                WaveSpawner.enemiesOnScreen--;
+                AudioManager.audioManager.PlayEnemyLaughSound(gameObject.tag);
+                GameplayUI.inGameUserInterface.StartCoroutine(GameplayUI.inGameUserInterface.DecreaseLivesAnimation());
                 DestroyGameObjects();
 
                 return;
@@ -255,7 +232,7 @@ public class Enemy : MonoBehaviour {
         // Subtracts one from a value that represents the number of enemies on the screen
         WaveSpawner.enemiesOnScreen--;
 
-        Debug.Log(WaveSpawner.enemiesOnScreen);
+       // Debug.Log(WaveSpawner.enemiesOnScreen);
 
         // Sets a boolean that lets the WaveSpawner script start the countdown to the next wave
         if(WaveSpawner.enemiesOnScreen == 0)
@@ -304,7 +281,7 @@ public class Enemy : MonoBehaviour {
 
             // GameplayUI.inGameUserInterface.CoinBounceAnimation();
             GameplayUI.inGameUserInterface.StartCoroutine(GameplayUI.inGameUserInterface.CoinBounceAnimation());
-
+            
             Destroy(healthSliderCanvas.gameObject);
             Destroy(enemy.gameObject);
 

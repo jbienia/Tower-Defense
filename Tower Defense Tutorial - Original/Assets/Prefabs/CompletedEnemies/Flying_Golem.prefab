@@ -283,6 +283,7 @@ GameObject:
   - 114: {fileID: 114000012417518462}
   - 114: {fileID: 114000010778005276}
   - 136: {fileID: 136000010571018404}
+  - 114: {fileID: 114000011986123676}
   m_Layer: 0
   m_Name: Flying_Golem
   m_TagString: FlyingEnemy
@@ -805,6 +806,8 @@ MonoBehaviour:
   enemy: {fileID: 0}
   randomNumber: 0
   enemyValue: 0
+  futureTransform: {x: 0, y: 0, z: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &114000010788832950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -907,6 +910,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114000011986123676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e21f1743c6c32447825957361ccc2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetButton: {fileID: 1000014234088126, guid: 1e39c1702f17c2e40af2e7dcda2ad61d,
+    type: 2}
 --- !u!114 &114000012417518462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -929,6 +945,8 @@ MonoBehaviour:
   enemy: {fileID: 400036}
   randomNumber: 0
   enemyValue: 25
+  futureTransform: {x: 0, y: 0, z: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &114000013600970528
 MonoBehaviour:
   m_ObjectHideFlags: 1

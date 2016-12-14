@@ -17,7 +17,12 @@ public class GameplayUI : MonoBehaviour
     public GameObject coin;
     private Transform coinPlaceholder;
     private GameObject coinBounceReference;
+    public GameObject negativeOne;
+    private Transform livesLeftPlaceholder;
+
+    // Value is used to stagger the Instansiations of the coin
     private float number = 0.5f;
+
     float i;
 
     public AudioClip coinDropSound;
@@ -30,15 +35,23 @@ public class GameplayUI : MonoBehaviour
         if (inGameUserInterface == null)
         {
             inGameUserInterface = this;
+            Debug.Log("Hey");
         }
-
+        
       
         panel = inGameUserInterface.transform.GetChild(0);
 
 
         childCount = panel.childCount;
 
-       
+        // This makes sure that we get a reference to the panel on the UI after the UI itself has been created
+        DisplayLivesLeft livesLeft = GetComponent<DisplayLivesLeft>();
+
+        livesLeft.GetReferenceToPanelInUi();
+
+        // Sets the Lives left back to 10. Used for the reset button
+        livesLeft.setLivesLeft();
+        //DisplayLivesLeft.livesleft
 
         for (int i = 0; i < childCount; i++)
         {
@@ -54,6 +67,7 @@ public class GameplayUI : MonoBehaviour
             else if (userComponents[i].name == "Lives")
             {
                 lives = userComponents[i].GetComponent<Text>();
+                lives.text = "Lives 10"; 
             }
 
             if (userComponents[i].name == "Enemy")
@@ -73,13 +87,16 @@ public class GameplayUI : MonoBehaviour
             {
                 coinPlaceholder = userComponents[i];
             }
+
+            if(userComponents[i].name == "LivesLeftPlaceholder")
+            {
+                livesLeftPlaceholder = userComponents[i];
+            }
         }
    }
 
     public IEnumerator CoinBounceAnimation()
     {
-
-
         if (inGameUserInterface.number == 0.5f)
         {
             inGameUserInterface.number = 0.1f;
@@ -94,6 +111,7 @@ public class GameplayUI : MonoBehaviour
         }
 
         AudioManager.audioManager.playCoinDrop(coinDropSound);
+
         yield return new WaitForSeconds(inGameUserInterface.number);
 
        
@@ -101,6 +119,27 @@ public class GameplayUI : MonoBehaviour
 
        
 
+    }
+
+    public IEnumerator DecreaseLivesAnimation()
+    {
+        if (inGameUserInterface.number == 0.5f)
+        {
+            inGameUserInterface.number = 0.1f;
+        }
+        else if (inGameUserInterface.number == 0.5f)
+        {
+            inGameUserInterface.number = 0.3f;
+        }
+        else
+        {
+            inGameUserInterface.number = 0.5f;
+        }
+
+        yield return new WaitForSeconds(inGameUserInterface.number);
+
+        Instantiate(negativeOne, livesLeftPlaceholder.position, livesLeftPlaceholder.rotation,panel);
+       // yield return null;
     }
 
 }

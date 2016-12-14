@@ -570,6 +570,7 @@ GameObject:
   - 114: {fileID: 114000013303223024}
   - 136: {fileID: 136000010079219512}
   - 114: {fileID: 114000013842286366}
+  - 114: {fileID: 114000011066092386}
   m_Layer: 0
   m_Name: Character Forest Guard 1
   m_TagString: Enemy
@@ -2039,6 +2040,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114000011066092386
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012383197528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e21f1743c6c32447825957361ccc2a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetButton: {fileID: 1000014234088126, guid: 1e39c1702f17c2e40af2e7dcda2ad61d,
+    type: 2}
 --- !u!114 &114000011451639752
 MonoBehaviour:
   m_ObjectHideFlags: 1

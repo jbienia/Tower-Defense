@@ -53,6 +53,12 @@ public class WaveSpawner : MonoBehaviour {
         audioManager = GetComponent<AudioManager>();
         //GameplayUI.inGameUserInterface.countBouncer.enabled = false;
 
+        // This is used especially for when the player resets the level. 
+        // If this is not set to true then the countdown will not start
+        startCountdown = true;
+
+        Time.timeScale = 1;
+        waveCounter = 1;
 
        // AudioListener.volume = 0;
     }

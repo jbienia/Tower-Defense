@@ -18,6 +18,10 @@ public class AudioManager : MonoBehaviour {
     public AudioClip flyingEnemyDeathSound;
     public AudioClip fastEnemyDeathSound;
     public AudioClip tankDeathSound;
+    public AudioClip basicLaugh;
+    public AudioClip fastEnemyLaugh;
+    public AudioClip tankEnemyLaugh;
+    public AudioClip flyingEnemyLaugh;
 
     public static AudioManager audioManager;
 
@@ -121,6 +125,27 @@ public class AudioManager : MonoBehaviour {
         source.PlayOneShot(click, 0.7f);
     }
 
+    //public void playBasicEnemyLaugh(AudioClip basicLaugh)
+    //{
+    //    source.PlayOneShot(basicLaugh, 0.7f);
+    //}
+
+    //public void playFastEnemyLaugh(AudioClip fastEnemyLaugh)
+    //{
+    //    source.PlayOneShot(fastEnemyLaugh, 0.7f);
+    //}
+
+    //public void playTankEnemyLaugh(AudioClip tankEnemyLaugh)
+    //{
+    //    source.PlayOneShot(tankEnemyLaugh, 0.7f);
+    //}
+
+    //public void playFlyingEnemyLaugh(AudioClip flyingEnemyLaugh)
+    //{
+    //    source.PlayOneShot(flyingEnemyLaugh, 0.7f);
+    //}
+
+
 
     public void stopPlayingEnemyFootsteps()
     {
@@ -131,6 +156,30 @@ public class AudioManager : MonoBehaviour {
     {
         source.PlayOneShot(turretChoiceBloop, 0.7f);
     }
+
+    public void PlayEnemyLaughSound(string enemyTag)
+    {
+        switch (enemyTag)
+        {
+            case "Enemy":
+                source.PlayOneShot(basicLaugh, 0.5f);
+                break;
+
+            case "FastEnemy":
+                source.PlayOneShot(fastEnemyLaugh, 0.5f);
+                break;
+
+            case "Tank":
+                source.PlayOneShot(tankEnemyLaugh, 0.5f);
+                break;
+
+            case "FlyingEnemy":
+                source.PlayOneShot(flyingEnemyLaugh, 0.5f);
+                break;
+
+        }
+    }
+
 
     public void PlayEnemyHurtSound(string enemyTag)
     {

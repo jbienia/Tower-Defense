@@ -44,6 +44,8 @@ public class Bank : MonoBehaviour {
 
         // Sets the Value in the player bank to the Bank Canvas on the users screen
         bank.playerBalanceTextComponent.text = bank.playerBank.ToString("C0");
+
+        
                    
     }
 
