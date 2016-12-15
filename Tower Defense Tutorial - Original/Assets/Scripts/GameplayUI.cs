@@ -86,7 +86,9 @@ public class GameplayUI : MonoBehaviour
             if (userComponents[i].name == "BounceCoinPlaceholder")
             {
                 coinPlaceholder = userComponents[i];
+                Debug.Log(coinPlaceholder.position);
             }
+            
 
             if(userComponents[i].name == "LivesLeftPlaceholder")
             {
@@ -114,10 +116,12 @@ public class GameplayUI : MonoBehaviour
 
         yield return new WaitForSeconds(inGameUserInterface.number);
 
-       
-        GameObject go = (GameObject)Instantiate(coin, coinPlaceholder.position, coinPlaceholder.rotation, panel);
+       // Vector3 zero = Vector3.0;
+        //GameObject go = (GameObject)Instantiate(coin, Vector3.zero, coinPlaceholder.rotation, coinPlaceholder);
+        
+        Instantiate(coin, coinPlaceholder.position, coinPlaceholder.rotation, panel);
+        Debug.Log(coinPlaceholder.position);
 
-       
 
     }
 

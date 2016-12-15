@@ -168,14 +168,23 @@ public class Enemy : MonoBehaviour {
                 DisplayLivesLeft livesLeft = GetComponent<DisplayLivesLeft>();
 
                 livesLeft.DecreaseLivesLeftOnUi();
-                WaveSpawner.enemiesOnScreen--;
+                //WaveSpawner.enemiesOnScreen--;
                 AudioManager.audioManager.PlayEnemyLaughSound(gameObject.tag);
                 GameplayUI.inGameUserInterface.StartCoroutine(GameplayUI.inGameUserInterface.DecreaseLivesAnimation());
 
                 DestroyGameObjects();
 
+                if (WaveSpawner.enemiesOnScreen == 0)
+                {
+                    WaveSpawner.startCountdown = true;
+
+                    AudioManager.audioManager.stopPlayingEnemyFootsteps();
+                }
+
                 return;
             }
+
+           
         }
 
         if(randomNumber == 2)
@@ -185,13 +194,23 @@ public class Enemy : MonoBehaviour {
             {
                 DisplayLivesLeft livesLeft = GetComponent<DisplayLivesLeft>();
                 livesLeft.DecreaseLivesLeftOnUi();
-                WaveSpawner.enemiesOnScreen--;
+
+               // WaveSpawner.enemiesOnScreen--;
+                Debug.Log(WaveSpawner.enemiesOnScreen);
                 AudioManager.audioManager.PlayEnemyLaughSound(gameObject.tag);
                 GameplayUI.inGameUserInterface.StartCoroutine(GameplayUI.inGameUserInterface.DecreaseLivesAnimation());
                 DestroyGameObjects();
+                if (WaveSpawner.enemiesOnScreen == 0)
+                {
+                    WaveSpawner.startCountdown = true;
+
+                    AudioManager.audioManager.stopPlayingEnemyFootsteps();
+                }
 
                 return;
             }
+
+           
         }
        
 
@@ -232,10 +251,11 @@ public class Enemy : MonoBehaviour {
         // Subtracts one from a value that represents the number of enemies on the screen
         WaveSpawner.enemiesOnScreen--;
 
-       // Debug.Log(WaveSpawner.enemiesOnScreen);
+        Debug.Log(WaveSpawner.enemiesOnScreen);
+        // Debug.Log(WaveSpawner.enemiesOnScreen);
 
         // Sets a boolean that lets the WaveSpawner script start the countdown to the next wave
-        if(WaveSpawner.enemiesOnScreen == 0)
+        if (WaveSpawner.enemiesOnScreen == 0)
         {
             WaveSpawner.startCountdown = true;
 
@@ -287,7 +307,7 @@ public class Enemy : MonoBehaviour {
 
             // Value the represents the amount of enemies currently active on the screen
             WaveSpawner.enemiesOnScreen--;
-           
+            Debug.Log(WaveSpawner.enemiesOnScreen);
             // Checks to see if the countdown to the next wave needs to start
             if (WaveSpawner.enemiesOnScreen == 0)
             {

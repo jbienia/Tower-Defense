@@ -59,8 +59,10 @@ public class WaveSpawner : MonoBehaviour {
 
         Time.timeScale = 1;
         waveCounter = 1;
-
-       // AudioListener.volume = 0;
+        WaveSpawner.enemiesOnScreen = 0;
+        
+        // Code used to mute the volume
+        AudioListener.volume = 0;
     }
 
     /// <etactiveummary>
