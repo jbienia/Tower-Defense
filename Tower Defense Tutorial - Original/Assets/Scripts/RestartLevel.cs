@@ -2,18 +2,21 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Class used to handle the click of the reset button
+/// </summary>
 public class RestartLevel : MonoBehaviour {
 
+    /// <summary>
+    /// Re loads the level 
+    /// </summary>
 	public void reLoadLevel()
     {
-        //int scene = SceneManager.GetActiveScene().buildIndex;
-        //SceneManager.LoadScene(scene, LoadSceneMode.Single);
-        //Time.timeScale = 1;
-
         // Empties the list of enemies in game. 
         EnemiesInGame.allEnemiesInGame.Clear();
 
+        // Reloads the TerrainTest scene
         SceneManager.LoadScene("TerrainTest");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }

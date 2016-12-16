@@ -33,11 +33,14 @@ public  class BuildTurret:MonoBehaviour  {
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //if(Physics.Raycast(ray, out hit))
-        //    {
-        //    Debug.Log(hit.transform.tag);
-        //}
-        
+        if(Physics.Raycast(ray, out hit,7))
+            {
+           Debug.Log(hit.transform.tag);
+        }
+
+        // Makes the Spawn point non clickable
+        gameObject.layer = 2;
+
         //  EventSystem.current.IsPointerOverGameObject()
         //if (hit.transform.tag == "Arrow")
         //{
@@ -89,10 +92,30 @@ public  class BuildTurret:MonoBehaviour  {
         // Passes a reference to the turret menu to the Turret Chooser object
         placeToBuild.turretMenu = turretSelectMenu;
 
+        placeToBuild.spawnPoint = this.gameObject.GetComponent<BuildTurret>();
+
+        //DestroyMenuOnClick menuDestroy = gameObject.GetComponent<DestroyMenuOnClick>();
+        //Debug.Log(menuDestroy);
+        //Debug.Log(turretSelectMenu);
+        //menuDestroy.setTurretMenu(turretSelectMenu);
+        //menuDestroy.setBuildTurret(placeToBuild.spawnPoint);
+
         // Passes a reference of the turret spawn point's, right now it's the box, transform to the Turret Chooser script
         placeToBuild.buildHere = gameObject.transform;
+
        // turretSelectMenu.transform.GetChild(0).GetChild(0).SetParent(null);
+
        
+    }
+
+    /// <summary>
+    /// Puts the Spawn Point back to it's 'spawnpoint' layer
+    /// We do this so it will respond to On Mouse Down clicks
+    /// Previously the spawn points can be placed on a ignore raycasts layer
+    /// </summary>
+   public void ReEnableSpawnPointLayer(GameObject spawnPoint)
+    {
+        spawnPoint.layer = 8;
     }
 
     void OnDrawGizmosSelected()

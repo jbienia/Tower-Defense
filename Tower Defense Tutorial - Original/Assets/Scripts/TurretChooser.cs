@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Class used mainly to create turrets from turret menu
+/// </summary>
 public class TurretChooser : MonoBehaviour {
 
     public GameObject arrowTurret;
@@ -16,205 +19,86 @@ public class TurretChooser : MonoBehaviour {
     private bool turretBeingBuilt = false;
     private bool helper = false;
     private int value = 1 ;
-    public  bool isFirstFrame = true;
+    private  bool isFirstFrame = true;
 
     public AudioClip turretChosen;
 
     // Value is set in the BuildTurret script
     public Transform buildHere;
 
-    //
+    // Holds a reference to the spawnpoint related to this turret menu
+    public BuildTurret spawnPoint;
 
+    // Holds a reference to the turret menu game object
     public GameObject turretMenu;
 
-    /// <summary>
-    /// This update is a complicated way that does something that is not really necessary.
-    /// </summary>
+    private void Start()
+    {
+        DestroyMenuOnClick menuDestroy = gameObject.GetComponent<DestroyMenuOnClick>();
+        Debug.Log(menuDestroy);
+        Debug.Log(turretMenu);
+        menuDestroy.setTurretMenu(turretMenu);
+        menuDestroy.setBuildTurret(spawnPoint);
+    }
+    //// Starts a co routine
     //public void Update()
     //{
-    //    if (Input.GetMouseButtonDown(0))
+    //    StartCoroutine(findButtonClick());
+    //}
+
+    ///// <summary>
+    ///// Co routine is mainly used to determine if the menu is on the first frame of its life
+    ///// If it is then we wait one second for that frame to be done before testing the mouse button down value
+    ///// </summary>
+    ///// <returns></returns>
+    //public IEnumerator findButtonClick()
+    //{
+    //    // Checks if it is the first frame
+    //    if (isFirstFrame == true)
     //    {
 
-    //        PointerEventData pointer = new PointerEventData(EventSystem.current);
+    //        isFirstFrame = false;
+    //        yield return new WaitForSeconds(1);
 
-    //        pointer.position = Input.mousePosition;
+    //        DestroyTurretMenuIfMouseClicked();
+    //    }
 
-    //       // Debug.Log(pointer.position);
-    //        List<RaycastResult> raycastResults = new List<RaycastResult>();
-
-    //        EventSystem.current.RaycastAll(pointer, raycastResults);
-
-    //        if(raycastResults.Count > 0)
-    //        {
-
-    //            for (int i = 0; i < raycastResults[0].gameObject.transform.childCount - 1; i++)
-    //            {
-    //                if (raycastResults[0].gameObject.transform.GetChild(i).tag == "arrow")
-    //                {
-    //                    Debug.Log("i clicked arrow!");
-    //                    // return;
-    //                }
-
-    //                else
-    //                {
-    //                    Debug.Log("not an icon click");
-    //                    Destroy(turretMenu);
-    //                }
-    //            }
-
-
-    //        }
-
-    //        /*THIS IS COMMENTED OUT!!!!
-    //        RaycastHit hit;
-
-    //        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-    //        Physics.Raycast(ray, out hit, 100);
-
-    //        //  EventSystem.current.IsPointerOverGameObject()
-    //        if (hit.transform.tag =="Arrow" || hit.transform.tag == "SpawnPoint")
-    //        {
-    //            Debug.Log("Hitting the Event System");
-    //            return;
-    //        }
-
-    //        else
-    //        {
-
-    //            Destroy(turretMenu);
-    //        }
-
-    //        */
+    //    else
+    //    {
+    //        DestroyTurretMenuIfMouseClicked();
     //    }
     //}
 
-
-    //public void Update()
+    //private void DestroyTurretMenuIfMouseClicked()
     //{
-
-    //    Debug.Log(Input.GetMouseButtonDown(0));
-    //   // StartCoroutine(wait());
-    //    if (Input.GetMouseButton(0))
+    //    if (Input.GetMouseButtonDown(0) == true)
     //    {
-    //       //Debug.Log( EventSystem.current.currentSelectedGameObject);
+    //        //  Debug.Log(EventSystem.current.currentSelectedGameObject);
+    //        if (EventSystem.current.currentSelectedGameObject == null)
+    //        {
+    //            Destroy(turretMenu, 0.2f);
+    //            spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
+    //        }
+    //    }
+    //}
 
-    //        StartCoroutine(wait());
+    //public IEnumerator waitForFrame()
+    //{
+    //    yield return new WaitForEndOfFrame();
+    //}
 
+    //public IEnumerator closeMenu()
+    //{
+    //    yield return new WaitForSeconds(1);
+
+    //    if (turretMenu != null)
+    //    {
+    //          Destroy(turretMenu);
+    //        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     //    }
 
     //}
 
-    public void Update()
-    {
-        StartCoroutine(findButtonClick());
-    }
-
-    public IEnumerator newThang()
-    {
-        if(isFirstFrame == true)
-        {
-           yield return new WaitForSeconds(1);
-
-            isFirstFrame = false;
-
-
-            if (Input.GetMouseButton(0) == true)
-            {
-                Destroy(turretMenu, 1f);
-
-            }
-        }
-
-        else if (isFirstFrame == false)
-        {
-            if (Input.GetMouseButton(0) == true)
-            {
-                if (turretMenu != null)
-                {
-                    Destroy(turretMenu,1f);
-                }
-            }
-        }
-    }
-
-    public IEnumerator findButtonClick()
-    {
-        if (isFirstFrame == true)
-        {
-            //Debug.Log("osue isd soen");
-            isFirstFrame = false;
-            yield return new WaitForSeconds(1);
-            
-
-            if (Input.GetMouseButtonDown(0) == true)
-            {
-                
-                //Debug.Log(EventSystem.current.currentSelectedGameObject);
-                if (EventSystem.current.currentSelectedGameObject==null)
-                {
-
-                    Destroy(turretMenu, 1f);
-                }
-            }
-       }
-
-        else if (isFirstFrame == false)
-        {
-           // Debug.Log("it's false");
-            if (Input.GetMouseButtonDown(0) == true)
-            {
-              //  Debug.Log(EventSystem.current.currentSelectedGameObject);
-                if (EventSystem.current.currentSelectedGameObject == null)
-                {
-                    
-                    Destroy(turretMenu, 0.2f);
-                }
-
-
-            }
-        }
-    }
-
-    //public IEnumerator Start()
-    //{
-    //    helper = true;
-    //    yield return new WaitForSeconds(5);
-
-    //    InvokeRepeating("UpdateTarget", 0f, 0.06f);
-    //}
-
-    //public void UpdateTarget()
-    //{
-
-    //    Debug.Log(Input.GetMouseButtonDown(0));
-
-    //    // StartCoroutine(wait());
-    //    if (Input.GetMouseButton(0) == true)
-    //    {
-    //        Debug.Log( EventSystem.current.currentSelectedGameObject);
-
-    //        StartCoroutine(wait());
-
-    //    }
-    //}
-
-    public IEnumerator waitForFrame()
-    {
-        yield return new WaitForEndOfFrame();
-    }
-
-    public IEnumerator closeMenu()
-    {
-        yield return new WaitForSeconds(1);
-
-        if (turretMenu != null)
-        {
-              Destroy(turretMenu);
-        }
-      
-    }
-    
     public void CreateArrowTurret()
     {
         turretBeingBuilt = true;
@@ -223,6 +107,7 @@ public class TurretChooser : MonoBehaviour {
         Instantiate(arrowTurret, buildHere.position,buildHere.rotation);
         
         Destroy(turretMenu,0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
     public void CreateCanonTurret()
@@ -231,6 +116,7 @@ public class TurretChooser : MonoBehaviour {
         AudioManager.audioManager.playTurretChoiceBloop(turretChosen);
         Instantiate(canonTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
     public void CreateMagicTurret()
@@ -239,6 +125,7 @@ public class TurretChooser : MonoBehaviour {
         AudioManager.audioManager.playTurretChoiceBloop(turretChosen);
         Instantiate(magicTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
     public void CreateArtilleryTurret()
@@ -246,6 +133,7 @@ public class TurretChooser : MonoBehaviour {
         turretBeingBuilt = true;
         Instantiate(artilleryTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
     public void CreateMortarTurret()
@@ -253,6 +141,7 @@ public class TurretChooser : MonoBehaviour {
         turretBeingBuilt = true;
         Instantiate(mortarTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
     public void CreateElectricTurret()
@@ -260,6 +149,7 @@ public class TurretChooser : MonoBehaviour {
         turretBeingBuilt = true;
         Instantiate(electricTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
     public void CreateFreezeTurret()
@@ -267,11 +157,13 @@ public class TurretChooser : MonoBehaviour {
         turretBeingBuilt = true;
         Instantiate(freezeTurret, buildHere.position, buildHere.rotation);
         Destroy(turretMenu, 0.5f);
+        spawnPoint.ReEnableSpawnPointLayer(spawnPoint.gameObject);
     }
 
    public void CancelMenu()
     {
         turretBeingBuilt = true;
         Destroy(gameObject);
+   
     }
 }

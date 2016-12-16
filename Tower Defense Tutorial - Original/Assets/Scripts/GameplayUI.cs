@@ -146,4 +146,14 @@ public class GameplayUI : MonoBehaviour
        // yield return null;
     }
 
+    public void ModifySpriteOnUi()
+    {
+        //enemyImage.rectTransform.localScale = new Vector3(0.29f,1.02f,1f);
+
+ //       enemyImage.rectTransform.offsetMin = new Vector2(278.0626f, 383.0626f);
+   //     enemyImage.rectTransform.sizeDelta = new Vector2(0,129f);
+       // enemyImage.rectTransform. = new Vector2(129, -17.47f);
+       // enemyImage.rectTransform.sizeDelta = new Vector2(0, 187.5f);
+    }
+
 }
